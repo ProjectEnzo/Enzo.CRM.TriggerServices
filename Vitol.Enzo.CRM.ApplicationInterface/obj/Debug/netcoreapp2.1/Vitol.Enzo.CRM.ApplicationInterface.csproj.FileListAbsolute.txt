@@ -1,0 +1,14 @@
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ApplicationInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ApplicationInterface.deps.json
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ApplicationInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ApplicationInterface.dll
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ApplicationInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ApplicationInterface.pdb
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ApplicationInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ApplicationInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.dll
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ApplicationInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ApplicationInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.pdb
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ApplicationInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ApplicationInterface.csprojAssemblyReference.cache
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ApplicationInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ApplicationInterface.csproj.CoreCompileInputs.cache
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ApplicationInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ApplicationInterface.AssemblyInfoInputs.cache
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ApplicationInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ApplicationInterface.AssemblyInfo.cs
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ApplicationInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ApplicationInterface.csproj.CopyComplete
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ApplicationInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ApplicationInterface.dll
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ApplicationInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ApplicationInterface.pdb

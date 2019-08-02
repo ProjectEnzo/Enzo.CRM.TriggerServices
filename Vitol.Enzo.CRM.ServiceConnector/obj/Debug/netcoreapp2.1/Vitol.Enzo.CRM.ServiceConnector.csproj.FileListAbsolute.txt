@@ -1,0 +1,16 @@
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceConnector\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.deps.json
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceConnector\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.dll
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceConnector\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.pdb
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceConnector\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.dll
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceConnector\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceConnector\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceConnector\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.pdb
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceConnector\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceConnector\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceConnector\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.csprojAssemblyReference.cache
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceConnector\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.csproj.CoreCompileInputs.cache
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceConnector\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.AssemblyInfoInputs.cache
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceConnector\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.AssemblyInfo.cs
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceConnector\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.csproj.CopyComplete
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceConnector\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.dll
+D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceConnector\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.pdb
