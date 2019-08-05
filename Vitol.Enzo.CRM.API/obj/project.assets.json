@@ -12893,9 +12893,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.API\\EnzoCRMTriggerServiceAPI.csproj",
-      "projectName": "EnzoCRMTriggerServiceAPI",
-      "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.API\\EnzoCRMTriggerServiceAPI.csproj",
+      "projectUniqueName": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.API\\Vitol.Enzo.CRM.API.TriggerService.csproj",
+      "projectName": "Vitol.Enzo.CRM.API.TriggerService",
+      "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.API\\Vitol.Enzo.CRM.API.TriggerService.csproj",
       "packagesPath": "C:\\Users\\faisal.imran\\.nuget\\packages\\",
       "outputPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.API\\obj\\",
       "projectStyle": "PackageReference",

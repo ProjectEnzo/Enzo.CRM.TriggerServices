@@ -40,3 +40,38 @@ D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.API.Test\obj\Debug\netcore
 D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.API.Test\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.Test.dll
 D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.API.Test\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.Test.pdb
 D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\nlog.config
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.Test.deps.json
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.Test.runtimeconfig.json
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.Test.runtimeconfig.dev.json
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.Test.dll
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.Test.pdb
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Application.dll
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ApplicationInterface.dll
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.dll
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.dll
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.dll
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.dll
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.dll
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ApplicationInterface.pdb
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Application.pdb
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.pdb
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.pdb
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.pdb
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.pdb
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.pdb
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.Test.csprojAssemblyReference.cache
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.Test.csproj.CoreCompileInputs.cache
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.Test.AssemblyInfoInputs.cache
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.Test.AssemblyInfo.cs
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.Test.csproj.CopyComplete
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.Test.dll
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.Test\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.Test.pdb

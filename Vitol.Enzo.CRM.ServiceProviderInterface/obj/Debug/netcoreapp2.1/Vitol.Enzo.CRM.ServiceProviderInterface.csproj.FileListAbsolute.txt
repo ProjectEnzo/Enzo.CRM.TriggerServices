@@ -7,3 +7,11 @@ D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceProviderInterface\o
 D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
 D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
 D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.csprojAssemblyReference.cache
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.deps.json
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.csproj.CoreCompileInputs.cache
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.AssemblyInfoInputs.cache
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.AssemblyInfo.cs
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
+D:\VavaCars SourceCode\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb

@@ -10,3 +10,15 @@ D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.ServiceProvider\obj\Debug\netc
 D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.csproj.CopyComplete
 D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
 D:\CRM Client\VAVACar\Schedule Service\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb
+D:\VavaCars SourceCode\Vitol.Enzo.ServiceProvider\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.deps.json
+D:\VavaCars SourceCode\Vitol.Enzo.ServiceProvider\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
+D:\VavaCars SourceCode\Vitol.Enzo.ServiceProvider\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb
+D:\VavaCars SourceCode\Vitol.Enzo.ServiceProvider\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
+D:\VavaCars SourceCode\Vitol.Enzo.ServiceProvider\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
+D:\VavaCars SourceCode\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.csprojAssemblyReference.cache
+D:\VavaCars SourceCode\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.csproj.CoreCompileInputs.cache
+D:\VavaCars SourceCode\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.AssemblyInfoInputs.cache
+D:\VavaCars SourceCode\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.AssemblyInfo.cs
+D:\VavaCars SourceCode\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.csproj.CopyComplete
+D:\VavaCars SourceCode\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
+D:\VavaCars SourceCode\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb
