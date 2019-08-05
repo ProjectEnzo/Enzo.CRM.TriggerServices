@@ -6868,11 +6868,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VavaCars SourceCode\\source\\Vitol.Enzo.CRM.API.Test\\Vitol.Enzo.CRM.API.Test.csproj",
+      "projectUniqueName": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.API.Test\\Vitol.Enzo.CRM.API.Test.csproj",
       "projectName": "Vitol.Enzo.CRM.API.Test",
-      "projectPath": "D:\\VavaCars SourceCode\\source\\Vitol.Enzo.CRM.API.Test\\Vitol.Enzo.CRM.API.Test.csproj",
+      "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.API.Test\\Vitol.Enzo.CRM.API.Test.csproj",
       "packagesPath": "C:\\Users\\faisal.imran\\.nuget\\packages\\",
-      "outputPath": "D:\\VavaCars SourceCode\\source\\Vitol.Enzo.CRM.API.Test\\obj\\",
+      "outputPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.API.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6891,14 +6891,14 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\VavaCars SourceCode\\source\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj": {
-              "projectPath": "D:\\VavaCars SourceCode\\source\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj"
+            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj": {
+              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj"
             },
-            "D:\\VavaCars SourceCode\\source\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj": {
-              "projectPath": "D:\\VavaCars SourceCode\\source\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj"
+            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj": {
+              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj"
             },
-            "D:\\VavaCars SourceCode\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj": {
-              "projectPath": "D:\\VavaCars SourceCode\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj"
+            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj": {
+              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj"
             }
           }
         }

@@ -894,11 +894,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VavaCars SourceCode\\source\\Vitol.Enzo.ServiceProvider\\Vitol.Enzo.CRM.ServiceProvider.csproj",
+      "projectUniqueName": "D:\\VAVACODE\\source\\Vitol.Enzo.ServiceProvider\\Vitol.Enzo.CRM.ServiceProvider.csproj",
       "projectName": "Vitol.Enzo.CRM.ServiceProvider",
-      "projectPath": "D:\\VavaCars SourceCode\\source\\Vitol.Enzo.ServiceProvider\\Vitol.Enzo.CRM.ServiceProvider.csproj",
+      "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.ServiceProvider\\Vitol.Enzo.CRM.ServiceProvider.csproj",
       "packagesPath": "C:\\Users\\faisal.imran\\.nuget\\packages\\",
-      "outputPath": "D:\\VavaCars SourceCode\\source\\Vitol.Enzo.ServiceProvider\\obj\\",
+      "outputPath": "D:\\VAVACODE\\source\\Vitol.Enzo.ServiceProvider\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -917,8 +917,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\VavaCars SourceCode\\source\\Vitol.Enzo.CRM.ServiceProviderInterface\\Vitol.Enzo.CRM.ServiceProviderInterface.csproj": {
-              "projectPath": "D:\\VavaCars SourceCode\\source\\Vitol.Enzo.CRM.ServiceProviderInterface\\Vitol.Enzo.CRM.ServiceProviderInterface.csproj"
+            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ServiceProviderInterface\\Vitol.Enzo.CRM.ServiceProviderInterface.csproj": {
+              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ServiceProviderInterface\\Vitol.Enzo.CRM.ServiceProviderInterface.csproj"
             }
           }
         }
