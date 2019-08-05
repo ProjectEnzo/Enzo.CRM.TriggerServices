@@ -695,11 +695,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj",
+      "projectUniqueName": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj",
       "projectName": "Vitol.Enzo.CRM.ServiceConnectorInterface",
-      "projectPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj",
+      "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj",
       "packagesPath": "C:\\Users\\faisal.imran\\.nuget\\packages\\",
-      "outputPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.ServiceConnectorInterface\\obj\\",
+      "outputPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.ServiceConnectorInterface\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

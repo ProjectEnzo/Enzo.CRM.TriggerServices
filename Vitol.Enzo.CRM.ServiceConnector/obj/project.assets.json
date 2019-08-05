@@ -953,11 +953,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.ServiceConnector\\Vitol.Enzo.CRM.ServiceConnector.csproj",
+      "projectUniqueName": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.ServiceConnector\\Vitol.Enzo.CRM.ServiceConnector.csproj",
       "projectName": "Vitol.Enzo.CRM.ServiceConnector",
-      "projectPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.ServiceConnector\\Vitol.Enzo.CRM.ServiceConnector.csproj",
+      "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.ServiceConnector\\Vitol.Enzo.CRM.ServiceConnector.csproj",
       "packagesPath": "C:\\Users\\faisal.imran\\.nuget\\packages\\",
-      "outputPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.ServiceConnector\\obj\\",
+      "outputPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.ServiceConnector\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -976,11 +976,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj": {
-              "projectPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj"
+            "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj": {
+              "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj"
             },
-            "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.ServiceProvider\\Vitol.Enzo.CRM.ServiceProvider.csproj": {
-              "projectPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.ServiceProvider\\Vitol.Enzo.CRM.ServiceProvider.csproj"
+            "D:\\VavaCars SourceCode\\Vitol.Enzo.ServiceProvider\\Vitol.Enzo.CRM.ServiceProvider.csproj": {
+              "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.ServiceProvider\\Vitol.Enzo.CRM.ServiceProvider.csproj"
             }
           }
         }

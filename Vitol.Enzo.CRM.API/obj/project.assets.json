@@ -12893,11 +12893,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.API\\Vitol.Enzo.CRM.API.Customer.csproj",
+      "projectUniqueName": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.API\\Vitol.Enzo.CRM.API.Customer.csproj",
       "projectName": "Vitol.Enzo.CRM.API.Customer",
-      "projectPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.API\\Vitol.Enzo.CRM.API.Customer.csproj",
+      "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.API\\Vitol.Enzo.CRM.API.Customer.csproj",
       "packagesPath": "C:\\Users\\faisal.imran\\.nuget\\packages\\",
-      "outputPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.API\\obj\\",
+      "outputPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12916,29 +12916,29 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.API.CRM.Core\\Vitol.Enzo.API.CRM.Core.csproj": {
-              "projectPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.API.CRM.Core\\Vitol.Enzo.API.CRM.Core.csproj"
+            "D:\\VavaCars SourceCode\\Vitol.Enzo.API.CRM.Core\\Vitol.Enzo.API.CRM.Core.csproj": {
+              "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.API.CRM.Core\\Vitol.Enzo.API.CRM.Core.csproj"
             },
-            "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj": {
-              "projectPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj"
+            "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj": {
+              "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj"
             },
-            "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj": {
-              "projectPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj"
+            "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj": {
+              "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj"
             },
-            "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj": {
-              "projectPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj"
+            "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj": {
+              "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj"
             },
-            "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.InfrastructureInterface\\Vitol.Enzo.CRM.InfrastructureInterface.csproj": {
-              "projectPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.InfrastructureInterface\\Vitol.Enzo.CRM.InfrastructureInterface.csproj"
+            "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.InfrastructureInterface\\Vitol.Enzo.CRM.InfrastructureInterface.csproj": {
+              "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.InfrastructureInterface\\Vitol.Enzo.CRM.InfrastructureInterface.csproj"
             },
-            "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.Infrastructure\\Vitol.Enzo.CRM.Infrastructure.csproj": {
-              "projectPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.Infrastructure\\Vitol.Enzo.CRM.Infrastructure.csproj"
+            "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.Infrastructure\\Vitol.Enzo.CRM.Infrastructure.csproj": {
+              "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.Infrastructure\\Vitol.Enzo.CRM.Infrastructure.csproj"
             },
-            "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj": {
-              "projectPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj"
+            "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj": {
+              "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj"
             },
-            "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.ServiceConnector\\Vitol.Enzo.CRM.ServiceConnector.csproj": {
-              "projectPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.ServiceConnector\\Vitol.Enzo.CRM.ServiceConnector.csproj"
+            "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.ServiceConnector\\Vitol.Enzo.CRM.ServiceConnector.csproj": {
+              "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.ServiceConnector\\Vitol.Enzo.CRM.ServiceConnector.csproj"
             }
           }
         }

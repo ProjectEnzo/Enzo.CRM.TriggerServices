@@ -729,11 +729,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.InfrastructureInterface\\Vitol.Enzo.CRM.InfrastructureInterface.csproj",
+      "projectUniqueName": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.InfrastructureInterface\\Vitol.Enzo.CRM.InfrastructureInterface.csproj",
       "projectName": "Vitol.Enzo.CRM.InfrastructureInterface",
-      "projectPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.InfrastructureInterface\\Vitol.Enzo.CRM.InfrastructureInterface.csproj",
+      "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.InfrastructureInterface\\Vitol.Enzo.CRM.InfrastructureInterface.csproj",
       "packagesPath": "C:\\Users\\faisal.imran\\.nuget\\packages\\",
-      "outputPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.InfrastructureInterface\\obj\\",
+      "outputPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.InfrastructureInterface\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -752,8 +752,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj": {
-              "projectPath": "D:\\CRM Client\\VAVACar\\Schedule Service\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj"
+            "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj": {
+              "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj"
             }
           }
         }

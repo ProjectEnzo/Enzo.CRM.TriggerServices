@@ -69,6 +69,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string returnMsg = string.Empty;
         string CRMCustomerId = string.Empty;
         string tmpEmail = "";
+        string tmpRegistrationNumber = "";
 
 
         #endregion
@@ -109,7 +110,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
 
                 string queryProspect;
-                queryProspect = "api/data/v9.1/contacts?$select=telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_inspectionstatus_value,_sl_appointmentstatus_value,sl_valuationcreateddate,sl_inspectioncreateddate,statuscode&$filter=(_sl_inspectionstatus_value eq " + AgreementNotSignedId.ToString() + " or _sl_inspectionstatus_value eq "+InspectionCancelledId.ToString()+ ") and ( _sl_vehiclepurchasestatus_value  eq  "+PurchaseAgreedId.ToString()+ " or _sl_vehiclepurchasestatus_value  eq  "+AuctionCreatedId.ToString()+ " or _sl_vehiclepurchasestatus_value  eq "+InTransitId.ToString()+ ")and sl_inspectioncreateddate ge " + inputInspectionDate + "  sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 &$orderby=emailaddress1 asc,sl_valuationcreateddate desc";
+                queryProspect = "api/data/v9.1/contacts?$select=sl_vehicleregistrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_inspectionstatus_value,_sl_appointmentstatus_value,sl_valuationcreateddate,sl_inspectioncreateddate,statuscode&$filter=(_sl_inspectionstatus_value eq " + AgreementNotSignedId.ToString() + " or _sl_inspectionstatus_value eq "+InspectionCancelledId.ToString()+ ") and ( _sl_vehiclepurchasestatus_value  eq  "+PurchaseAgreedId.ToString()+ " or _sl_vehiclepurchasestatus_value  eq  "+AuctionCreatedId.ToString()+ " or _sl_vehiclepurchasestatus_value  eq "+InTransitId.ToString()+ ")and sl_inspectioncreateddate ge " + inputInspectionDate + " and  sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 &$orderby=emailaddress1 asc,sl_valuationcreateddate desc";
                 if (triggerType == "Prospect")
                 {
                     HttpClient httpClient = new HttpClient();
@@ -325,7 +326,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                     if (data.emailaddress1.Value != null)
                     {
                         resultText = resultText + " Email Address: " + data.emailaddress1.Value;
-                        if (tmpEmail == data.emailaddress1.Value)
+                        if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_vehicleregistrationnumber.Value)
                         {
                             continue;
                         }
@@ -350,6 +351,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                     //Trigger 1
                                     case 2:
                                         {
+                                            string queryString = CustomerId.ToString() + "@" + "sl_prospecttemplate1";
+                                            queryString = await Encryption(queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate1", queryString, queryString);
                                             if (!string.IsNullOrEmpty(templateT1))
                                             {
                                                 TemplateId = await RetrieveTemplateId(templateT1);
@@ -381,6 +385,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                     //Trigger 2
                                     case 5:
                                         {
+                                            string queryString = CustomerId.ToString() + "@" + "sl_prospecttemplate2";
+                                            queryString = await Encryption(queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate2", queryString, queryString);
                                             if (!string.IsNullOrEmpty(templateT2))
                                             {
                                                 TemplateId = await RetrieveTemplateId(templateT2);
@@ -413,6 +420,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                     //Trigger 3
                                     case 20:
                                         {
+                                            string queryString = CustomerId.ToString() + "@" + "sl_prospecttemplate3";
+                                            queryString = await Encryption(queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate3", queryString, queryString);
                                             TemplateId = await RetrieveTemplateId("Test Template");
                                             if (TemplateId != null)
                                             {
@@ -444,6 +454,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                         }
                     }
                     tmpEmail = data.emailaddress1.Value;
+                    tmpRegistrationNumber = data.sl_vehicleregistrationnumber.Value;
                 }
                 returnMsg = resultText;
             }
@@ -632,6 +643,44 @@ namespace Vitol.Enzo.CRM.Infrastructure
             {
                 this.Logger.LogError(exceptionModel.getExceptionFormat(ex.ToString()));
                 return Guid.Empty;
+            }
+
+        }
+        public async Task<string> Encryption(string plainText)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
+        }
+        public async Task<bool> UpdateTrigger(Guid CustomerId, string attributeName, string querystring, string unsubscribeurl)
+        {
+            try
+            {
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+
+                string jsonObject = @"{
+                '" + attributeName + @"': true,
+                ""sl_querystring"":" + '"' + querystring + '"' + @", 
+                ""sl_unsubscribeurl"":" + '"' + unsubscribeurl + '"' + @" }";
+                HttpRequestMessage updateRequest = new HttpRequestMessage(new HttpMethod("PATCH"), base.Resource + "api/data/v9.1/contacts(" + CustomerId + ")")
+                {
+                    Content = new StringContent(jsonObject, Encoding.UTF8, "application/json")
+                };
+                HttpClient httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Add("OData-Version", "4.0");
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+                HttpResponseMessage updateResponse = await httpClient.SendAsync(updateRequest);
+                if (updateResponse.StatusCode == HttpStatusCode.NoContent) //204
+                {
+                    await updateResponse.Content.ReadAsStringAsync();
+                    return true;
+                }
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                this.Logger.LogError(exceptionModel.getExceptionFormat(ex.ToString()));
+                return false;
             }
 
         }

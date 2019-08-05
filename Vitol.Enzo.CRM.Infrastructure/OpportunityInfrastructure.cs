@@ -73,12 +73,13 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string returnMsg = string.Empty;
         string CRMCustomerId = string.Empty;
         string tmpEmail = "";
-       
+        string tmpRegistrationNumber = "";
+
 
         #endregion
 
         #region Interface ILeadInfrastructure Implementation
-        
+
         public async Task<string> OpportunityUtilityService(string str)
         {
 
@@ -106,7 +107,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 Guid appointmentCancelledId = await RetrieveAppointmentId("CANCELLED");
                 Guid appointmentAssignedId = await RetrieveAppointmentId("ASSIGNED");
                 string queryOpportunity;
-                queryOpportunity = "api/data/v9.1/contacts?$select=telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value ne " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value ne " + appointmentAssignedId.ToString()+" ) and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate le "+currentAppointmentDate+ " sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 &$orderby=emailaddress1 asc,sl_valuationcreateddate desc";
+                queryOpportunity = "api/data/v9.1/contacts?$select=sl_vehicleregistrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value ne " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value ne " + appointmentAssignedId.ToString()+" ) and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate le "+currentAppointmentDate+ " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 &$orderby=emailaddress1 asc,sl_valuationcreateddate desc";
                 if (triggerType == "Opportunity")
                 {
                     HttpClient httpClient = new HttpClient();
@@ -319,7 +320,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 }  
                 foreach (var data in contact.value)
                 {
-                    if (data.emailaddress1.Value != null)
+                    if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_vehicleregistrationnumber.Value)
                     {
                         resultText = resultText + " Email Address: " + data.emailaddress1.Value;
                         if (tmpEmail == data.emailaddress1.Value)
@@ -347,9 +348,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                     //Trigger 1
                                     case 2:
                                         {
-                                            //string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate1";
-                                            //queryString = await Encryption(queryString);
-                                            //bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate1",queryString,"unsubsribe");
+                                            string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate1";
+                                            queryString = await Encryption(queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate1", queryString, queryString);
                                             if (!string.IsNullOrEmpty(templateT1))
                                             {
                                                 TemplateId = await RetrieveTemplateId(templateT1);
@@ -382,6 +383,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                     //Trigger 2
                                     case 5:
                                         {
+                                            string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate2";
+                                            queryString = await Encryption(queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate2", queryString, queryString);
                                             if (!string.IsNullOrEmpty(templateT2))
                                             {
                                                 TemplateId = await RetrieveTemplateId(templateT2);
@@ -414,6 +418,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                     //Trigger 3
                                     case 14:
                                         {
+                                            string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate3";
+                                            queryString = await Encryption(queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate3", queryString, queryString);
                                             TemplateId = await RetrieveTemplateId("Test Template");
                                             if (TemplateId != null)
                                             {
@@ -440,6 +447,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                     //Trigger 4
                                     case 21:
                                         {
+                                            string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate4";
+                                            queryString = await Encryption(queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate5", queryString, queryString);
                                             TemplateId = await RetrieveTemplateId("Test Template");
                                             if (TemplateId != null)
                                             {
@@ -473,6 +483,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                         }
                     }
                     tmpEmail = data.emailaddress1.Value;
+                    tmpRegistrationNumber = data.sl_vehicleregistrationnumber.Value;
                 }
                 returnMsg = resultText;
             }
