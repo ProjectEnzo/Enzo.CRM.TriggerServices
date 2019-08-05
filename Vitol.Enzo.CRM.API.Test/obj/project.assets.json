@@ -3150,6 +3150,27 @@
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
       },
+      "EnzoCRMTriggerServiceAPI/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.9",
+          "Vitol.Enzo.API.CRM.Core": "1.0.0",
+          "Vitol.Enzo.CRM.Application": "1.0.0",
+          "Vitol.Enzo.CRM.ApplicationInterface": "1.0.0",
+          "Vitol.Enzo.CRM.Domain": "1.0.0",
+          "Vitol.Enzo.CRM.Infrastructure": "1.0.0",
+          "Vitol.Enzo.CRM.InfrastructureInterface": "1.0.0",
+          "Vitol.Enzo.CRM.ServiceConnector": "1.0.0",
+          "Vitol.Enzo.CRM.ServiceConnectorInterface": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/EnzoCRMTriggerServiceAPI.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EnzoCRMTriggerServiceAPI.dll": {}
+        }
+      },
       "Vitol.Enzo.API.CRM.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
@@ -3169,27 +3190,6 @@
         },
         "runtime": {
           "bin/placeholder/Vitol.Enzo.API.CRM.Core.dll": {}
-        }
-      },
-      "Vitol.Enzo.CRM.API.Customer/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.1",
-        "dependencies": {
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.9",
-          "Vitol.Enzo.API.CRM.Core": "1.0.0",
-          "Vitol.Enzo.CRM.Application": "1.0.0",
-          "Vitol.Enzo.CRM.ApplicationInterface": "1.0.0",
-          "Vitol.Enzo.CRM.Domain": "1.0.0",
-          "Vitol.Enzo.CRM.Infrastructure": "1.0.0",
-          "Vitol.Enzo.CRM.InfrastructureInterface": "1.0.0",
-          "Vitol.Enzo.CRM.ServiceConnector": "1.0.0",
-          "Vitol.Enzo.CRM.ServiceConnectorInterface": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Vitol.Enzo.CRM.API.Customer.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Vitol.Enzo.CRM.API.Customer.dll": {}
         }
       },
       "Vitol.Enzo.CRM.Application/1.0.0": {
@@ -9707,15 +9707,15 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
+    "EnzoCRMTriggerServiceAPI/1.0.0": {
+      "type": "project",
+      "path": "../Vitol.Enzo.CRM.API/EnzoCRMTriggerServiceAPI.csproj",
+      "msbuildProject": "../Vitol.Enzo.CRM.API/EnzoCRMTriggerServiceAPI.csproj"
+    },
     "Vitol.Enzo.API.CRM.Core/1.0.0": {
       "type": "project",
       "path": "../Vitol.Enzo.API.CRM.Core/Vitol.Enzo.API.CRM.Core.csproj",
       "msbuildProject": "../Vitol.Enzo.API.CRM.Core/Vitol.Enzo.API.CRM.Core.csproj"
-    },
-    "Vitol.Enzo.CRM.API.Customer/1.0.0": {
-      "type": "project",
-      "path": "../Vitol.Enzo.CRM.API/Vitol.Enzo.CRM.API.Customer.csproj",
-      "msbuildProject": "../Vitol.Enzo.CRM.API/Vitol.Enzo.CRM.API.Customer.csproj"
     },
     "Vitol.Enzo.CRM.Application/1.0.0": {
       "type": "project",
@@ -9775,11 +9775,11 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "EnzoCRMTriggerServiceAPI >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.Core >= 2.1.1",
       "Microsoft.NET.Test.Sdk >= 15.8.0",
       "Microsoft.NETCore.App >= 2.1.0",
       "Moq >= 4.10.1",
-      "Vitol.Enzo.CRM.API.Customer >= 1.0.0",
       "Vitol.Enzo.CRM.Application >= 1.0.0",
       "Vitol.Enzo.CRM.ApplicationInterface >= 1.0.0",
       "Vitol.Enzo.CRM.Domain >= 1.0.0",
@@ -9817,8 +9817,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.API\\Vitol.Enzo.CRM.API.Customer.csproj": {
-              "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.API\\Vitol.Enzo.CRM.API.Customer.csproj"
+            "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.API\\EnzoCRMTriggerServiceAPI.csproj": {
+              "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.API\\EnzoCRMTriggerServiceAPI.csproj"
             },
             "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj": {
               "projectPath": "D:\\VavaCars SourceCode\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj"

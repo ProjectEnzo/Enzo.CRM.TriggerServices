@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Vitol.Enzo.CRM.API\Vitol.Enzo.CRM.API.Customer.csproj" />
+    <ProjectReference Include="..\Vitol.Enzo.CRM.API\EnzoCRMTriggerServiceAPI.csproj" />
     <ProjectReference Include="..\Vitol.Enzo.CRM.ApplicationInterface\Vitol.Enzo.CRM.ApplicationInterface.csproj" />
     <ProjectReference Include="..\Vitol.Enzo.CRM.Application\Vitol.Enzo.CRM.Application.csproj" />
     <ProjectReference Include="..\Vitol.Enzo.CRM.Domain\Vitol.Enzo.CRM.Domain.csproj" />

@@ -37,7 +37,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vitol.Enzo.CRM.ServiceProvi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vitol.Enzo.CRM.ServiceProviderInterface", "Vitol.Enzo.CRM.ServiceProviderInterface\Vitol.Enzo.CRM.ServiceProviderInterface.csproj", "{CEB54D17-CABF-46B6-A903-9A08178222DE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vitol.Enzo.CRM.API.Customer", "Vitol.Enzo.CRM.API\Vitol.Enzo.CRM.API.Customer.csproj", "{E4154860-054F-4863-9E84-F45CB429CD7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnzoCRMTriggerServiceAPI", "Vitol.Enzo.CRM.API\EnzoCRMTriggerServiceAPI.csproj", "{E4154860-054F-4863-9E84-F45CB429CD7C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{F227CF2E-28B1-4B8C-B449-EF29D854EB67}"
 EndProject
