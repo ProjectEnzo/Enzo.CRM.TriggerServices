@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "Vitol.Enzo.CRM.Domain/1.0.0": {
+        "dependencies": {
+          "Vitol.Enzo.CRM.ViewModel": "1.0.0"
+        },
+        "runtime": {
+          "Vitol.Enzo.CRM.Domain.dll": {}
+        }
+      },
+      "Vitol.Enzo.CRM.ViewModel/1.0.0": {
+        "runtime": {
+          "Vitol.Enzo.CRM.ViewModel.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Vitol.Enzo.CRM.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Vitol.Enzo.CRM.ViewModel/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
