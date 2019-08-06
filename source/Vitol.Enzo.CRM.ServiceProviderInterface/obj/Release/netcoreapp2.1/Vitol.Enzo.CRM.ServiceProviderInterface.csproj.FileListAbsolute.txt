@@ -22,4 +22,3 @@ D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreap
 D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.AssemblyInfo.cs
 D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
 D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
-D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.csprojAssemblyReference.cache
