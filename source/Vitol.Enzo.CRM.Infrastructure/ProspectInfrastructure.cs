@@ -112,7 +112,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
 
                 string queryProspect;
-                queryProspect = "api/data/v9.1/contacts?$select=sl_vehicleregistrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_inspectionstatus_value,_sl_appointmentstatus_value,sl_valuationcreateddate,sl_inspectioncreateddate,statuscode&$filter=(_sl_inspectionstatus_value eq " + AgreementNotSignedId.ToString() + " or _sl_inspectionstatus_value eq "+InspectionCancelledId.ToString()+ ") and ( _sl_vehiclepurchasestatus_value  eq  "+PurchaseAgreedId.ToString()+ " or _sl_vehiclepurchasestatus_value  eq  "+AuctionCreatedId.ToString()+ " or _sl_vehiclepurchasestatus_value  eq "+InTransitId.ToString()+ ")and sl_inspectioncreateddate ge " + inputInspectionDate + " and  sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 &$orderby=emailaddress1 asc,sl_valuationcreateddate desc";
+                queryProspect = "api/data/v9.1/contacts?$select=sl_vehicleregistrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_inspectionstatus_value,_sl_appointmentstatus_value,sl_valuationcreateddate,sl_inspectioncreateddate,statuscode&$filter=(_sl_inspectionstatus_value eq " + AgreementNotSignedId.ToString() + " or _sl_inspectionstatus_value eq " + InspectionCancelledId.ToString() + ") and ( _sl_vehiclepurchasestatus_value  eq  " + PurchaseAgreedId.ToString() + " or _sl_vehiclepurchasestatus_value  eq  " + AuctionCreatedId.ToString() + " or _sl_vehiclepurchasestatus_value  eq " + InTransitId.ToString() + ")and sl_inspectioncreateddate ge " + inputInspectionDate + " and  sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 &$orderby=emailaddress1 asc,sl_valuationcreateddate desc";
                 if (triggerType == "Prospect")
                 {
                     HttpClient httpClient = new HttpClient();
@@ -224,7 +224,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             }
             return returnMsg;
         }
-         public async Task<string> CreateEmailActivity(Guid fromUserId, Guid CustomerId, Guid TemplateId)
+        public async Task<string> CreateEmailActivity(Guid fromUserId, Guid CustomerId, Guid TemplateId)
         {
             exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.createEmailActivity);
             string returnMsg = string.Empty;
@@ -324,7 +324,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 }
                 foreach (var data in contact.value)
                 {
-                    if (data.emailaddress1.Value != null)
+                    if (data.emailaddress1.Value != null && data.sl_vehicleregistrationnumber.Value != null)
                     {
                         resultText = resultText + " Email Address: " + data.emailaddress1.Value;
                         if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_vehicleregistrationnumber.Value)
@@ -354,7 +354,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             string queryString = CustomerId.ToString() + "@" + "sl_prospecttemplate1";
                                             queryString = await Encryption(queryString);
-                                            bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate1", queryString, queryString,baseUrl);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate1", queryString, queryString, baseUrl);
                                             if (!string.IsNullOrEmpty(templateT1))
                                             {
                                                 TemplateId = await RetrieveTemplateId(templateT1);
@@ -388,7 +388,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             string queryString = CustomerId.ToString() + "@" + "sl_prospecttemplate2";
                                             queryString = await Encryption(queryString);
-                                            bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate2", queryString, queryString,baseUrl);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate2", queryString, queryString, baseUrl);
                                             if (!string.IsNullOrEmpty(templateT2))
                                             {
                                                 TemplateId = await RetrieveTemplateId(templateT2);
@@ -423,7 +423,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             string queryString = CustomerId.ToString() + "@" + "sl_prospecttemplate3";
                                             queryString = await Encryption(queryString);
-                                            bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate3", queryString, queryString,baseUrl);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate3", queryString, queryString, baseUrl);
                                             if (!string.IsNullOrEmpty(templateT3))
                                             {
                                                 TemplateId = await RetrieveTemplateId(templateT3);
@@ -614,7 +614,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
                 JArray records = null;
 
-                string query = "api/data/v9.1/sl_vehiclepurchasestatuses?$select=sl_name,sl_vehiclepurchasestatusid&$filter=sl_name eq '" + statusName+"'";
+                string query = "api/data/v9.1/sl_vehiclepurchasestatuses?$select=sl_name,sl_vehiclepurchasestatusid&$filter=sl_name eq '" + statusName + "'";
                 dynamic VehiclePurchaseStatus = null;
 
                 HttpClient httpClient = new HttpClient();
