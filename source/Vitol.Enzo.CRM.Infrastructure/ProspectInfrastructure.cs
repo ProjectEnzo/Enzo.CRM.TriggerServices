@@ -324,7 +324,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 }
                 foreach (var data in contact.value)
                 {
-                    if (data.emailaddress1.Value != null)
+                    if (data.emailaddress1.Value != null && data.sl_vehicleregistrationnumber.Value != null)
                     {
                         resultText = resultText + " Email Address: " + data.emailaddress1.Value;
                         if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_vehicleregistrationnumber.Value)
