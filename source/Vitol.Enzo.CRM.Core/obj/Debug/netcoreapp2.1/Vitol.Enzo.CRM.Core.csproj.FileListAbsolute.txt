@@ -15,3 +15,12 @@ D:\VavaCars SourceCode\Vitol.Enzo.CRM.Core\obj\Debug\netcoreapp2.1\Vitol.Enzo.CR
 D:\VavaCars SourceCode\Vitol.Enzo.CRM.Core\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.AssemblyInfo.cs
 D:\VavaCars SourceCode\Vitol.Enzo.CRM.Core\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.dll
 D:\VavaCars SourceCode\Vitol.Enzo.CRM.Core\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.pdb
+D:\VAVACODE\source\Vitol.Enzo.CRM.Core\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.deps.json
+D:\VAVACODE\source\Vitol.Enzo.CRM.Core\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.dll
+D:\VAVACODE\source\Vitol.Enzo.CRM.Core\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.pdb
+D:\VAVACODE\source\Vitol.Enzo.CRM.Core\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.csprojAssemblyReference.cache
+D:\VAVACODE\source\Vitol.Enzo.CRM.Core\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.csproj.CoreCompileInputs.cache
+D:\VAVACODE\source\Vitol.Enzo.CRM.Core\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.AssemblyInfoInputs.cache
+D:\VAVACODE\source\Vitol.Enzo.CRM.Core\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.AssemblyInfo.cs
+D:\VAVACODE\source\Vitol.Enzo.CRM.Core\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.dll
+D:\VAVACODE\source\Vitol.Enzo.CRM.Core\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.pdb

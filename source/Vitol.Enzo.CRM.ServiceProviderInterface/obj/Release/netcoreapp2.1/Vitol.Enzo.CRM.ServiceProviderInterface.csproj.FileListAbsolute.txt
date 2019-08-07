@@ -14,3 +14,11 @@ D:\VavaCars SourceCode\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Releas
 D:\VavaCars SourceCode\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.AssemblyInfo.cs
 D:\VavaCars SourceCode\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
 D:\VavaCars SourceCode\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
+D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.deps.json
+D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
+D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
+D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.csproj.CoreCompileInputs.cache
+D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.AssemblyInfoInputs.cache
+D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.AssemblyInfo.cs
+D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
+D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb

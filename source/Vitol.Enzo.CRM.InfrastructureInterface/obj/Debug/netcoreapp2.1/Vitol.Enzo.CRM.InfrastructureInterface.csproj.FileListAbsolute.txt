@@ -26,3 +26,17 @@ D:\VavaCars SourceCode\Vitol.Enzo.CRM.InfrastructureInterface\obj\Debug\netcorea
 D:\VavaCars SourceCode\Vitol.Enzo.CRM.InfrastructureInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.csproj.CopyComplete
 D:\VavaCars SourceCode\Vitol.Enzo.CRM.InfrastructureInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.dll
 D:\VavaCars SourceCode\Vitol.Enzo.CRM.InfrastructureInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.pdb
+D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.deps.json
+D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.dll
+D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.pdb
+D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
+D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.dll
+D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
+D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.pdb
+D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.csprojAssemblyReference.cache
+D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.csproj.CoreCompileInputs.cache
+D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.AssemblyInfoInputs.cache
+D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.AssemblyInfo.cs
+D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.csproj.CopyComplete
+D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.dll
+D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.pdb

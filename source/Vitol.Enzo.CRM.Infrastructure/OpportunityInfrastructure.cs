@@ -34,6 +34,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
         //Email Sender Id
         string emailsenderId;
         string liveDate = string.Empty;
+        string baseUrl = string.Empty;
 
         #region Constructor
         /// <summary>
@@ -63,6 +64,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             //Email Sender Id
             emailsenderId = Configuration["AzureCRM:emailSenderId"];
             liveDate = Configuration["AzureCRM:liveDate"];
+            baseUrl = Configuration["AzureCRM:baseUrl"];
 
         }
         #endregion
@@ -235,9 +237,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                             '@odata.type': 'Microsoft.Dynamics.CRM.contact'
                                           },
                                           'Target': {
-                                            'subject': 'Test',
                                             'sl_trigger': 102690001,
-                                            'description': 'aThis is the description Template text',
+                                            'followemailuserpreference': true,
                                             'regardingobjectid_contact@odata.bind': '/contacts(" + CustomerId + @")',
                                             'email_activity_parties': [
                                               {
@@ -350,7 +351,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate1";
                                             queryString = await Encryption(queryString);
-                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate1", queryString, queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate1", queryString, queryString, baseUrl);
                                             if (!string.IsNullOrEmpty(templateT1))
                                             {
                                                 TemplateId = await RetrieveTemplateId(templateT1);
@@ -385,7 +386,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate2";
                                             queryString = await Encryption(queryString);
-                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate2", queryString, queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate2", queryString, queryString, baseUrl);
                                             if (!string.IsNullOrEmpty(templateT2))
                                             {
                                                 TemplateId = await RetrieveTemplateId(templateT2);
@@ -420,11 +421,14 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate3";
                                             queryString = await Encryption(queryString);
-                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate3", queryString, queryString);
-                                            TemplateId = await RetrieveTemplateId("Test Template");
-                                            if (TemplateId != null)
+                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate3", queryString, queryString, baseUrl);
+                                            if (!string.IsNullOrEmpty(templateT3))
                                             {
-                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId);
+                                                TemplateId = await RetrieveTemplateId(templateT3);
+                                                if (TemplateId != null)
+                                                {
+                                                    string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId);
+                                                }
                                             }
                                             if (data.telephone1 != null)
                                             {
@@ -449,11 +453,14 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate4";
                                             queryString = await Encryption(queryString);
-                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate5", queryString, queryString);
-                                            TemplateId = await RetrieveTemplateId("Test Template");
-                                            if (TemplateId != null)
+                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate5", queryString, queryString,baseUrl);
+                                            if (!string.IsNullOrEmpty(templateT4))
                                             {
-                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId);
+                                                TemplateId = await RetrieveTemplateId(templateT4);
+                                                if (TemplateId != null)
+                                                {
+                                                    string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId);
+                                                }
                                             }
                                             if (data.telephone1 != null)
                                             {
@@ -588,15 +595,16 @@ namespace Vitol.Enzo.CRM.Infrastructure
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
             return System.Convert.ToBase64String(plainTextBytes);
         }
-        public async Task<bool> UpdateTrigger(Guid CustomerId,string attributeName,string querystring ,string unsubscribeurl)
+        public async Task<bool> UpdateTrigger(Guid CustomerId, string attributeName, string querystring, string unsubscribeurl, string baseUrl)
         {
             try
             {
                 string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
-               
+                unsubscribeurl = CustomerId.ToString();
                 string jsonObject = @"{
-                '"+ attributeName + @"': true,
+                '" + attributeName + @"': true,
                 ""sl_querystring"":" + '"' + querystring + '"' + @", 
+                ""sl_baseurl"":" + '"' + baseUrl + '"' + @", 
                 ""sl_unsubscribeurl"":" + '"' + unsubscribeurl + '"' + @" }";
                 HttpRequestMessage updateRequest = new HttpRequestMessage(new HttpMethod("PATCH"), base.Resource + "api/data/v9.1/contacts(" + CustomerId + ")")
                 {
