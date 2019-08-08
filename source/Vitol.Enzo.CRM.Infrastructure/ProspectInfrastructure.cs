@@ -106,13 +106,13 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 Guid AgreementNotSignedId = await RetrieveInspectionStatusId("Agreement Not Signed");
 
                 //Fetch Vehcile purchased Id
-                Guid PurchaseAgreedId = await VehiclePurchaseStatusId("Purchase Agreed");
+                Guid PurchaseId = await VehiclePurchaseStatusId("Purchased");
                 Guid AuctionCreatedId = await VehiclePurchaseStatusId("Auction Created");
                 Guid InTransitId = await VehiclePurchaseStatusId("In Transit");
 
 
                 string queryProspect;
-                queryProspect = "api/data/v9.1/contacts?$select=sl_vehicleregistrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_inspectionstatus_value,_sl_appointmentstatus_value,sl_valuationcreateddate,sl_inspectioncreateddate,statuscode&$filter=(_sl_inspectionstatus_value eq " + AgreementNotSignedId.ToString() + " or _sl_inspectionstatus_value eq " + InspectionCancelledId.ToString() + ") and ( _sl_vehiclepurchasestatus_value  eq  " + PurchaseAgreedId.ToString() + " or _sl_vehiclepurchasestatus_value  eq  " + AuctionCreatedId.ToString() + " or _sl_vehiclepurchasestatus_value  eq " + InTransitId.ToString() + ")and sl_inspectioncreateddate ge " + inputInspectionDate + " and  sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 &$orderby=emailaddress1 asc,sl_valuationcreateddate desc";
+                queryProspect = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,sl_finalofferprice,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_inspectionstatustype_value,_sl_appointmentstatus_value,sl_valuationcreateddate,sl_inspectioncreateddate,statuscode&$filter=(_sl_inspectionstatustype_value eq " + AgreementNotSignedId.ToString() + " or _sl_inspectionstatustype_value eq " + InspectionCancelledId.ToString() + ") and ( _sl_vehiclepurchasestatus_value  ne  " + PurchaseId.ToString() + " or _sl_vehiclepurchasestatus_value  ne  " + AuctionCreatedId.ToString() + " or _sl_vehiclepurchasestatus_value  ne " + InTransitId.ToString() + ")and sl_inspectioncreateddate ge " + inputInspectionDate + " and  sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_finalofferprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_inspectioncreateddate desc";
                 if (triggerType == "Prospect")
                 {
                     HttpClient httpClient = new HttpClient();
@@ -324,10 +324,10 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 }
                 foreach (var data in contact.value)
                 {
-                    if (data.emailaddress1.Value != null && data.sl_vehicleregistrationnumber.Value != null)
+                    if (data.emailaddress1.Value != null && data.sl_registrationnumber.Value != null)
                     {
                         resultText = resultText + " Email Address: " + data.emailaddress1.Value;
-                        if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_vehicleregistrationnumber.Value)
+                        if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_registrationnumber.Value)
                         {
                             continue;
                         }
@@ -400,14 +400,12 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
                                             if (data.telephone1 != null)
                                             {
-
                                                 fullname = data.fullname != null ? data.fullname.Value : "";
                                                 make = data.sl_make != null ? data.sl_make.Value : "";
                                                 model = data.sl_model != null ? data.sl_model.Value : "";
                                                 mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
                                                 if (!string.IsNullOrEmpty(smsT2))
                                                 {
-
                                                     string smsMessage = smsT2;
                                                     smsMessage = smsMessage.Replace("{contactname}", fullname);
                                                     smsMessage = smsMessage.Replace("{make}", make);
@@ -458,7 +456,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                         }
                     }
                     tmpEmail = data.emailaddress1.Value;
-                    tmpRegistrationNumber = data.sl_vehicleregistrationnumber.Value;
+                    tmpRegistrationNumber = data.sl_registrationnumber.Value;
                 }
                 returnMsg = resultText;
             }

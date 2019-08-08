@@ -23,3 +23,4 @@ D:\VAVACODE\source\Vitol.Enzo.CRM.ViewModel\obj\Debug\netcoreapp2.1\Vitol.Enzo.C
 D:\VAVACODE\source\Vitol.Enzo.CRM.ViewModel\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.AssemblyInfo.cs
 D:\VAVACODE\source\Vitol.Enzo.CRM.ViewModel\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.dll
 D:\VAVACODE\source\Vitol.Enzo.CRM.ViewModel\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.pdb
+D:\VAVACODE\source\Vitol.Enzo.CRM.ViewModel\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.csprojAssemblyReference.cache

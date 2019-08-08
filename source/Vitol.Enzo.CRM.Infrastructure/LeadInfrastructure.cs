@@ -107,7 +107,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
                 Guid appointmentId = await RetrieveAppointmentId();
                 string queryLead;
-                queryLead = "api/data/v9.1/contacts?$select=sl_vehicleregistrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 &$orderby=emailaddress1 asc,sl_vehicleregistrationnumber asc,sl_valuationcreateddate desc";
+                queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_valuationcreateddate desc";
                 if (triggerType == "Lead")
                 {
                     HttpClient httpClient = new HttpClient();
@@ -319,10 +319,10 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 }  
                 foreach (var data in contact.value)
                 {
-                    if (data.emailaddress1.Value != null && data.sl_vehicleregistrationnumber.Value != null)
+                    if (data.emailaddress1.Value != null && data.sl_registrationnumber.Value != null)
                     {
                         resultText = resultText + " Email Address: " + data.emailaddress1.Value;
-                        if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_vehicleregistrationnumber.Value)
+                        if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_registrationnumber.Value)
                         {
                             continue;
                         }
@@ -502,7 +502,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
                     }
                     tmpEmail = data.emailaddress1.Value;
-                    tmpRegistrationNumber = data.sl_vehicleregistrationnumber.Value;
+                    tmpRegistrationNumber = data.sl_registrationnumber.Value;
                 }
                 returnMsg = resultText;
             }

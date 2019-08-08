@@ -103,13 +103,14 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 DateTime startValuationDate = DateTime.Now.AddDays(-30);
                 inputApointmentDate = startValuationDate.ToString("yyyy-MM-dd");
                 DateTime currentDate = DateTime.Now;
-                string currentAppointmentDate = currentDate.ToString("yyyy-MM-dd");
+                string currentAppointmentDate = currentDate.ToString("yyyy-MM-ddTHH:mm:ssZ");
+
 
 
                 Guid appointmentCancelledId = await RetrieveAppointmentId("CANCELLED");
                 Guid appointmentAssignedId = await RetrieveAppointmentId("ASSIGNED");
                 string queryOpportunity;
-                queryOpportunity = "api/data/v9.1/contacts?$select=sl_vehicleregistrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value ne " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value ne " + appointmentAssignedId.ToString() + " ) and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate le " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 &$orderby=emailaddress1 asc,sl_valuationcreateddate desc";
+                queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value ne " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value ne " + appointmentAssignedId.ToString() + " ) and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
                 if (triggerType == "Opportunity")
                 {
                     HttpClient httpClient = new HttpClient();
@@ -321,10 +322,10 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 }
                 foreach (var data in contact.value)
                 {
-                    if (data.emailaddress1.Value != null && data.sl_vehicleregistrationnumber.Value != null)
+                    if (data.emailaddress1.Value != null && data.sl_registrationnumber.Value != null)
                     {
                         resultText = resultText + " Email Address: " + data.emailaddress1.Value;
-                        if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_vehicleregistrationnumber.Value)
+                        if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_registrationnumber.Value)
                         {
                             continue;
                         }
@@ -490,7 +491,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                         }
                     }
                     tmpEmail = data.emailaddress1.Value;
-                    tmpRegistrationNumber = data.sl_vehicleregistrationnumber.Value;
+                    tmpRegistrationNumber = data.sl_registrationnumber.Value;
                 }
                 returnMsg = resultText;
             }
