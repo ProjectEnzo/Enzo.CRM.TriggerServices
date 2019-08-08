@@ -103,8 +103,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 string inputValutionDate = string.Empty;
                 DateTime startValuationDate = DateTime.Now.AddDays(-30);
                 inputValutionDate= startValuationDate.ToString("yyyy-MM-dd");
-    
 
+                this.Logger.LogDebug("checkeddate"+DateTime.Now.ToString());
                 Guid appointmentId = await RetrieveAppointmentId();
                 string queryLead;
                 queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_valuationcreateddate desc";
