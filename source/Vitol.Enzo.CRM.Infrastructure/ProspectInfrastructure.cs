@@ -688,7 +688,6 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
         }
 
-
         #endregion  
     }
 

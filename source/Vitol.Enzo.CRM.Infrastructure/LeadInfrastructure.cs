@@ -336,12 +336,10 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
                             if (data.sl_valuationcreateddate.Value != null)
                             {
-
                                 DateTime valuationcreateddate = data.sl_valuationcreateddate.Value;
                                 valuationcreateddate = valuationcreateddate.Date;
                                 int totaldays;
                                 totaldays = (int)DateTime.Now.Date.Subtract(valuationcreateddate).TotalDays;
-
                                 switch (totaldays)
                                 {
                                     //Trigger 2
@@ -643,7 +641,6 @@ namespace Vitol.Enzo.CRM.Infrastructure
             }
 
         }
-
 
 
         #endregion  
