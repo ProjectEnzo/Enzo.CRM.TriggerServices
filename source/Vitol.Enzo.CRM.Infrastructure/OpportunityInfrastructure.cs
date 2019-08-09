@@ -35,7 +35,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string emailsenderId;
         string liveDate = string.Empty;
         string baseUrl = string.Empty;
-
+        string tmpEmail = "";
+        string tmpRegistrationNumber = "";
         #region Constructor
         /// <summary>
         /// CustomerInfrastructure initailizes object instance.
@@ -74,8 +75,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
         public ExceptionModel exceptionModel = new ExceptionModel();
         string returnMsg = string.Empty;
         string CRMCustomerId = string.Empty;
-        string tmpEmail = "";
-        string tmpRegistrationNumber = "";
+
 
 
         #endregion
@@ -96,6 +96,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
             string resultText = null;
             try
             {
+                tmpEmail = "";
+                tmpRegistrationNumber = "";
                 string triggerType = "Opportunity";
                 JArray records = null;
                 string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();

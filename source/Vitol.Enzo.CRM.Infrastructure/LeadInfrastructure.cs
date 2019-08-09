@@ -36,7 +36,10 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string emailsenderId;
         string liveDate = string.Empty;
         string baseUrl = string.Empty;
-
+        string returnMsg = string.Empty;
+        string CRMCustomerId = string.Empty;
+        string tmpEmail = string.Empty;
+        string tmpRegistrationNumber = string.Empty;
         #region Constructor
         /// <summary>
         /// CustomerInfrastructure initailizes object instance.
@@ -73,10 +76,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
         #region Properties and Data Members
         public ICRMServiceConnector CRMServiceConnector { get; }
         public ExceptionModel exceptionModel = new ExceptionModel();
-        string returnMsg = string.Empty;
-        string CRMCustomerId = string.Empty;
-        string tmpEmail = "";
-        string tmpRegistrationNumber = "";
+
 
 
         #endregion
@@ -97,6 +97,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
             string resultText = null;
             try
             {
+                tmpEmail = "";
+                tmpRegistrationNumber = "";
                 string triggerType = "Lead";
                 JArray records = null;
                 string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
@@ -105,9 +107,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 inputValutionDate= startValuationDate.ToString("yyyy-MM-dd");
 
                 this.Logger.LogDebug("checkeddate"+DateTime.Now.ToString());
-                Guid appointmentId = await RetrieveAppointmentId();
+                Guid appointmentCancelledId = await RetrieveAppointmentId();
                 string queryLead;
-                queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_valuationcreateddate desc";
+                queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_valuationcreateddate desc";
                 if (triggerType == "Lead")
                 {
                     HttpClient httpClient = new HttpClient();

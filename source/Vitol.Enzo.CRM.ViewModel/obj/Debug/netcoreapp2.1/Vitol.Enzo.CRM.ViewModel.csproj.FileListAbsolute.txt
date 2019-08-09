@@ -18,7 +18,6 @@ D:\VavaCars SourceCode\Vitol.Enzo.CRM.ViewModel\obj\Debug\netcoreapp2.1\Vitol.En
 D:\VAVACODE\source\Vitol.Enzo.CRM.ViewModel\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.deps.json
 D:\VAVACODE\source\Vitol.Enzo.CRM.ViewModel\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.dll
 D:\VAVACODE\source\Vitol.Enzo.CRM.ViewModel\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.pdb
-D:\VAVACODE\source\Vitol.Enzo.CRM.ViewModel\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.csprojAssemblyReference.cache
 D:\VAVACODE\source\Vitol.Enzo.CRM.ViewModel\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.csproj.CoreCompileInputs.cache
 D:\VAVACODE\source\Vitol.Enzo.CRM.ViewModel\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.AssemblyInfoInputs.cache
 D:\VAVACODE\source\Vitol.Enzo.CRM.ViewModel\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.AssemblyInfo.cs
