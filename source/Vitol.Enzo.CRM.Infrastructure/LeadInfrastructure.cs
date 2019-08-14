@@ -40,6 +40,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string CRMCustomerId = string.Empty;
         string tmpEmail = string.Empty;
         string tmpRegistrationNumber = string.Empty;
+        string timeZoneStr = string.Empty;
+
         #region Constructor
         /// <summary>
         /// CustomerInfrastructure initailizes object instance.
@@ -69,6 +71,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             emailsenderId = Configuration["AzureCRM:emailSenderId"];
             liveDate = Configuration["AzureCRM:liveDate"];
             baseUrl = Configuration["AzureCRM:baseUrl"];
+            timeZoneStr = Configuration["AzureCRM:timeZoneStr"];
 
         }
         #endregion
@@ -99,13 +102,14 @@ namespace Vitol.Enzo.CRM.Infrastructure
             {
                 tmpEmail = "";
                 tmpRegistrationNumber = "";
+
                 string triggerType = "Lead";
                 JArray records = null;
                 string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
                 string inputValutionDate = string.Empty;
                 DateTime startValuationDate = DateTime.Now.AddDays(-30);
                 inputValutionDate= startValuationDate.ToString("yyyy-MM-dd");
-
+                
                 this.Logger.LogDebug("checkeddate"+DateTime.Now.ToString());
                 Guid appointmentCancelledId = await RetrieveAppointmentId();
                 string queryLead;
@@ -310,6 +314,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
         public async Task<string> LeadProcessContacts(dynamic contact, string resultText)
         {
             string returnMsg = string.Empty;
+            var globalTimezoneValue = TimeZoneInfo.FindSystemTimeZoneById(timeZoneStr);
             try
             {
                 string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
@@ -339,9 +344,15 @@ namespace Vitol.Enzo.CRM.Infrastructure
                             if (data.sl_valuationcreateddate.Value != null)
                             {
                                 DateTime valuationcreateddate = data.sl_valuationcreateddate.Value;
+                               
+                                valuationcreateddate = TimeZoneInfo.ConvertTime(valuationcreateddate, globalTimezoneValue);
+                                var dateTimeNowUTC = DateTime.Now.ToUniversalTime();
+                                var dateTimeNowTimeZone = TimeZoneInfo.ConvertTime(dateTimeNowUTC, globalTimezoneValue);
+                                //var dayDiff = dateTimeNowTimeZone.Date.Subtract(crmTimezoneDate.Date).TotalDays;
+
                                 valuationcreateddate = valuationcreateddate.Date;
                                 int totaldays;
-                                totaldays = (int)DateTime.Now.Date.Subtract(valuationcreateddate).TotalDays;
+                                totaldays = (int)dateTimeNowTimeZone.Date.Subtract(valuationcreateddate).TotalDays;
                                 switch (totaldays)
                                 {
                                     //Trigger 2
