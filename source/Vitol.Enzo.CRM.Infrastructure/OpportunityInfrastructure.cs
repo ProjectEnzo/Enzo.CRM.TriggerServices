@@ -456,7 +456,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate4";
                                             queryString = await Encryption(queryString);
-                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate5", queryString, queryString, baseUrl);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate4", queryString, queryString, baseUrl);
                                             if (!string.IsNullOrEmpty(templateT4))
                                             {
                                                 TemplateId = await RetrieveTemplateId(templateT4);

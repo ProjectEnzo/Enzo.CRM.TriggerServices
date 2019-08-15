@@ -48,12 +48,12 @@ namespace Vitol.Enzo.CRM.Infrastructure
             this.CRMServiceConnector = crmServiceConnector;
             exceptionModel.ComponentName = Enum.GetName(typeof(ComponentType), ComponentType.propect);
             //SMS Template
-            smsT1 = Configuration["Prospect:smsT2"];
+            smsT1 = Configuration["Prospect:smsT1"];
             smsT2 = Configuration["Prospect:smsT2"];
             smsT3 = Configuration["Prospect:smsT3"];
 
             //Email Template
-            templateT1 = Configuration["Prospect:templateT2"];
+            templateT1 = Configuration["Prospect:templateT1"];
             templateT2 = Configuration["Prospect:templateT2"];
             templateT3 = Configuration["Prospect:templateT3"];
 
@@ -115,7 +115,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
 
                 string queryProspect;
-                queryProspect = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,sl_finalofferprice,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_inspectionstatustype_value,_sl_appointmentstatus_value,sl_valuationcreateddate,sl_inspectioncreateddate,statuscode&$filter=(_sl_inspectionstatustype_value eq " + AgreementNotSignedId.ToString() + " and _sl_inspectionstatustype_value eq " + InspectionCancelledId.ToString() + ") and ( _sl_vehiclepurchasestatus_value  ne  " + PurchaseId.ToString() + " and _sl_vehiclepurchasestatus_value  ne  " + AuctionCreatedId.ToString() + " and _sl_vehiclepurchasestatus_value  ne " + InTransitId.ToString() + ")and sl_inspectioncreateddate ge " + inputInspectionDate + " and  sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_finalofferprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_inspectioncreateddate desc";
+                queryProspect = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,sl_finalofferprice,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_inspectionstatustype_value,_sl_appointmentstatus_value,sl_valuationcreateddate,sl_inspectioncreateddate,statuscode&$filter=(_sl_inspectionstatustype_value eq " + AgreementNotSignedId.ToString() + " or _sl_inspectionstatustype_value eq " + InspectionCancelledId.ToString() + ") and ( _sl_vehiclepurchasestatus_value  ne  " + PurchaseId.ToString() + " and _sl_vehiclepurchasestatus_value  ne  " + AuctionCreatedId.ToString() + " and _sl_vehiclepurchasestatus_value  ne " + InTransitId.ToString() + ")and sl_inspectioncreateddate ge " + inputInspectionDate + " and  sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_finalofferprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_inspectioncreateddate desc";
                 if (triggerType == "Prospect")
                 {
                     HttpClient httpClient = new HttpClient();
