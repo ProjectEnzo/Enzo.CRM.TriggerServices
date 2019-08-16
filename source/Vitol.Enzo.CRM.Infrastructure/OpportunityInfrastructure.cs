@@ -37,6 +37,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string baseUrl = string.Empty;
         string tmpEmail = "";
         string tmpRegistrationNumber = "";
+        string appointmentStatusCancelled = string.Empty;
+        string appointmentStatusAssigned = string.Empty;
         #region Constructor
         /// <summary>
         /// CustomerInfrastructure initailizes object instance.
@@ -66,6 +68,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
             emailsenderId = Configuration["AzureCRM:emailSenderId"];
             liveDate = Configuration["AzureCRM:liveDate"];
             baseUrl = Configuration["AzureCRM:baseUrl"];
+            appointmentStatusCancelled = Configuration["AzureCRM:appointmentStatusCancelled"];
+            appointmentStatusAssigned = Configuration["AzureCRM:appointmentStatusAssigned"];
 
         }
         #endregion
@@ -109,8 +113,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
 
 
-                Guid appointmentCancelledId = await RetrieveAppointmentId("CANCELLED");
-                Guid appointmentAssignedId = await RetrieveAppointmentId("ASSIGNED");
+                Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
+                Guid appointmentAssignedId = await RetrieveAppointmentId(appointmentStatusAssigned);
                 string queryOpportunity;
                 queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value ne " + appointmentCancelledId.ToString() + " and _sl_appointmentstatus_value ne " + appointmentAssignedId.ToString() + " ) and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
                 if (triggerType == "Opportunity")
@@ -557,7 +561,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
                 Guid appointmentId = Guid.Empty;
                 JArray records = null;
-                string query = "api/data/v9.1/sl_appointmentstatuses?$select=sl_appointmentstatusid,sl_name&$filter=sl_appointmentstatusname eq '" + statusName + "'";
+                string query = "api/data/v9.1/sl_appointmentstatuses?$select=sl_appointmentstatusid,sl_name&$filter=sl_name eq '" + statusName + "'";
                 dynamic appointment = null;
 
                 HttpClient httpClient = new HttpClient();

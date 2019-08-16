@@ -36,6 +36,13 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string baseUrl = string.Empty;
         string tmpEmail = "";
         string tmpRegistrationNumber = "";
+
+        string inspectionStatusCancelled = string.Empty;
+        string inspectionStatusAgreementNotSigned = string.Empty;
+
+        string vehiclePurchaseStatusPurchased = string.Empty;
+        string vehiclePurchaseStatusAuctionCreated = string.Empty;
+        string vehiclePurchaseStatusInTransit = string.Empty;
         #region Constructor
         /// <summary>
         /// CustomerInfrastructure initailizes object instance.
@@ -63,6 +70,13 @@ namespace Vitol.Enzo.CRM.Infrastructure
             emailsenderId = Configuration["AzureCRM:emailSenderId"];
             liveDate = Configuration["AzureCRM:liveDate"];
             baseUrl = Configuration["AzureCRM:baseUrl"];
+
+            inspectionStatusCancelled = Configuration["AzureCRM:inspectionStatusCancelled"];
+            inspectionStatusAgreementNotSigned = Configuration["AzureCRM:inspectionStatusAgreementNotSigned"];
+
+            vehiclePurchaseStatusPurchased = Configuration["AzureCRM:vehiclePurchaseStatusPurchased"];
+            vehiclePurchaseStatusAuctionCreated = Configuration["AzureCRM:vehiclePurchaseStatusAuctionCreated"];
+            vehiclePurchaseStatusInTransit = Configuration["AzureCRM:vehiclePurchaseStatusInTransit"];
 
         }
         #endregion
@@ -103,15 +117,15 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 inputInspectionDate = startInspectionDate.ToString("yyyy-MM-dd");
 
 
-                Guid appointmentId = await RetrieveAppointmentId();
+              
                 //Fetch Inspections Id
-                Guid InspectionCancelledId = await RetrieveInspectionStatusId("Inspection Cancelled");
-                Guid AgreementNotSignedId = await RetrieveInspectionStatusId("Agreement Not Signed");
+                Guid InspectionCancelledId = await RetrieveInspectionStatusId(inspectionStatusCancelled);
+                Guid AgreementNotSignedId = await RetrieveInspectionStatusId(inspectionStatusAgreementNotSigned);
 
                 //Fetch Vehcile purchased Id
-                Guid PurchaseId = await VehiclePurchaseStatusId("Purchased");
-                Guid AuctionCreatedId = await VehiclePurchaseStatusId("Auction Created");
-                Guid InTransitId = await VehiclePurchaseStatusId("In Transit");
+                Guid PurchaseId = await VehiclePurchaseStatusId(vehiclePurchaseStatusPurchased);
+                Guid AuctionCreatedId = await VehiclePurchaseStatusId(vehiclePurchaseStatusAuctionCreated);
+                Guid InTransitId = await VehiclePurchaseStatusId(vehiclePurchaseStatusInTransit);
 
 
                 string queryProspect;
@@ -525,7 +539,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
                 JArray records = null;
 
-                string query = "api/data/v9.1/sl_appointmentstatuses?$select=sl_appointmentstatusid,sl_name&$filter=sl_appointmentstatusname eq 'CANCELLED'";
+                string query = "api/data/v9.1/sl_appointmentstatuses?$select=sl_appointmentstatusid,sl_name&$filter=sl_name eq 'CANCELLED'";
                 dynamic appointment = null;
 
                 HttpClient httpClient = new HttpClient();

@@ -41,6 +41,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string tmpEmail = string.Empty;
         string tmpRegistrationNumber = string.Empty;
         string timeZoneStr = string.Empty;
+        string appointmentStatusCancelled = string.Empty;
+
 
         #region Constructor
         /// <summary>
@@ -72,6 +74,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             liveDate = Configuration["AzureCRM:liveDate"];
             baseUrl = Configuration["AzureCRM:baseUrl"];
             timeZoneStr = Configuration["AzureCRM:timeZoneStr"];
+            appointmentStatusCancelled = Configuration["AzureCRM:appointmentStatusCancelled"];
 
         }
         #endregion
@@ -111,7 +114,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 inputValutionDate= startValuationDate.ToString("yyyy-MM-dd");
                 
                 this.Logger.LogDebug("checkeddate"+DateTime.Now.ToString());
-                Guid appointmentCancelledId = await RetrieveAppointmentId();
+                Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
                 string queryLead;
                 queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_valuationcreateddate desc";
                 if (triggerType == "Lead")
@@ -570,7 +573,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             }
 
         }
-        public async Task<Guid> RetrieveAppointmentId()
+        public async Task<Guid> RetrieveAppointmentId(string statusName)
         {
             try
             {
@@ -579,7 +582,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
                 JArray records = null;
 
-                string query = "api/data/v9.1/sl_appointmentstatuses?$select=sl_appointmentstatusid,sl_name&$filter=sl_appointmentstatusname eq 'CANCELLED'";
+                string query = "api/data/v9.1/sl_appointmentstatuses?$select=sl_appointmentstatusid,sl_name&$filter=sl_name eq '" + statusName + "'";
                 dynamic appointment = null;
 
                 HttpClient httpClient = new HttpClient();
