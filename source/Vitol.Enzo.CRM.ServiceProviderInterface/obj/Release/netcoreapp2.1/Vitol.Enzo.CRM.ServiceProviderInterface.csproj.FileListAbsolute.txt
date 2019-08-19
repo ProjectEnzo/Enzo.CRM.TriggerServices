@@ -25,7 +25,6 @@ D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreap
 E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.deps.json
 E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
 E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.csprojAssemblyReference.cache
 E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.csproj.CoreCompileInputs.cache
 E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.AssemblyInfoInputs.cache
 E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.AssemblyInfo.cs
