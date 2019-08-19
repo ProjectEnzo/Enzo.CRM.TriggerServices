@@ -76,3 +76,29 @@ D:\VAVACODE\source\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.E
 D:\VAVACODE\source\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.csproj.CopyComplete
 D:\VAVACODE\source\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.dll
 D:\VAVACODE\source\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.deps.json
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.csprojAssemblyReference.cache
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.csproj.CoreCompileInputs.cache
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.AssemblyInfoInputs.cache
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.AssemblyInfo.cs
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.csproj.CopyComplete
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.pdb
