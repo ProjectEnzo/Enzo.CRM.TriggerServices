@@ -35,7 +35,10 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string emailsenderId;
         string liveDate = string.Empty;
         string baseUrl = string.Empty;
-
+        string tmpEmail = "";
+        string tmpRegistrationNumber = "";
+        string appointmentStatusCancelled = string.Empty;
+        string appointmentStatusAssigned = string.Empty;
         #region Constructor
         /// <summary>
         /// CustomerInfrastructure initailizes object instance.
@@ -65,6 +68,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
             emailsenderId = Configuration["AzureCRM:emailSenderId"];
             liveDate = Configuration["AzureCRM:liveDate"];
             baseUrl = Configuration["AzureCRM:baseUrl"];
+            appointmentStatusCancelled = Configuration["AzureCRM:appointmentStatusCancelled"];
+            appointmentStatusAssigned = Configuration["AzureCRM:appointmentStatusAssigned"];
 
         }
         #endregion
@@ -74,8 +79,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
         public ExceptionModel exceptionModel = new ExceptionModel();
         string returnMsg = string.Empty;
         string CRMCustomerId = string.Empty;
-        string tmpEmail = "";
-        string tmpRegistrationNumber = "";
+
 
 
         #endregion
@@ -85,17 +89,19 @@ namespace Vitol.Enzo.CRM.Infrastructure
         public async Task<string> OpportunityUtilityService(string str)
         {
 
-          
+
             exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.opportunityUtilityService);
             if (str == "Token123")
             {
                 return "Token Not found";
             }
 
-          
+
             string resultText = null;
             try
             {
+                tmpEmail = "";
+                tmpRegistrationNumber = "";
                 string triggerType = "Opportunity";
                 JArray records = null;
                 string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
@@ -103,13 +109,14 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 DateTime startValuationDate = DateTime.Now.AddDays(-30);
                 inputApointmentDate = startValuationDate.ToString("yyyy-MM-dd");
                 DateTime currentDate = DateTime.Now;
-                string currentAppointmentDate = currentDate.ToString("yyyy-MM-dd");
+                string currentAppointmentDate = currentDate.ToString("yyyy-MM-ddTHH:mm:ssZ");
 
 
-                Guid appointmentCancelledId = await RetrieveAppointmentId("CANCELLED");
-                Guid appointmentAssignedId = await RetrieveAppointmentId("ASSIGNED");
+
+                Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
+                Guid appointmentAssignedId = await RetrieveAppointmentId(appointmentStatusAssigned);
                 string queryOpportunity;
-                queryOpportunity = "api/data/v9.1/contacts?$select=sl_vehicleregistrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value ne " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value ne " + appointmentAssignedId.ToString()+" ) and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate le "+currentAppointmentDate+ " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 &$orderby=emailaddress1 asc,sl_valuationcreateddate desc";
+                queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value ne " + appointmentCancelledId.ToString() + " and _sl_appointmentstatus_value ne " + appointmentAssignedId.ToString() + " ) and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
                 if (triggerType == "Opportunity")
                 {
                     HttpClient httpClient = new HttpClient();
@@ -130,7 +137,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                             records = contact.value;
                             if (records != null && records.Count > 0)
                             {
-                                resultText = await OpportunityProcessContacts(contact,  resultText);
+                                resultText = await OpportunityProcessContacts(contact, resultText);
 
                                 //Paging
                                 string nextpageUri = null;
@@ -144,7 +151,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                     if (contact["@odata.nextLink"] == null)
                                     {
                                         resultText = resultText + " Page Start (Last) ";
-                                          nextpageUri = null;
+                                        nextpageUri = null;
                                         resultText = await OpportunityProcessContacts(contact, resultText);
                                         resultText = resultText + " Page End (Last) ";
                                     }
@@ -177,13 +184,13 @@ namespace Vitol.Enzo.CRM.Infrastructure
             catch (Exception ex)
             {
                 this.Logger.LogError(exceptionModel.getExceptionFormat(ex.ToString()));
-            
+
             }
- 
-            
+
+
             return "Success Record: " + resultText;
         }
-       
+
         public async Task<string> CreateSMSActivity(Guid CustomerId, string mobileNo, string textMessage)
         {
             exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.leadUtilityService);
@@ -191,7 +198,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             try
             {
                 string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
- 
+
                 string jsonObject = @"{
                 'sl_trigger': 102690001,
                 'sl_mobile': '" + mobileNo + @"', 
@@ -212,7 +219,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                     string responseJson = await response.Content.ReadAsStringAsync();
                 }
                 else
-                    this.Logger.LogError(exceptionModel.getExceptionFormat("SMS not sent : "+CustomerId.ToString()));
+                    this.Logger.LogError(exceptionModel.getExceptionFormat("SMS not sent : " + CustomerId.ToString()));
             }
             catch (Exception ex)
             {
@@ -314,24 +321,24 @@ namespace Vitol.Enzo.CRM.Infrastructure
             {
                 string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
                 Guid TemplateId;
-               Guid fromUserId=Guid.Empty;
+                Guid fromUserId = Guid.Empty;
                 if (!string.IsNullOrEmpty(emailsenderId))
                 {
                     fromUserId = new Guid(emailsenderId);
-                }  
+                }
                 foreach (var data in contact.value)
                 {
-                    if (data.emailaddress1.Value != null && data.sl_vehicleregistrationnumber.Value != null)
+                    if (data.emailaddress1.Value != null && data.sl_registrationnumber.Value != null)
                     {
                         resultText = resultText + " Email Address: " + data.emailaddress1.Value;
-                        if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_vehicleregistrationnumber.Value)
+                        if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_registrationnumber.Value)
                         {
                             continue;
                         }
                         else
                         {
                             Guid CustomerId = (Guid)data.contactid;
-                            string fullname=string.Empty;
+                            string fullname = string.Empty;
                             string make = string.Empty;
                             string model = string.Empty;
                             string mprice = string.Empty;
@@ -398,16 +405,16 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
                                             if (data.telephone1 != null)
                                             {
-                                                
+
                                                 fullname = data.fullname != null ? data.fullname.Value : "";
                                                 make = data.sl_make != null ? data.sl_make.Value : "";
                                                 model = data.sl_model != null ? data.sl_model.Value : "";
                                                 mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
-                                                if(!string.IsNullOrEmpty(smsT2))
+                                                if (!string.IsNullOrEmpty(smsT2))
                                                 {
-                                                
-                                                string smsMessage = smsT2;
-                                                    smsMessage= smsMessage.Replace("{contactname}", fullname);
+
+                                                    string smsMessage = smsT2;
+                                                    smsMessage = smsMessage.Replace("{contactname}", fullname);
                                                     smsMessage = smsMessage.Replace("{make}", make);
                                                     smsMessage = smsMessage.Replace("{model}", model);
                                                     smsMessage = smsMessage.Replace("{valuation}", mprice);
@@ -453,7 +460,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate4";
                                             queryString = await Encryption(queryString);
-                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate5", queryString, queryString,baseUrl);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate4", queryString, queryString, baseUrl);
                                             if (!string.IsNullOrEmpty(templateT4))
                                             {
                                                 TemplateId = await RetrieveTemplateId(templateT4);
@@ -481,7 +488,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                             break;
                                         }
 
-                                   
+
 
 
                                 }
@@ -490,7 +497,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                         }
                     }
                     tmpEmail = data.emailaddress1.Value;
-                    tmpRegistrationNumber = data.sl_vehicleregistrationnumber.Value;
+                    tmpRegistrationNumber = data.sl_registrationnumber.Value;
                 }
                 returnMsg = resultText;
             }
@@ -536,7 +543,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                     return Guid.Empty;
 
                 }
-                    
+
 
                 return records != null && records.Count > 0 ? new Guid(template.value[0].templateid.ToString()) : Guid.Empty;
             }
@@ -554,7 +561,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
                 Guid appointmentId = Guid.Empty;
                 JArray records = null;
-                string query = "api/data/v9.1/sl_appointmentstatuses?$select=sl_appointmentstatusid,sl_name&$filter=sl_appointmentstatusname eq '"+ statusName +"'";
+                string query = "api/data/v9.1/sl_appointmentstatuses?$select=sl_appointmentstatusid,sl_name&$filter=sl_name eq '" + statusName + "'";
                 dynamic appointment = null;
 
                 HttpClient httpClient = new HttpClient();

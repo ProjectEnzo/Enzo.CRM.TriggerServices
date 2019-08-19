@@ -36,6 +36,13 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string emailsenderId;
         string liveDate = string.Empty;
         string baseUrl = string.Empty;
+        string returnMsg = string.Empty;
+        string CRMCustomerId = string.Empty;
+        string tmpEmail = string.Empty;
+        string tmpRegistrationNumber = string.Empty;
+        string timeZoneStr = string.Empty;
+        string appointmentStatusCancelled = string.Empty;
+
 
         #region Constructor
         /// <summary>
@@ -66,6 +73,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
             emailsenderId = Configuration["AzureCRM:emailSenderId"];
             liveDate = Configuration["AzureCRM:liveDate"];
             baseUrl = Configuration["AzureCRM:baseUrl"];
+            timeZoneStr = Configuration["AzureCRM:timeZoneStr"];
+            appointmentStatusCancelled = Configuration["AzureCRM:appointmentStatusCancelled"];
 
         }
         #endregion
@@ -73,10 +82,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
         #region Properties and Data Members
         public ICRMServiceConnector CRMServiceConnector { get; }
         public ExceptionModel exceptionModel = new ExceptionModel();
-        string returnMsg = string.Empty;
-        string CRMCustomerId = string.Empty;
-        string tmpEmail = "";
-        string tmpRegistrationNumber = "";
+
 
 
         #endregion
@@ -97,17 +103,20 @@ namespace Vitol.Enzo.CRM.Infrastructure
             string resultText = null;
             try
             {
+                tmpEmail = "";
+                tmpRegistrationNumber = "";
+
                 string triggerType = "Lead";
                 JArray records = null;
                 string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
                 string inputValutionDate = string.Empty;
                 DateTime startValuationDate = DateTime.Now.AddDays(-30);
                 inputValutionDate= startValuationDate.ToString("yyyy-MM-dd");
-    
-
-                Guid appointmentId = await RetrieveAppointmentId();
+                
+                this.Logger.LogDebug("checkeddate"+DateTime.Now.ToString());
+                Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
                 string queryLead;
-                queryLead = "api/data/v9.1/contacts?$select=sl_vehicleregistrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 &$orderby=emailaddress1 asc,sl_vehicleregistrationnumber asc,sl_valuationcreateddate desc";
+                queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_valuationcreateddate desc";
                 if (triggerType == "Lead")
                 {
                     HttpClient httpClient = new HttpClient();
@@ -308,6 +317,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
         public async Task<string> LeadProcessContacts(dynamic contact, string resultText)
         {
             string returnMsg = string.Empty;
+            var globalTimezoneValue = TimeZoneInfo.FindSystemTimeZoneById(timeZoneStr);
             try
             {
                 string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
@@ -319,10 +329,10 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 }  
                 foreach (var data in contact.value)
                 {
-                    if (data.emailaddress1.Value != null && data.sl_vehicleregistrationnumber.Value != null)
+                    if (data.emailaddress1.Value != null && data.sl_registrationnumber.Value != null)
                     {
                         resultText = resultText + " Email Address: " + data.emailaddress1.Value;
-                        if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_vehicleregistrationnumber.Value)
+                        if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_registrationnumber.Value)
                         {
                             continue;
                         }
@@ -336,12 +346,16 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
                             if (data.sl_valuationcreateddate.Value != null)
                             {
-
                                 DateTime valuationcreateddate = data.sl_valuationcreateddate.Value;
+                               
+                                valuationcreateddate = TimeZoneInfo.ConvertTime(valuationcreateddate, globalTimezoneValue);
+                                var dateTimeNowUTC = DateTime.Now.ToUniversalTime();
+                                var dateTimeNowTimeZone = TimeZoneInfo.ConvertTime(dateTimeNowUTC, globalTimezoneValue);
+                                //var dayDiff = dateTimeNowTimeZone.Date.Subtract(crmTimezoneDate.Date).TotalDays;
+
                                 valuationcreateddate = valuationcreateddate.Date;
                                 int totaldays;
-                                totaldays = (int)DateTime.Now.Date.Subtract(valuationcreateddate).TotalDays;
-
+                                totaldays = (int)dateTimeNowTimeZone.Date.Subtract(valuationcreateddate).TotalDays;
                                 switch (totaldays)
                                 {
                                     //Trigger 2
@@ -502,7 +516,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
                     }
                     tmpEmail = data.emailaddress1.Value;
-                    tmpRegistrationNumber = data.sl_vehicleregistrationnumber.Value;
+                    tmpRegistrationNumber = data.sl_registrationnumber.Value;
                 }
                 returnMsg = resultText;
             }
@@ -559,7 +573,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             }
 
         }
-        public async Task<Guid> RetrieveAppointmentId()
+        public async Task<Guid> RetrieveAppointmentId(string statusName)
         {
             try
             {
@@ -568,7 +582,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
                 JArray records = null;
 
-                string query = "api/data/v9.1/sl_appointmentstatuses?$select=sl_appointmentstatusid,sl_name&$filter=sl_appointmentstatusname eq 'CANCELLED'";
+                string query = "api/data/v9.1/sl_appointmentstatuses?$select=sl_appointmentstatusid,sl_name&$filter=sl_name eq '" + statusName + "'";
                 dynamic appointment = null;
 
                 HttpClient httpClient = new HttpClient();
@@ -643,7 +657,6 @@ namespace Vitol.Enzo.CRM.Infrastructure
             }
 
         }
-
 
 
         #endregion  
