@@ -6862,23 +6862,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\yasir.anwar\\.nuget\\packages\\": {},
+    "C:\\Users\\muhammad.akif\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.API.Test\\Vitol.Enzo.CRM.API.Test.csproj",
+      "projectUniqueName": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.API.Test\\Vitol.Enzo.CRM.API.Test.csproj",
       "projectName": "Vitol.Enzo.CRM.API.Test",
-      "projectPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.API.Test\\Vitol.Enzo.CRM.API.Test.csproj",
-      "packagesPath": "C:\\Users\\yasir.anwar\\.nuget\\packages\\",
-      "outputPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.API.Test\\obj\\",
+      "projectPath": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.API.Test\\Vitol.Enzo.CRM.API.Test.csproj",
+      "packagesPath": "C:\\Users\\muhammad.akif\\.nuget\\packages\\",
+      "outputPath": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.API.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\yasir.anwar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\muhammad.akif\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6891,14 +6891,14 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj": {
-              "projectPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj"
+            "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj": {
+              "projectPath": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj"
             },
-            "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj": {
-              "projectPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj"
+            "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj": {
+              "projectPath": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj"
             },
-            "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj": {
-              "projectPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj"
+            "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj": {
+              "projectPath": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj"
             }
           }
         }

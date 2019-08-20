@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -28,6 +29,7 @@ namespace Vitol.Enzo.CRM.API.Lead.Controllers
         public LeadController(ILeadApplication leadApplication,  IHeaderValue headerValue, IConfiguration configuration, ILogger<LeadController> logger)
         {
             this.LeadApplication = leadApplication;
+            this.Configuration = configuration;
 
         }
         #endregion
@@ -35,18 +37,28 @@ namespace Vitol.Enzo.CRM.API.Lead.Controllers
         #region Properties and Data Members
 
          public ILeadApplication LeadApplication { get; }
+         public IConfiguration Configuration { get; }
 
 
         #endregion
 
         #region API Methods
 
-        [HttpGet]
+        [HttpPost]
         [Route("LeadUtilityService")]
         public async Task<string> LeadUtilityService(string str)
         {
-            var response = await this.LeadApplication.LeadUtilityService(str);
-
+            string secretKey = Configuration.GetSection("Keys:EncryptionkeyLead").Value;
+            var response = "";
+            if (Request.Headers["Token"].ToString() == secretKey)
+            {
+                response = await this.LeadApplication.LeadUtilityService(str);
+            }
+            else
+            {
+                response = HttpStatusCode.Unauthorized.ToString();
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            }
             return response;
         }
 
