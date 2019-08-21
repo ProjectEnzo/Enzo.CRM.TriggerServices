@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -28,6 +29,7 @@ namespace Vitol.Enzo.CRM.API.Prospect.Controllers
         public ProspectController(IProspectApplication prospectApplication,  IHeaderValue headerValue, IConfiguration configuration, ILogger<ProspectController> logger)
         {
             this.ProspectApplication = prospectApplication;
+            this.Configuration = configuration;
 
         }
         #endregion
@@ -35,19 +37,30 @@ namespace Vitol.Enzo.CRM.API.Prospect.Controllers
         #region Properties and Data Members
 
          public IProspectApplication ProspectApplication { get; }
-        
+         public IConfiguration Configuration { get; }
 
         #endregion
 
         #region API Methods
 
-        [HttpGet]
+        [HttpPost]
         [Route("ProspectUtilityService")]
-        public async Task<string> LeadUtilityService(string str)
+        public async Task<string> ProspectUtilityService(string str)
         {
-            var response = await this.ProspectApplication.ProspectUtilityService(str);
 
+            string secretKey = Configuration.GetSection("Keys:EncryptionkeyProspect").Value;
+            var response = "";
+            if (Request.Headers["Token"].ToString() == secretKey)
+            {
+                response = await this.ProspectApplication.ProspectUtilityService(str);
+            }
+            else
+            {
+                response = HttpStatusCode.Unauthorized.ToString();
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            }
             return response;
+
         }
 
         [HttpGet]

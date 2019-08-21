@@ -30,6 +30,22 @@ D:\VavaCars SourceCode\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcor
 D:\VavaCars SourceCode\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.csproj.CopyComplete
 D:\VavaCars SourceCode\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.dll
 D:\VavaCars SourceCode\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.deps.json
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.csprojAssemblyReference.cache
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.csproj.CoreCompileInputs.cache
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.AssemblyInfoInputs.cache
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.AssemblyInfo.cs
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.csproj.CopyComplete
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.pdb
 D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.deps.json
 D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.dll
 D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.pdb

@@ -94,11 +94,6 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
           
             exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.leadUtilityService);
-            if (str == "Token123")
-            {
-                return "Token Not found";
-            }
-
           
             string resultText = null;
             try
@@ -191,7 +186,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             return "Success Record: " + resultText;
         }
        
-        public async Task<string> CreateSMSActivity(Guid CustomerId, string mobileNo, string textMessage)
+        public async Task<string> CreateSMSActivity(Guid CustomerId, string mobileNo, string textMessage,string triggerTemplate)
         {
             exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.leadUtilityService);
             string returnMsg = string.Empty;
@@ -201,6 +196,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
  
                 string jsonObject = @"{
                 'sl_trigger': 102690001,
+                'sl_triggertemplate': " + triggerTemplate + @", 
                 'sl_mobile': '" + mobileNo + @"', 
                 ""sl_message"":" + '"' + textMessage + '"' + @",
                 'regardingobjectid_contact@odata.bind': '/contacts(" + CustomerId + @")' }";
@@ -228,7 +224,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             }
             return returnMsg;
         }
-        public async Task<string> CreateEmailActivity(Guid fromUserId, Guid CustomerId, Guid TemplateId)
+        public async Task<string> CreateEmailActivity(Guid fromUserId, Guid CustomerId, Guid TemplateId,string triggerTemplate)
         {
             exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.createEmailActivity);
             string returnMsg = string.Empty;
@@ -245,6 +241,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                           },
                                           'Target': {
                                             'sl_trigger': 102690001,
+                                            'sl_triggertemplate': " + triggerTemplate + @", 
                                             'followemailuserpreference': true,
                                             'regardingobjectid_contact@odata.bind': '/contacts(" + CustomerId + @")',
                                             'email_activity_parties': [
@@ -369,7 +366,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                 TemplateId = await RetrieveTemplateId(templateT2);
                                                 if (TemplateId != null)
                                                 {
-                                                    string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId);
+                                                    string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690000");
                                                 }
                                             }
 
@@ -387,7 +384,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     smsMessage = smsMessage.Replace("{make}", make);
                                                     smsMessage = smsMessage.Replace("{model}", model);
                                                     smsMessage = smsMessage.Replace("{valuation}", mprice);
-                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage);
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690000");
                                                 }
                                             }
                                             break;
@@ -401,7 +398,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                             TemplateId = await RetrieveTemplateId(templateT3);
                                             if (TemplateId != null)
                                             {
-                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId);
+                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690001");
                                             }
                                             if (data.telephone1 != null)
                                             {
@@ -416,7 +413,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     smsMessage = smsMessage.Replace("{make}", make);
                                                     smsMessage = smsMessage.Replace("{model}", model);
                                                     smsMessage = smsMessage.Replace("{valuation}", mprice);
-                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage);
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690001");
                                                 }
                                             }
                                             break;
@@ -430,7 +427,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                             TemplateId = await RetrieveTemplateId(templateT4);
                                             if (TemplateId != null)
                                             {
-                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId);
+                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690002");
                                             }
                                             if (data.telephone1 != null)
                                             {
@@ -445,7 +442,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     smsMessage = smsMessage.Replace("{make}", make);
                                                     smsMessage = smsMessage.Replace("{model}", model);
                                                     smsMessage = smsMessage.Replace("{valuation}", mprice);
-                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage);
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690002");
                                                 }
                                             }
                                             break;
@@ -459,7 +456,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                             TemplateId = await RetrieveTemplateId(templateT5);
                                             if (TemplateId != null)
                                             {
-                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId);
+                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690003");
                                             }
                                             if (data.telephone1 != null)
                                             {
@@ -474,7 +471,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     smsMessage = smsMessage.Replace("{make}", make);
                                                     smsMessage = smsMessage.Replace("{model}", model);
                                                     smsMessage = smsMessage.Replace("{valuation}", mprice);
-                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage);
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690003");
                                                 }
                                             }
                                             break;
@@ -488,7 +485,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                             TemplateId = await RetrieveTemplateId(templateT6);
                                             if (TemplateId != null)
                                             {
-                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId);
+                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690004");
                                             }
                                             if (data.telephone1 != null)
                                             {
@@ -503,7 +500,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     smsMessage = smsMessage.Replace("{make}", make);
                                                     smsMessage = smsMessage.Replace("{model}", model);
                                                     smsMessage = smsMessage.Replace("{valuation}", mprice);
-                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage);
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690004");
                                                 }
                                             }
                                             break;

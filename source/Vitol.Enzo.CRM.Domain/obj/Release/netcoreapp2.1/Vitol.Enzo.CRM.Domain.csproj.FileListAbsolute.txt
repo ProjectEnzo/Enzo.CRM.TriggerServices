@@ -22,6 +22,18 @@ D:\VavaCars SourceCode\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vi
 D:\VavaCars SourceCode\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csproj.CopyComplete
 D:\VavaCars SourceCode\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
 D:\VavaCars SourceCode\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.deps.json
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csprojAssemblyReference.cache
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csproj.CoreCompileInputs.cache
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.AssemblyInfoInputs.cache
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.AssemblyInfo.cs
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csproj.CopyComplete
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
 D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.deps.json
 D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
 D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb

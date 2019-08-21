@@ -50,6 +50,32 @@ D:\VavaCars SourceCode\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vit
 D:\VavaCars SourceCode\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.csproj.CopyComplete
 D:\VavaCars SourceCode\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.dll
 D:\VavaCars SourceCode\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.deps.json
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.csprojAssemblyReference.cache
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.csproj.CoreCompileInputs.cache
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.AssemblyInfoInputs.cache
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.AssemblyInfo.cs
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.csproj.CopyComplete
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Infrastructure\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.pdb
 D:\VAVACODE\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.deps.json
 D:\VAVACODE\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.dll
 D:\VAVACODE\source\Vitol.Enzo.CRM.Infrastructure\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.pdb

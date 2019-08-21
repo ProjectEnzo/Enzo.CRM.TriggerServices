@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -28,26 +29,38 @@ namespace Vitol.Enzo.CRM.API.Opportunity.Controllers
         public OpportunityController(IOpportunityApplication opportunityApplication,  IHeaderValue headerValue, IConfiguration configuration, ILogger<OpportunityController> logger)
         {
             this.OpportunityApplication = opportunityApplication;
-           
+            this.Configuration = configuration;
+
         }
         #endregion
 
         #region Properties and Data Members
 
          public IOpportunityApplication OpportunityApplication { get; }
-         
+         public IConfiguration Configuration { get; }
+
 
         #endregion
 
         #region API Methods
 
-        [HttpGet]
+        [HttpPost]
         [Route("OpportunityUtilityService")]
         public async Task<string> OpportunityUtilityService(string str)
         {
-            var response = await this.OpportunityApplication.OpportunityUtilityService(str);
-
+            string secretKey = Configuration.GetSection("Keys:EncryptionkeyOpportunity").Value;
+            var response = "";
+            if (Request.Headers["Token"].ToString() == secretKey)
+            {
+                response = await this.OpportunityApplication.OpportunityUtilityService(str);
+            }
+            else
+            {
+                response = HttpStatusCode.Unauthorized.ToString();
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            }
             return response;
+
         }
 
         [HttpGet]
