@@ -6862,23 +6862,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\muhammad.akif\\.nuget\\packages\\": {},
+    "C:\\Users\\faisal.imran\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.API.Test\\Vitol.Enzo.CRM.API.Test.csproj",
+      "projectUniqueName": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.API.Test\\Vitol.Enzo.CRM.API.Test.csproj",
       "projectName": "Vitol.Enzo.CRM.API.Test",
-      "projectPath": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.API.Test\\Vitol.Enzo.CRM.API.Test.csproj",
-      "packagesPath": "C:\\Users\\muhammad.akif\\.nuget\\packages\\",
-      "outputPath": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.API.Test\\obj\\",
+      "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.API.Test\\Vitol.Enzo.CRM.API.Test.csproj",
+      "packagesPath": "C:\\Users\\faisal.imran\\.nuget\\packages\\",
+      "outputPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.API.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\muhammad.akif\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\faisal.imran\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6891,14 +6891,14 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj": {
-              "projectPath": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj"
+            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj": {
+              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj"
             },
-            "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj": {
-              "projectPath": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj"
+            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj": {
+              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj"
             },
-            "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj": {
-              "projectPath": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj"
+            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj": {
+              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj"
             }
           }
         }
@@ -6921,6 +6921,7 @@
             "version": "[15.8.0, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true

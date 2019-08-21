@@ -45,7 +45,7 @@ namespace Vitol.Enzo.CRM.API.Prospect.Controllers
 
         [HttpPost]
         [Route("ProspectUtilityService")]
-        public async Task<string> LeadUtilityService(string str)
+        public async Task<string> ProspectUtilityService(string str)
         {
 
             string secretKey = Configuration.GetSection("Keys:EncryptionkeyProspect").Value;

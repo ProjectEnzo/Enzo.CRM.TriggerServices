@@ -22,18 +22,6 @@ D:\VavaCars SourceCode\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vi
 D:\VavaCars SourceCode\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csproj.CopyComplete
 D:\VavaCars SourceCode\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
 D:\VavaCars SourceCode\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.deps.json
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.dll
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.pdb
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csprojAssemblyReference.cache
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csproj.CoreCompileInputs.cache
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.AssemblyInfoInputs.cache
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.AssemblyInfo.cs
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csproj.CopyComplete
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
 E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.deps.json
 E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
 E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
@@ -46,3 +34,15 @@ E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\obj\Releas
 E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csproj.CopyComplete
 E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
 E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.deps.json
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.dll
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.pdb
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csprojAssemblyReference.cache
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csproj.CoreCompileInputs.cache
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.AssemblyInfoInputs.cache
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.AssemblyInfo.cs
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csproj.CopyComplete
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb

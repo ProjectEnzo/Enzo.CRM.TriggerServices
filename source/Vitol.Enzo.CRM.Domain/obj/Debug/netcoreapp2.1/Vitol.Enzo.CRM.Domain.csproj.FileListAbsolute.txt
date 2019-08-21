@@ -22,18 +22,6 @@ D:\VavaCars SourceCode\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.
 D:\VavaCars SourceCode\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csproj.CopyComplete
 D:\VavaCars SourceCode\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
 D:\VavaCars SourceCode\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.deps.json
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.dll
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.pdb
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csprojAssemblyReference.cache
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csproj.CoreCompileInputs.cache
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.AssemblyInfoInputs.cache
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.AssemblyInfo.cs
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csproj.CopyComplete
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
-D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Domain\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.deps.json
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Domain\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Domain\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
@@ -46,3 +34,15 @@ E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vit
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csproj.CopyComplete
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.deps.json
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.dll
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.pdb
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csprojAssemblyReference.cache
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csproj.CoreCompileInputs.cache
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.AssemblyInfoInputs.cache
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.AssemblyInfo.cs
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.csproj.CopyComplete
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
+D:\VAVACODE\source\Vitol.Enzo.CRM.Domain\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
