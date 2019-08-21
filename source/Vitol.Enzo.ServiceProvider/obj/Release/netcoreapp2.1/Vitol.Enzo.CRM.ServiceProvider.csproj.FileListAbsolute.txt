@@ -46,15 +46,3 @@ D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.En
 D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.csproj.CopyComplete
 D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
 D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.ServiceProvider\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.deps.json
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.ServiceProvider\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.ServiceProvider\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.ServiceProvider\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.ServiceProvider\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.csprojAssemblyReference.cache
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.csproj.CoreCompileInputs.cache
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.AssemblyInfoInputs.cache
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.AssemblyInfo.cs
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.csproj.CopyComplete
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb

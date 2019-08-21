@@ -54,17 +54,3 @@ D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp
 D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.csproj.CopyComplete
 D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.dll
 D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.pdb
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.deps.json
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.dll
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.pdb
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.dll
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.pdb
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.csprojAssemblyReference.cache
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.csproj.CoreCompileInputs.cache
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.AssemblyInfoInputs.cache
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.AssemblyInfo.cs
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.csproj.CopyComplete
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.dll
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.pdb

@@ -34,12 +34,3 @@ D:\VAVACODE\source\Vitol.Enzo.CRM.Core\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.
 D:\VAVACODE\source\Vitol.Enzo.CRM.Core\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Core.AssemblyInfo.cs
 D:\VAVACODE\source\Vitol.Enzo.CRM.Core\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Core.dll
 D:\VAVACODE\source\Vitol.Enzo.CRM.Core\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Core.pdb
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Core\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Core.deps.json
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Core\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Core.dll
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Core\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Core.pdb
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Core\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Core.csprojAssemblyReference.cache
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Core\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Core.csproj.CoreCompileInputs.cache
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Core\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Core.AssemblyInfoInputs.cache
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Core\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Core.AssemblyInfo.cs
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Core\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Core.dll
-E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.Core\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.Core.pdb

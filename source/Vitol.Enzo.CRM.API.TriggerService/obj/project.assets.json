@@ -12887,23 +12887,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\yasir.anwar\\.nuget\\packages\\": {},
+    "C:\\Users\\faisal.imran\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.API.TriggerService\\Vitol.Enzo.CRM.API.TriggerService.csproj",
+      "projectUniqueName": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.API.TriggerService\\Vitol.Enzo.CRM.API.TriggerService.csproj",
       "projectName": "Vitol.Enzo.CRM.API.TriggerService",
-      "projectPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.API.TriggerService\\Vitol.Enzo.CRM.API.TriggerService.csproj",
-      "packagesPath": "C:\\Users\\yasir.anwar\\.nuget\\packages\\",
-      "outputPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.API.TriggerService\\obj\\",
+      "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.API.TriggerService\\Vitol.Enzo.CRM.API.TriggerService.csproj",
+      "packagesPath": "C:\\Users\\faisal.imran\\.nuget\\packages\\",
+      "outputPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.API.TriggerService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\yasir.anwar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\faisal.imran\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12916,29 +12916,29 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.API.CRM.Core\\Vitol.Enzo.API.CRM.Core.csproj": {
-              "projectPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.API.CRM.Core\\Vitol.Enzo.API.CRM.Core.csproj"
+            "D:\\VAVACODE\\source\\Vitol.Enzo.API.CRM.Core\\Vitol.Enzo.API.CRM.Core.csproj": {
+              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.API.CRM.Core\\Vitol.Enzo.API.CRM.Core.csproj"
             },
-            "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj": {
-              "projectPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj"
+            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj": {
+              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ApplicationInterface\\Vitol.Enzo.CRM.ApplicationInterface.csproj"
             },
-            "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj": {
-              "projectPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj"
+            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj": {
+              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Application\\Vitol.Enzo.CRM.Application.csproj"
             },
-            "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj": {
-              "projectPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj"
+            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj": {
+              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj"
             },
-            "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.InfrastructureInterface\\Vitol.Enzo.CRM.InfrastructureInterface.csproj": {
-              "projectPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.InfrastructureInterface\\Vitol.Enzo.CRM.InfrastructureInterface.csproj"
+            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.InfrastructureInterface\\Vitol.Enzo.CRM.InfrastructureInterface.csproj": {
+              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.InfrastructureInterface\\Vitol.Enzo.CRM.InfrastructureInterface.csproj"
             },
-            "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.Infrastructure\\Vitol.Enzo.CRM.Infrastructure.csproj": {
-              "projectPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.Infrastructure\\Vitol.Enzo.CRM.Infrastructure.csproj"
+            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Infrastructure\\Vitol.Enzo.CRM.Infrastructure.csproj": {
+              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Infrastructure\\Vitol.Enzo.CRM.Infrastructure.csproj"
             },
-            "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj": {
-              "projectPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj"
+            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj": {
+              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj"
             },
-            "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.ServiceConnector\\Vitol.Enzo.CRM.ServiceConnector.csproj": {
-              "projectPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.ServiceConnector\\Vitol.Enzo.CRM.ServiceConnector.csproj"
+            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ServiceConnector\\Vitol.Enzo.CRM.ServiceConnector.csproj": {
+              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ServiceConnector\\Vitol.Enzo.CRM.ServiceConnector.csproj"
             }
           }
         }
@@ -12964,6 +12964,7 @@
             "version": "[2.1.2, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
