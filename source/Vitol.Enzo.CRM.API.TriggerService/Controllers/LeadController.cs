@@ -52,7 +52,7 @@ namespace Vitol.Enzo.CRM.API.Lead.Controllers
             var response = "";
             if (Request.Headers["Token"].ToString() == secretKey)
             {
-                var response1 =  await this.LeadApplication.LeadUtilityService(str);
+                var response1 =   this.LeadApplication.LeadUtilityService(str);
             }
             else
             {
