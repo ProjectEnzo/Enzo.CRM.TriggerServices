@@ -52,7 +52,7 @@ namespace Vitol.Enzo.CRM.API.Opportunity.Controllers
             var response = "";
             if (Request.Headers["Token"].ToString() == secretKey)
             {
-                response = await this.OpportunityApplication.OpportunityUtilityService(str);
+                var response1 =  this.OpportunityApplication.OpportunityUtilityService(str);
             }
             else
             {

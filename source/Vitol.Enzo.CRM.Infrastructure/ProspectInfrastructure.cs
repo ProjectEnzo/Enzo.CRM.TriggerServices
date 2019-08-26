@@ -43,6 +43,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string vehiclePurchaseStatusPurchased = string.Empty;
         string vehiclePurchaseStatusAuctionCreated = string.Empty;
         string vehiclePurchaseStatusInTransit = string.Empty;
+
+        int TotalRecord;
+        int emailSent;
         #region Constructor
         /// <summary>
         /// CustomerInfrastructure initailizes object instance.
@@ -111,9 +114,10 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 string inputInspectionDate = string.Empty;
                 DateTime startInspectionDate = DateTime.Now.AddDays(-30);
                 inputInspectionDate = startInspectionDate.ToString("yyyy-MM-dd");
+                TotalRecord = 0;
+                emailSent = 0;
+                this.Logger.LogDebug("Prospect Checkeddate: " + DateTime.Now.ToString());
 
-
-              
                 //Fetch Inspections Id
                 Guid InspectionCancelledId = await RetrieveInspectionStatusId(inspectionStatusCancelled);
                 Guid AgreementNotSignedId = await RetrieveInspectionStatusId(inspectionStatusAgreementNotSigned);
@@ -126,6 +130,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
                 string queryProspect;
                 queryProspect = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,sl_finalofferprice,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_inspectionstatustype_value,_sl_appointmentstatus_value,sl_valuationcreateddate,sl_inspectioncreateddate,statuscode&$filter=(_sl_inspectionstatustype_value eq " + AgreementNotSignedId.ToString() + " or _sl_inspectionstatustype_value eq " + InspectionCancelledId.ToString() + ") and ( _sl_vehiclepurchasestatus_value  ne  " + PurchaseId.ToString() + " and _sl_vehiclepurchasestatus_value  ne  " + AuctionCreatedId.ToString() + " and _sl_vehiclepurchasestatus_value  ne " + InTransitId.ToString() + ")and sl_inspectioncreateddate ge " + inputInspectionDate + " and  sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_finalofferprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_inspectioncreateddate desc";
+                this.Logger.LogDebug("Query Prospect: " + queryProspect);
                 if (triggerType == "Prospect")
                 {
                     HttpClient httpClient = new HttpClient();
@@ -196,7 +201,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
             }
 
-
+            this.Logger.LogDebug("Total Prospect Number of records: " + TotalRecord);
+            this.Logger.LogDebug("Total Prospect Number of Emails sent: " + emailSent);
             return "Success Record: " + resultText;
         }
 
@@ -339,6 +345,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 }
                 foreach (var data in contact.value)
                 {
+                    TotalRecord = TotalRecord + 1;
                     if (data.emailaddress1.Value != null && data.sl_registrationnumber.Value != null)
                     {
                         resultText = resultText + " Email Address: " + data.emailaddress1.Value;
@@ -367,6 +374,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                     //Trigger 1
                                     case 2:
                                         {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 1 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_prospecttemplate1";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate1", queryString, queryString, baseUrl);
@@ -396,11 +406,15 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690009");
                                                 }
                                             }
+                                            emailSent = emailSent + 1;
                                             break;
                                         }
                                     //Trigger 2
                                     case 5:
                                         {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 2 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_prospecttemplate2";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate2", queryString, queryString, baseUrl);
@@ -429,11 +443,15 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690010");
                                                 }
                                             }
+                                            emailSent = emailSent + 1;
                                             break;
                                         }
                                     //Trigger 3
                                     case 20:
                                         {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 3 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_prospecttemplate3";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate3", queryString, queryString, baseUrl);
@@ -461,6 +479,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690011");
                                                 }
                                             }
+                                            emailSent = emailSent + 1;
                                             break;
                                         }
 

@@ -39,6 +39,10 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string tmpRegistrationNumber = "";
         string appointmentStatusCancelled = string.Empty;
         string appointmentStatusAssigned = string.Empty;
+
+        int TotalRecord;
+        int emailSent;
+
         #region Constructor
         /// <summary>
         /// CustomerInfrastructure initailizes object instance.
@@ -102,6 +106,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 string inputApointmentDate = string.Empty;
                 DateTime startValuationDate = DateTime.Now.AddDays(-30);
                 inputApointmentDate = startValuationDate.ToString("yyyy-MM-dd");
+                TotalRecord = 0;
+                emailSent = 0;
+                this.Logger.LogDebug("Opportunity Checkeddate: " + DateTime.Now.ToString());
                 DateTime currentDate = DateTime.Now;
                 string currentAppointmentDate = currentDate.ToString("yyyy-MM-ddTHH:mm:ssZ");
 
@@ -111,6 +118,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 Guid appointmentAssignedId = await RetrieveAppointmentId(appointmentStatusAssigned);
                 string queryOpportunity;
                 queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value ne " + appointmentCancelledId.ToString() + " and _sl_appointmentstatus_value ne " + appointmentAssignedId.ToString() + " ) and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
+                this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
                 if (triggerType == "Opportunity")
                 {
                     HttpClient httpClient = new HttpClient();
@@ -181,7 +189,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
             }
 
-
+            this.Logger.LogDebug("Total Opportunity Number of records: " + TotalRecord);
+            this.Logger.LogDebug("Total Opportunity Number of Emails sent: " + emailSent);
             return "Success Record: " + resultText;
         }
 
@@ -326,6 +335,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 {
                     if (data.emailaddress1.Value != null && data.sl_registrationnumber.Value != null)
                     {
+                        TotalRecord = TotalRecord + 1;
                         resultText = resultText + " Email Address: " + data.emailaddress1.Value;
                         if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_registrationnumber.Value)
                         {
@@ -352,6 +362,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                     //Trigger 1
                                     case 2:
                                         {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 1 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate1";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate1", queryString, queryString, baseUrl);
@@ -382,11 +395,15 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690005");
                                                 }
                                             }
+                                            emailSent = emailSent + 1;
                                             break;
                                         }
                                     //Trigger 2
                                     case 5:
                                         {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 2 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate2";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate2", queryString, queryString, baseUrl);
@@ -417,11 +434,15 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690006");
                                                 }
                                             }
+                                            emailSent = emailSent + 1;
                                             break;
                                         }
                                     //Trigger 3
                                     case 14:
                                         {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 3 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate3";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate3", queryString, queryString, baseUrl);
@@ -449,11 +470,15 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690007");
                                                 }
                                             }
+                                            emailSent = emailSent + 1;
                                             break;
                                         }
                                     //Trigger 4
                                     case 21:
                                         {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 4 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate4";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate4", queryString, queryString, baseUrl);
@@ -481,6 +506,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690008");
                                                 }
                                             }
+                                            emailSent = emailSent + 1;
                                             break;
                                         }
 

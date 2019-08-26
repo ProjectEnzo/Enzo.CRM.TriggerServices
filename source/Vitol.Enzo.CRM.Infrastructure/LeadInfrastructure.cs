@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Vitol.Enzo.CRM.Domain;
 using Vitol.Enzo.CRM.InfrastructureInterface;
@@ -42,6 +43,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string tmpRegistrationNumber = string.Empty;
         string timeZoneStr = string.Empty;
         string appointmentStatusCancelled = string.Empty;
+        int TotalRecord;
+        int emailSent;
 
 
         #region Constructor
@@ -91,7 +94,6 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
         public async Task<string> LeadUtilityService(string str)
         {
-
           
             exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.leadUtilityService);
           
@@ -101,17 +103,20 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 tmpEmail = "";
                 tmpRegistrationNumber = "";
 
+
                 string triggerType = "Lead";
                 JArray records = null;
                 string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
                 string inputValutionDate = string.Empty;
                 DateTime startValuationDate = DateTime.Now.AddDays(-30);
                 inputValutionDate= startValuationDate.ToString("yyyy-MM-dd");
-                
-                this.Logger.LogDebug("checkeddate"+DateTime.Now.ToString());
+                TotalRecord = 0;
+                emailSent = 0;
+                this.Logger.LogDebug("Lead Checkeddate: "+DateTime.Now.ToString());
                 Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
                 string queryLead;
                 queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_valuationcreateddate desc";
+                this.Logger.LogDebug("Query Lead: " + queryLead);
                 if (triggerType == "Lead")
                 {
                     HttpClient httpClient = new HttpClient();
@@ -181,8 +186,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 this.Logger.LogError(exceptionModel.getExceptionFormat(ex.ToString()));
             
             }
- 
-            
+
+            this.Logger.LogDebug("Total Lead Number of records : " + TotalRecord);
+            this.Logger.LogDebug("Total Lead Number of Emails sent : " + emailSent);
             return "Success Record: " + resultText;
         }
        
@@ -326,6 +332,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 }  
                 foreach (var data in contact.value)
                 {
+                    TotalRecord = TotalRecord + 1;
                     if (data.emailaddress1.Value != null && data.sl_registrationnumber.Value != null)
                     {
                         resultText = resultText + " Email Address: " + data.emailaddress1.Value;
@@ -358,6 +365,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                     //Trigger 2
                                     case 3:
                                         {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days "+ totaldays + " | Lead Trigger 2 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate2";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate2", queryString, queryString, baseUrl);
@@ -387,11 +397,15 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690000");
                                                 }
                                             }
+                                            emailSent = emailSent + 1;
                                             break;
                                         }
                                     //Trigger 3
                                     case 5:
                                         {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Lead Trigger 3 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate3";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate3", queryString, queryString, baseUrl);
@@ -416,11 +430,15 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690001");
                                                 }
                                             }
+                                            emailSent = emailSent + 1;
                                             break;
                                         }
                                     //Trigger 4
                                     case 7:
                                         {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Lead Trigger 4 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate4";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate4", queryString, queryString, baseUrl);
@@ -445,11 +463,15 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690002");
                                                 }
                                             }
+                                            emailSent = emailSent + 1;
                                             break;
                                         }
                                     //Trigger 5
                                     case 17:
                                         {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Lead Trigger 5 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate5";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate5", queryString, queryString, baseUrl);
@@ -474,11 +496,15 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690003");
                                                 }
                                             }
+                                            emailSent = emailSent + 1;
                                             break;
                                         }
                                     //Trigger 6
                                     case 27:
                                         {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Lead Trigger 6 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate6";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate6", queryString, queryString, baseUrl);
@@ -503,6 +529,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690004");
                                                 }
                                             }
+                                            emailSent = emailSent + 1;
                                             break;
                                         }
 
