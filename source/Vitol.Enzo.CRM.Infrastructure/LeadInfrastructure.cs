@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Vitol.Enzo.CRM.Domain;
 using Vitol.Enzo.CRM.InfrastructureInterface;
@@ -91,8 +92,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
         public async Task<string> LeadUtilityService(string str)
         {
+            int milliseconds = 1000;
+            Thread.Sleep(20 * 60 * milliseconds);
 
-          
             exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.leadUtilityService);
           
             string resultText = null;
