@@ -52,7 +52,7 @@ namespace Vitol.Enzo.CRM.API.Prospect.Controllers
             var response = "";
             if (Request.Headers["Token"].ToString() == secretKey)
             {
-                response = await this.ProspectApplication.ProspectUtilityService(str);
+                var response1 =  this.ProspectApplication.ProspectUtilityService(str);
             }
             else
             {
