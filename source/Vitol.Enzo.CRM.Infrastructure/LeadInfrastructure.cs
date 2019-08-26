@@ -94,7 +94,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
         public async Task<string> LeadUtilityService(string str)
         {
-
+            await Task.Delay(20 * 60 * 1000);
             exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.leadUtilityService);
           
             string resultText = null;
