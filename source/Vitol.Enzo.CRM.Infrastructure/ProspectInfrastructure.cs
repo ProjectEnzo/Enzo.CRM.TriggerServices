@@ -395,7 +395,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                 fullname = data.fullname != null ? data.fullname.Value : "";
                                                 make = data.sl_make != null ? data.sl_make.Value : "";
                                                 model = data.sl_model != null ? data.sl_model.Value : "";
-                                                mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                                mprice = data.sl_finalofferprice != null ? data.sl_finalofferprice.Value : "";
                                                 if (!string.IsNullOrEmpty(smsT1))
                                                 {
                                                     string smsMessage = smsT1;
@@ -432,7 +432,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                 fullname = data.fullname != null ? data.fullname.Value : "";
                                                 make = data.sl_make != null ? data.sl_make.Value : "";
                                                 model = data.sl_model != null ? data.sl_model.Value : "";
-                                                mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                                mprice = data.sl_finalofferprice != null ? data.sl_finalofferprice.Value : "";
                                                 if (!string.IsNullOrEmpty(smsT2))
                                                 {
                                                     string smsMessage = smsT2;
@@ -468,7 +468,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                 fullname = data.fullname != null ? data.fullname.Value : "";
                                                 make = data.sl_make != null ? data.sl_make.Value : "";
                                                 model = data.sl_model != null ? data.sl_model.Value : "";
-                                                mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                                mprice = data.sl_finalofferprice != null ? data.sl_finalofferprice.Value : "";
                                                 if (!string.IsNullOrEmpty(smsT2))
                                                 {
                                                     string smsMessage = smsT3;

@@ -689,23 +689,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\faisal.imran\\.nuget\\packages\\": {},
+    "C:\\Users\\yasir.anwar\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj",
+      "projectUniqueName": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj",
       "projectName": "Vitol.Enzo.CRM.ServiceConnectorInterface",
-      "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj",
-      "packagesPath": "C:\\Users\\faisal.imran\\.nuget\\packages\\",
-      "outputPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ServiceConnectorInterface\\obj\\",
+      "projectPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj",
+      "packagesPath": "C:\\Users\\yasir.anwar\\.nuget\\packages\\",
+      "outputPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.ServiceConnectorInterface\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\faisal.imran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\yasir.anwar\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
