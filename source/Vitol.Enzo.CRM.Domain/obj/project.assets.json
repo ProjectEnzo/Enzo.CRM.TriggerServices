@@ -705,23 +705,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\yasir.anwar\\.nuget\\packages\\": {},
+    "C:\\Users\\faisal.imran\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj",
+      "projectUniqueName": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj",
       "projectName": "Vitol.Enzo.CRM.Domain",
-      "projectPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj",
-      "packagesPath": "C:\\Users\\yasir.anwar\\.nuget\\packages\\",
-      "outputPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.Domain\\obj\\",
+      "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj",
+      "packagesPath": "C:\\Users\\faisal.imran\\.nuget\\packages\\",
+      "outputPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\yasir.anwar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\faisal.imran\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -734,8 +734,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.ViewModel\\Vitol.Enzo.CRM.ViewModel.csproj": {
-              "projectPath": "E:\\Office Work\\VAVA Cars - Turkey\\GetHub\\source\\Vitol.Enzo.CRM.ViewModel\\Vitol.Enzo.CRM.ViewModel.csproj"
+            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ViewModel\\Vitol.Enzo.CRM.ViewModel.csproj": {
+              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ViewModel\\Vitol.Enzo.CRM.ViewModel.csproj"
             }
           }
         }

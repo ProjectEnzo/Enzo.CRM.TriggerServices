@@ -34,15 +34,3 @@ E:\CRM Trigger Services\source\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.
 E:\CRM Trigger Services\source\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.csproj.CopyComplete
 E:\CRM Trigger Services\source\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
 E:\CRM Trigger Services\source\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb
-D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.deps.json
-D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
-D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb
-D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
-D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
-D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.csprojAssemblyReference.cache
-D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.csproj.CoreCompileInputs.cache
-D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.AssemblyInfoInputs.cache
-D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.AssemblyInfo.cs
-D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.csproj.CopyComplete
-D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
-D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb
