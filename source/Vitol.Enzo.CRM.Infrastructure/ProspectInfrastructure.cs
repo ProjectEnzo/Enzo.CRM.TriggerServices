@@ -395,7 +395,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                 fullname = data.fullname != null ? data.fullname.Value : "";
                                                 make = data.sl_make != null ? data.sl_make.Value : "";
                                                 model = data.sl_model != null ? data.sl_model.Value : "";
-                                                mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                                mprice = data.sl_finalofferprice != null ? data.sl_finalofferprice.Value : "";
                                                 if (!string.IsNullOrEmpty(smsT1))
                                                 {
                                                     string smsMessage = smsT1;
@@ -410,42 +410,42 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                             break;
                                         }
                                     //Trigger 2
-                                    case 5:
-                                        {
-                                            fullname = data.fullname != null ? data.fullname.Value : "";
-                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
-                                            this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 2 | Name : " + fullname + " | Email: " + emailaddress1);
-                                            string queryString = CustomerId.ToString() + "@" + "sl_prospecttemplate2";
-                                            queryString = await Encryption(queryString);
-                                            bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate2", queryString, queryString, baseUrl);
-                                            if (!string.IsNullOrEmpty(templateT2))
-                                            {
-                                                TemplateId = await RetrieveTemplateId(templateT2);
-                                                if (TemplateId != null)
-                                                {
-                                                    string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690010");
-                                                }
-                                            }
+                                    //case 5:
+                                    //    {
+                                    //        fullname = data.fullname != null ? data.fullname.Value : "";
+                                    //        string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                    //        this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 2 | Name : " + fullname + " | Email: " + emailaddress1);
+                                    //        string queryString = CustomerId.ToString() + "@" + "sl_prospecttemplate2";
+                                    //        queryString = await Encryption(queryString);
+                                    //        bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate2", queryString, queryString, baseUrl);
+                                    //        if (!string.IsNullOrEmpty(templateT2))
+                                    //        {
+                                    //            TemplateId = await RetrieveTemplateId(templateT2);
+                                    //            if (TemplateId != null)
+                                    //            {
+                                    //                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690010");
+                                    //            }
+                                    //        }
 
-                                            if (data.telephone1 != null)
-                                            {
-                                                fullname = data.fullname != null ? data.fullname.Value : "";
-                                                make = data.sl_make != null ? data.sl_make.Value : "";
-                                                model = data.sl_model != null ? data.sl_model.Value : "";
-                                                mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
-                                                if (!string.IsNullOrEmpty(smsT2))
-                                                {
-                                                    string smsMessage = smsT2;
-                                                    smsMessage = smsMessage.Replace("{contactname}", fullname);
-                                                    smsMessage = smsMessage.Replace("{make}", make);
-                                                    smsMessage = smsMessage.Replace("{model}", model);
-                                                    smsMessage = smsMessage.Replace("{valuation}", mprice);
-                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690010");
-                                                }
-                                            }
-                                            emailSent = emailSent + 1;
-                                            break;
-                                        }
+                                    //        if (data.telephone1 != null)
+                                    //        {
+                                    //            fullname = data.fullname != null ? data.fullname.Value : "";
+                                    //            make = data.sl_make != null ? data.sl_make.Value : "";
+                                    //            model = data.sl_model != null ? data.sl_model.Value : "";
+                                    //            mprice = data.sl_finalofferprice != null ? data.sl_finalofferprice.Value : "";
+                                    //            if (!string.IsNullOrEmpty(smsT2))
+                                    //            {
+                                    //                string smsMessage = smsT2;
+                                    //                smsMessage = smsMessage.Replace("{contactname}", fullname);
+                                    //                smsMessage = smsMessage.Replace("{make}", make);
+                                    //                smsMessage = smsMessage.Replace("{model}", model);
+                                    //                smsMessage = smsMessage.Replace("{valuation}", mprice);
+                                    //                string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690010");
+                                    //            }
+                                    //        }
+                                    //        emailSent = emailSent + 1;
+                                    //        break;
+                                    //    }
                                     //Trigger 3
                                     case 20:
                                         {
@@ -468,7 +468,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                 fullname = data.fullname != null ? data.fullname.Value : "";
                                                 make = data.sl_make != null ? data.sl_make.Value : "";
                                                 model = data.sl_model != null ? data.sl_model.Value : "";
-                                                mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                                mprice = data.sl_finalofferprice != null ? data.sl_finalofferprice.Value : "";
                                                 if (!string.IsNullOrEmpty(smsT2))
                                                 {
                                                     string smsMessage = smsT3;
