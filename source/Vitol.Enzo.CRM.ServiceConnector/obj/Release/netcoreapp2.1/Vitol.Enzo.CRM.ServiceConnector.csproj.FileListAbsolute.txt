@@ -62,3 +62,19 @@ D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vit
 D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.csproj.CopyComplete
 D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.dll
 D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.deps.json
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnector\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.csprojAssemblyReference.cache
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.csproj.CoreCompileInputs.cache
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.AssemblyInfoInputs.cache
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.AssemblyInfo.cs
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.csproj.CopyComplete
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnector\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.pdb

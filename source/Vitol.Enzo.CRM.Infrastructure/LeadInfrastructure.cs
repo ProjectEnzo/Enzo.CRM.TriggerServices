@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -10,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Vitol.Enzo.CRM.Domain;
 using Vitol.Enzo.CRM.InfrastructureInterface;
 using Vitol.Enzo.CRM.ServiceConnectorInterface;
-
 namespace Vitol.Enzo.CRM.Infrastructure
 {
     public class LeadInfrastructure : BaseInfrastructure, ILeadInfrastructure
@@ -682,8 +683,31 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
         }
 
-
-        #endregion  
+        public string  LeadUtilitySms(string param)
+        {
+            string xmlResponse;
+            var rootElement="";
+            if (param!=null)
+            {
+                var client1 = new RestClient(Configuration["SmartMessageAPI"]);
+                var  request1 = new RestRequest(Method.POST);
+                request1.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+                request1.AddParameter("undefined", "data=" + param, ParameterType.RequestBody);
+                IRestResponse response1 = client1.Execute(request1);
+                xmlResponse = response1.Content;
+                if (response1.StatusCode == HttpStatusCode.OK)
+                    rootElement = WebUtility.HtmlEncode(xmlResponse);
+                else
+                    rootElement = "Error";
+            }
+            else
+            {
+                xmlResponse = null;
+            }
+            
+            return xmlResponse;
+        }
+        #endregion
     }
 
 }

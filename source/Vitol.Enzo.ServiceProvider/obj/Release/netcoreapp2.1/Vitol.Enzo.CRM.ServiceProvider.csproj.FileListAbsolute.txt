@@ -46,3 +46,15 @@ D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.En
 D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.csproj.CopyComplete
 D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
 D:\VAVACODE\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.ServiceProvider\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.deps.json
+E:\CRM Trigger Services\source\Vitol.Enzo.ServiceProvider\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.ServiceProvider\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.ServiceProvider\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.ServiceProvider\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.csprojAssemblyReference.cache
+E:\CRM Trigger Services\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.csproj.CoreCompileInputs.cache
+E:\CRM Trigger Services\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.AssemblyInfoInputs.cache
+E:\CRM Trigger Services\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.AssemblyInfo.cs
+E:\CRM Trigger Services\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.csproj.CopyComplete
+E:\CRM Trigger Services\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.ServiceProvider\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb
