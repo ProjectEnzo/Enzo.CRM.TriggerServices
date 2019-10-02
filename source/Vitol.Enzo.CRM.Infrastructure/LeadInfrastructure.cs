@@ -695,7 +695,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 IRestResponse response1 = client1.Execute(request1);
                 xmlResponse = response1.Content;
                 if (response1.StatusCode == HttpStatusCode.OK)
-                    xmlResponse = WebUtility.UrlEncode(xmlResponse);
+                    xmlResponse = WebUtility.UrlEncode(xmlResponse).ToString();
                 else
                     xmlResponse = "Error";
             }
