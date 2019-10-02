@@ -44,8 +44,6 @@ namespace Vitol.Enzo.CRM.Application
         {
             return await this.LeadInfrastructure.LeadUtilityService(str);
         }
-
-
         #endregion
     }
 }

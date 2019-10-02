@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -62,12 +63,15 @@ namespace Vitol.Enzo.CRM.API.Lead.Controllers
             return response;
         }
 
-        [HttpGet]
-        public ActionResult<string> Get()
+        [HttpPost]
+        [Route("LeadUtilitySMS")]
+        public string  LeadUtilitySms([FromBody]SMSEnvelope envelope)
         {
-            return "Test";
+            string var = envelope.request;
+
+            return envelope.request;
         }
-  
+
 
         #endregion
 
