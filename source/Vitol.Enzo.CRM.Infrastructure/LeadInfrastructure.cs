@@ -688,7 +688,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             string xmlResponse;
             if (param!=null)
             {
-                var client1 = new RestClient(Configuration["AzureCRM:SmartMessageAPI"]);
+                var client1 = new RestClient(Configuration["SmartMessageAPI"]);
                 var  request1 = new RestRequest(Method.POST);
                 request1.AddHeader("Content-Type", "application/x-www-form-urlencoded");
                 request1.AddParameter("undefined", "data=" + param, ParameterType.RequestBody);
