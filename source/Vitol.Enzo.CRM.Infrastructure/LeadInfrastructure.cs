@@ -694,7 +694,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 request1.AddParameter("undefined", "data=" + param, ParameterType.RequestBody);
                 IRestResponse response1 = client1.Execute(request1);
                 xmlResponse = response1.Content;
-                if (response1.StatusCode != HttpStatusCode.OK)
+                if (response1.StatusCode == HttpStatusCode.OK)
+                    xmlResponse = WebUtility.UrlEncode(xmlResponse);
+                else
                     xmlResponse = "Error";
             }
             else
