@@ -65,9 +65,9 @@ namespace Vitol.Enzo.CRM.API.Lead.Controllers
 
         [HttpPost]
         [Route("LeadUtilitySMS")]
-        public void  LeadUtilitySms([FromBody]SMSEnvelope envelope)
+        public string  LeadUtilitySms([FromBody]SMSEnvelope envelope)
         {
-            this.LeadApplication.LeadUtilitySms(envelope.request);
+            return this.LeadApplication.LeadUtilitySms(envelope.request);
         }
 
 
