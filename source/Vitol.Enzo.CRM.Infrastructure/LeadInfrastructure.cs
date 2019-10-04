@@ -707,22 +707,32 @@ namespace Vitol.Enzo.CRM.Infrastructure
             
             return xmlResponse;
         }*/
-        public IRestResponse LeadUtilitySms(string param)
+        public string LeadUtilitySms(string param)
         {
+            string xmlResponse="";
+            string Exception="";
+            Exception = Configuration["ERRORSMS"];
             try
             {
-                IRestResponse response;
                 var client = new RestClient(Configuration["SmartMessageAPI"]);
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
                 request.AddParameter("undefined", "data=" + param, ParameterType.RequestBody);
-                response = client.Execute(request);
-                return response;
+                IRestResponse response = client.Execute(request);
+                xmlResponse = response.Content;
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    Exception = Exception.Replace("{Exception}", response.ErrorMessage.ToString());
+                    xmlResponse = Exception;
+                }
             }
             catch(Exception ex)
             {
-                return new RestResponse { ErrorMessage=ex.ToString() };
+                Exception = Exception.Replace("{Exception}", ex.ToString());
+                xmlResponse = Exception;
             }
+
+            return WebUtility.UrlEncode(xmlResponse).ToString();
         }
 
         #endregion
