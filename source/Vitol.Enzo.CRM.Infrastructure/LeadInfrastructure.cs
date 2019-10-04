@@ -683,6 +683,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
         }
 
+        /*
         public string  LeadUtilitySms(string param)
         {
             string xmlResponse;
@@ -705,7 +706,25 @@ namespace Vitol.Enzo.CRM.Infrastructure
             }
             
             return xmlResponse;
+        }*/
+        public IRestResponse LeadUtilitySms(string param)
+        {
+            try
+            {
+                IRestResponse response;
+                var client = new RestClient(Configuration["SmartMessageAPI"]);
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+                request.AddParameter("undefined", "data=" + param, ParameterType.RequestBody);
+                response = client.Execute(request);
+                return response;
+            }
+            catch(Exception ex)
+            {
+                return new RestResponse { ErrorMessage=ex.ToString() };
+            }
         }
+
         #endregion
     }
 
