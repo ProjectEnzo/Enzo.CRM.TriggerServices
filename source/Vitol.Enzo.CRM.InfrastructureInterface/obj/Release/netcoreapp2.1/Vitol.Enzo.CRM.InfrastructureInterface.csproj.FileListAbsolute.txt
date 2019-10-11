@@ -54,3 +54,17 @@ D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp
 D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.csproj.CopyComplete
 D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.dll
 D:\VAVACODE\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.deps.json
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.InfrastructureInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.csprojAssemblyReference.cache
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.csproj.CoreCompileInputs.cache
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.AssemblyInfoInputs.cache
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.AssemblyInfo.cs
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.csproj.CopyComplete
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.dll
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.InfrastructureInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.pdb

@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -10,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Vitol.Enzo.CRM.Domain;
 using Vitol.Enzo.CRM.InfrastructureInterface;
 using Vitol.Enzo.CRM.ServiceConnectorInterface;
-
 namespace Vitol.Enzo.CRM.Infrastructure
 {
     public class LeadInfrastructure : BaseInfrastructure, ILeadInfrastructure
@@ -682,8 +683,35 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
         }
 
+        public string LeadUtilitySms(string param)
+        {
+            string xmlResponse="";
+            string Exception="";
+            Exception = Configuration["ERRORSMS"];
+            try
+            {
+                var client = new RestClient(Configuration["SmartMessageAPI"]);
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+                request.AddParameter("undefined", "data=" + param, ParameterType.RequestBody);
+                IRestResponse response = client.Execute(request);
+                xmlResponse = response.Content;
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    Exception = Exception.Replace("{Exception}", response.ErrorMessage.ToString());
+                    xmlResponse = Exception;
+                }
+            }
+            catch(Exception ex)
+            {
+                Exception = Exception.Replace("{Exception}", ex.ToString());
+                xmlResponse = Exception;
+            }
 
-        #endregion  
+            return WebUtility.UrlEncode(xmlResponse).ToString();
+        }
+
+        #endregion
     }
 
 }

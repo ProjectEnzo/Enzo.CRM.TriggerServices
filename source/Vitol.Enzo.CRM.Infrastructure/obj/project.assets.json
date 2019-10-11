@@ -260,6 +260,15 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "RestSharp/106.6.10": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        }
+      },
       "System.Memory/4.5.1": {
         "type": "package",
         "compile": {
@@ -937,6 +946,21 @@
         "newtonsoft.json.nuspec"
       ]
     },
+    "RestSharp/106.6.10": {
+      "sha512": "x1FM32hjnVOIn+DKtCs2Y4Q2DCUE5KW08NUXUd4GjgKjE+5PE0F6e9XfUg7nILo05M0TA/HRkRD/SeQ8+duOUA==",
+      "type": "package",
+      "path": "restsharp/106.6.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/RestSharp.dll",
+        "lib/net452/RestSharp.xml",
+        "lib/netstandard2.0/RestSharp.dll",
+        "lib/netstandard2.0/RestSharp.xml",
+        "restsharp.106.6.10.nupkg.sha512",
+        "restsharp.nuspec"
+      ]
+    },
     "System.Memory/4.5.1": {
       "sha512": "sDJYJpGtTgx+23Ayu5euxG5mAXWdkDb4+b0rD0Cab0M1oQS9H0HXGPriKcqpXuiJDTV7fTp/d+fMDJmnr6sNvA==",
       "type": "package",
@@ -1035,6 +1059,7 @@
       "Microsoft.Extensions.Logging.Abstractions >= 2.1.1",
       "Microsoft.NETCore.App >= 2.1.0",
       "Newtonsoft.Json >= 12.0.2",
+      "RestSharp >= 106.6.10",
       "Vitol.Enzo.CRM.Core >= 1.0.0",
       "Vitol.Enzo.CRM.Domain >= 1.0.0",
       "Vitol.Enzo.CRM.InfrastructureInterface >= 1.0.0",
@@ -1043,23 +1068,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\faisal.imran\\.nuget\\packages\\": {},
+    "C:\\Users\\muhammad.akif\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Infrastructure\\Vitol.Enzo.CRM.Infrastructure.csproj",
+      "projectUniqueName": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.Infrastructure\\Vitol.Enzo.CRM.Infrastructure.csproj",
       "projectName": "Vitol.Enzo.CRM.Infrastructure",
-      "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Infrastructure\\Vitol.Enzo.CRM.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\faisal.imran\\.nuget\\packages\\",
-      "outputPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Infrastructure\\obj\\",
+      "projectPath": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.Infrastructure\\Vitol.Enzo.CRM.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\muhammad.akif\\.nuget\\packages\\",
+      "outputPath": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\faisal.imran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\muhammad.akif\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1072,20 +1097,20 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Core\\Vitol.Enzo.CRM.Core.csproj": {
-              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Core\\Vitol.Enzo.CRM.Core.csproj"
+            "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.Core\\Vitol.Enzo.CRM.Core.csproj": {
+              "projectPath": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.Core\\Vitol.Enzo.CRM.Core.csproj"
             },
-            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj": {
-              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj"
+            "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj": {
+              "projectPath": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.Domain\\Vitol.Enzo.CRM.Domain.csproj"
             },
-            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.InfrastructureInterface\\Vitol.Enzo.CRM.InfrastructureInterface.csproj": {
-              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.InfrastructureInterface\\Vitol.Enzo.CRM.InfrastructureInterface.csproj"
+            "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.InfrastructureInterface\\Vitol.Enzo.CRM.InfrastructureInterface.csproj": {
+              "projectPath": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.InfrastructureInterface\\Vitol.Enzo.CRM.InfrastructureInterface.csproj"
             },
-            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj": {
-              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj"
+            "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj": {
+              "projectPath": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.ServiceConnectorInterface\\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj"
             },
-            "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ServiceConnector\\Vitol.Enzo.CRM.ServiceConnector.csproj": {
-              "projectPath": "D:\\VAVACODE\\source\\Vitol.Enzo.CRM.ServiceConnector\\Vitol.Enzo.CRM.ServiceConnector.csproj"
+            "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.ServiceConnector\\Vitol.Enzo.CRM.ServiceConnector.csproj": {
+              "projectPath": "E:\\CRM Trigger Services\\source\\Vitol.Enzo.CRM.ServiceConnector\\Vitol.Enzo.CRM.ServiceConnector.csproj"
             }
           }
         }
@@ -1120,6 +1145,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[12.0.2, )"
+          },
+          "RestSharp": {
+            "target": "Package",
+            "version": "[106.6.10, )"
           }
         },
         "imports": [
