@@ -26,6 +26,10 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string smsT5 = string.Empty;
         string smsT6 = string.Empty;
 
+        //Start String Initializations FOR  PK
+        string smsT2PK, smsT3PK, smsT4PK, smsT5PK, smsT6PK, liveDatePK, emailSenderIdPK, timeZonePK = string.Empty;
+        //End String Initiallizations FOR PK
+
         //Email Template
         string templateT2 = string.Empty;
         string templateT3 = string.Empty;
@@ -76,6 +80,17 @@ namespace Vitol.Enzo.CRM.Infrastructure
             //Email Sender Id
             emailsenderId = Configuration["AzureCRM:emailSenderId"];
             liveDate = Configuration["AzureCRM:liveDate"];
+            //Start PK Configurations
+            emailSenderIdPK = Configuration["AzureCRMPK:emailSenderIdPK"];
+            liveDatePK = Configuration["AzureCRMPK:liveDate"];
+            timeZonePK= Configuration["AzureCRMPK:timeZonePK"];
+            //SMS Template For PK
+            smsT2PK = Configuration["Lead:smsT2PK"];
+            smsT3PK = Configuration["Lead:smsT3PK"];
+            smsT4PK = Configuration["Lead:smsT4PK"];
+            smsT5PK = Configuration["Lead:smsT5PK"];
+            smsT6PK = Configuration["Lead:smsT6PK"];
+            //End PK Configurations
             baseUrl = Configuration["AzureCRM:baseUrl"];
             timeZoneStr = Configuration["AzureCRM:timeZoneStr"];
             appointmentStatusCancelled = Configuration["AzureCRM:appointmentStatusCancelled"];
@@ -191,8 +206,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             this.Logger.LogDebug("Total Lead Number of records : " + TotalRecord);
             this.Logger.LogDebug("Total Lead Number of Emails sent : " + emailSent);
             return "Success Record: " + resultText;
-        }
-       
+        }       
         public async Task<string> CreateSMSActivity(Guid CustomerId, string mobileNo, string textMessage,string triggerTemplate)
         {
             exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.leadUtilityService);
