@@ -27,7 +27,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string smsT6 = string.Empty;
 
         //Start String Initializations FOR  PK
-        string smsT2PK, smsT3PK, smsT4PK, smsT5PK, smsT6PK, liveDatePK, emailSenderIdPK, timeZonePK = string.Empty;
+        string smsT2PK, smsT3PK, smsT4PK, smsT5PK, smsT6PK, liveDatePK, emailSenderIdPK, timeZonePK,BussinessUnitPK,BussinessUnitTR= string.Empty;
         //End String Initiallizations FOR PK
 
         //Email Template
@@ -90,6 +90,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
             smsT4PK = Configuration["Lead:smsT4PK"];
             smsT5PK = Configuration["Lead:smsT5PK"];
             smsT6PK = Configuration["Lead:smsT6PK"];
+            BussinessUnitPK = Configuration["BussinessUnitPK"];
+            BussinessUnitTR = Configuration["BussinessUnitTR"];
             //End PK Configurations
             baseUrl = Configuration["AzureCRM:baseUrl"];
             timeZoneStr = Configuration["AzureCRM:timeZoneStr"];
@@ -131,7 +133,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 this.Logger.LogDebug("Lead Checkeddate: "+DateTime.Now.ToString());
                 Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
                 string queryLead;
-                queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_valuationcreateddate desc";
+                queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and _owningbusinessunit_value eq "+BussinessUnitTR.ToString().ToLower()+"and donotbulkemail ne true &$orderby = emailaddress1 asc,sl_registrationnumber asc, sl_valuationcreateddate desc";
+                //queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1  and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_valuationcreateddate desc";
                 this.Logger.LogDebug("Query Lead: " + queryLead);
                 if (triggerType == "Lead")
                 {
@@ -206,7 +209,107 @@ namespace Vitol.Enzo.CRM.Infrastructure
             this.Logger.LogDebug("Total Lead Number of records : " + TotalRecord);
             this.Logger.LogDebug("Total Lead Number of Emails sent : " + emailSent);
             return "Success Record: " + resultText;
-        }       
+        }
+        public async Task<string> LeadUtilityServicePK(string str)
+        {
+
+            exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.leadUtilityService);
+
+            string resultText = null;
+            try
+            {
+                tmpEmail = "";
+                tmpRegistrationNumber = "";
+
+
+                string triggerType = "Lead";
+                JArray records = null;
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                string inputValutionDate = string.Empty;
+                DateTime startValuationDate = DateTime.Now.AddDays(-30);
+                inputValutionDate = startValuationDate.ToString("yyyy-MM-dd");
+                TotalRecord = 0;
+                emailSent = 0;
+                this.Logger.LogDebug("Lead Checkeddate: " + DateTime.Now.ToString());
+                Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
+                string queryLead;
+                queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDatePK + " and statuscode eq 1 and _owningbusinessunit_value eq " + BussinessUnitPK.ToString().ToLower() + "and donotbulkemail ne true &$orderby = emailaddress1 asc,sl_registrationnumber asc, sl_valuationcreateddate desc";
+                //queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_valuationcreateddate desc";
+                this.Logger.LogDebug("Query Lead: " + queryLead);
+                if (triggerType == "Lead")
+                {
+                    HttpClient httpClient = new HttpClient();
+
+                    httpClient.DefaultRequestHeaders.Add("OData-Version", "4.0");
+                    httpClient.DefaultRequestHeaders.Add("Prefer", "return=representation");
+                    httpClient.DefaultRequestHeaders.Add("Prefer", "odata.maxpagesize=20");
+                    httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+                    HttpResponseMessage response = await httpClient.GetAsync(base.Resource + queryLead);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string responseJson = await response.Content.ReadAsStringAsync();
+                        dynamic contact = JsonConvert.DeserializeObject(responseJson);
+                        if (contact != null)
+                        {
+                            records = contact.value;
+                            if (records != null && records.Count > 0)
+                            {
+                                resultText = await LeadProcessContactsPK(contact, resultText);
+
+                                //Paging
+                                string nextpageUri = null;
+
+                                if (contact["@odata.nextLink"] != null)
+                                    nextpageUri = contact["@odata.nextLink"].ToString(); //This URI is already encoded.
+
+                                while (nextpageUri != null)
+                                {
+                                    contact = await RetrieveMultiplePaging(nextpageUri);
+                                    if (contact["@odata.nextLink"] == null)
+                                    {
+                                        resultText = resultText + " Page Start (Last) ";
+                                        nextpageUri = null;
+                                        resultText = await LeadProcessContactsPK(contact, resultText);
+                                        resultText = resultText + " Page End (Last) ";
+                                    }
+                                    else
+                                    {
+                                        resultText = resultText + " Page Start ";
+                                        nextpageUri = contact["@odata.nextLink"].ToString(); //This URI is already encoded.
+                                        resultText = await LeadProcessContactsPK(contact, resultText);
+                                        resultText = resultText + " Page End ";
+                                    }
+                                }
+                                //EndPaging
+                            }
+                            else
+                            {
+                                this.Logger.LogError(exceptionModel.getExceptionFormat("Contact Not found"));
+                            }
+
+                        }
+                        else
+                        {
+                            this.Logger.LogError(exceptionModel.getExceptionFormat("Contact Not found"));
+                        }
+                    }
+                    else
+                        this.Logger.LogError(exceptionModel.getExceptionFormat(response.Content.ToString()));
+
+                }
+            }
+            catch (Exception ex)
+            {
+                this.Logger.LogError(exceptionModel.getExceptionFormat(ex.ToString()));
+
+            }
+
+            this.Logger.LogDebug("Total Lead Number of records : " + TotalRecord);
+            this.Logger.LogDebug("Total Lead Number of Emails sent : " + emailSent);
+            return "Success Record: " + resultText;
+        }
         public async Task<string> CreateSMSActivity(Guid CustomerId, string mobileNo, string textMessage,string triggerTemplate)
         {
             exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.leadUtilityService);
@@ -537,6 +640,240 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                 if (!string.IsNullOrEmpty(smsT6))
                                                 {
                                                     string smsMessage = smsT6;
+                                                    smsMessage = smsMessage.Replace("{contactname}", fullname);
+                                                    smsMessage = smsMessage.Replace("{make}", make);
+                                                    smsMessage = smsMessage.Replace("{model}", model);
+                                                    smsMessage = smsMessage.Replace("{valuation}", mprice);
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690004");
+                                                }
+                                            }
+                                            emailSent = emailSent + 1;
+                                            break;
+                                        }
+
+                                }
+
+                            }
+                        }
+
+                    }
+                    tmpEmail = data.emailaddress1.Value;
+                    tmpRegistrationNumber = data.sl_registrationnumber.Value;
+                }
+                returnMsg = resultText;
+            }
+            catch (Exception ex)
+            {
+                this.Logger.LogError(exceptionModel.getExceptionFormat(ex.ToString()));
+
+            }
+            return returnMsg;
+        }
+        public async Task<string> LeadProcessContactsPK(dynamic contact, string resultText)
+        {
+            string returnMsg = string.Empty;
+            var globalTimezoneValue = TimeZoneInfo.FindSystemTimeZoneById(timeZonePK);
+            try
+            {
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                Guid TemplateId;
+                Guid fromUserId = Guid.Empty;
+                if (!string.IsNullOrEmpty(emailSenderIdPK))
+                {
+                    fromUserId = new Guid(emailSenderIdPK);
+                }
+                foreach (var data in contact.value)
+                {
+                    TotalRecord = TotalRecord + 1;
+                    if (data.emailaddress1.Value != null && data.sl_registrationnumber.Value != null)
+                    {
+                        resultText = resultText + " Email Address: " + data.emailaddress1.Value;
+                        if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_registrationnumber.Value)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            Guid CustomerId = (Guid)data.contactid;
+                            string fullname = string.Empty;
+                            string make = string.Empty;
+                            string model = string.Empty;
+                            string mprice = string.Empty;
+
+                            if (data.sl_valuationcreateddate.Value != null)
+                            {
+                                DateTime valuationcreateddate = data.sl_valuationcreateddate.Value;
+
+                                valuationcreateddate = TimeZoneInfo.ConvertTime(valuationcreateddate, globalTimezoneValue);
+                                var dateTimeNowUTC = DateTime.Now.ToUniversalTime();
+                                var dateTimeNowTimeZone = TimeZoneInfo.ConvertTime(dateTimeNowUTC, globalTimezoneValue);
+                                //var dayDiff = dateTimeNowTimeZone.Date.Subtract(crmTimezoneDate.Date).TotalDays;
+
+                                valuationcreateddate = valuationcreateddate.Date;
+                                int totaldays;
+                                totaldays = (int)dateTimeNowTimeZone.Date.Subtract(valuationcreateddate).TotalDays;
+                                switch (totaldays)
+                                {
+                                    //Trigger 2
+                                    case 3:
+                                        {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Lead Trigger 2 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate2";
+                                            queryString = await Encryption(queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate2", queryString, queryString, baseUrl);
+                                            if (!string.IsNullOrEmpty(templateT2))
+                                            {
+                                                TemplateId = await RetrieveTemplateId(templateT2);
+                                                if (TemplateId != null)
+                                                {
+                                                    string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690000");
+                                                }
+                                            }
+
+                                            if (data.telephone1 != null)
+                                            {
+
+                                                fullname = data.fullname != null ? data.fullname.Value : "";
+                                                make = data.sl_make != null ? data.sl_make.Value : "";
+                                                model = data.sl_model != null ? data.sl_model.Value : "";
+                                                mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                                if (!string.IsNullOrEmpty(smsT2PK))
+                                                {
+                                                    string smsMessage = smsT2PK;
+                                                    smsMessage = smsMessage.Replace("{contactname}", fullname);
+                                                    smsMessage = smsMessage.Replace("{make}", make);
+                                                    smsMessage = smsMessage.Replace("{model}", model);
+                                                    smsMessage = smsMessage.Replace("{valuation}", mprice);
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690000");
+                                                }
+                                            }
+                                            emailSent = emailSent + 1;
+                                            break;
+                                        }
+                                    //Trigger 3
+                                    case 5:
+                                        {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Lead Trigger 3 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate3";
+                                            queryString = await Encryption(queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate3", queryString, queryString, baseUrl);
+                                            TemplateId = await RetrieveTemplateId(templateT3);
+                                            if (TemplateId != null)
+                                            {
+                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690001");
+                                            }
+                                            if (data.telephone1 != null)
+                                            {
+                                                fullname = data.fullname != null ? data.fullname.Value : "";
+                                                make = data.sl_make != null ? data.sl_make.Value : "";
+                                                model = data.sl_model != null ? data.sl_model.Value : "";
+                                                mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                                if (!string.IsNullOrEmpty(smsT2PK))
+                                                {
+                                                    string smsMessage = smsT3PK;
+                                                    smsMessage = smsMessage.Replace("{contactname}", fullname);
+                                                    smsMessage = smsMessage.Replace("{make}", make);
+                                                    smsMessage = smsMessage.Replace("{model}", model);
+                                                    smsMessage = smsMessage.Replace("{valuation}", mprice);
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690001");
+                                                }
+                                            }
+                                            emailSent = emailSent + 1;
+                                            break;
+                                        }
+                                    //Trigger 4
+                                    case 7:
+                                        {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Lead Trigger 4 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate4";
+                                            queryString = await Encryption(queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate4", queryString, queryString, baseUrl);
+                                            TemplateId = await RetrieveTemplateId(templateT4);
+                                            if (TemplateId != null)
+                                            {
+                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690002");
+                                            }
+                                            if (data.telephone1 != null)
+                                            {
+                                                fullname = data.fullname != null ? data.fullname.Value : "";
+                                                make = data.sl_make != null ? data.sl_make.Value : "";
+                                                model = data.sl_model != null ? data.sl_model.Value : "";
+                                                mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                                if (!string.IsNullOrEmpty(smsT4PK))
+                                                {
+                                                    string smsMessage = smsT4PK;
+                                                    smsMessage = smsMessage.Replace("{contactname}", fullname);
+                                                    smsMessage = smsMessage.Replace("{make}", make);
+                                                    smsMessage = smsMessage.Replace("{model}", model);
+                                                    smsMessage = smsMessage.Replace("{valuation}", mprice);
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690002");
+                                                }
+                                            }
+                                            emailSent = emailSent + 1;
+                                            break;
+                                        }
+                                    //Trigger 5
+                                    case 17:
+                                        {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Lead Trigger 5 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate5";
+                                            queryString = await Encryption(queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate5", queryString, queryString, baseUrl);
+                                            TemplateId = await RetrieveTemplateId(templateT5);
+                                            if (TemplateId != null)
+                                            {
+                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690003");
+                                            }
+                                            if (data.telephone1 != null)
+                                            {
+                                                fullname = data.fullname != null ? data.fullname.Value : "";
+                                                make = data.sl_make != null ? data.sl_make.Value : "";
+                                                model = data.sl_model != null ? data.sl_model.Value : "";
+                                                mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                                if (!string.IsNullOrEmpty(smsT5PK))
+                                                {
+                                                    string smsMessage = smsT5PK;
+                                                    smsMessage = smsMessage.Replace("{contactname}", fullname);
+                                                    smsMessage = smsMessage.Replace("{make}", make);
+                                                    smsMessage = smsMessage.Replace("{model}", model);
+                                                    smsMessage = smsMessage.Replace("{valuation}", mprice);
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690003");
+                                                }
+                                            }
+                                            emailSent = emailSent + 1;
+                                            break;
+                                        }
+                                    //Trigger 6
+                                    case 27:
+                                        {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Lead Trigger 6 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate6";
+                                            queryString = await Encryption(queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate6", queryString, queryString, baseUrl);
+                                            TemplateId = await RetrieveTemplateId(templateT6);
+                                            if (TemplateId != null)
+                                            {
+                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690004");
+                                            }
+                                            if (data.telephone1 != null)
+                                            {
+                                                fullname = data.fullname != null ? data.fullname.Value : "";
+                                                make = data.sl_make != null ? data.sl_make.Value : "";
+                                                model = data.sl_model != null ? data.sl_model.Value : "";
+                                                mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                                if (!string.IsNullOrEmpty(smsT6PK))
+                                                {
+                                                    string smsMessage = smsT6PK;
                                                     smsMessage = smsMessage.Replace("{contactname}", fullname);
                                                     smsMessage = smsMessage.Replace("{make}", make);
                                                     smsMessage = smsMessage.Replace("{model}", model);

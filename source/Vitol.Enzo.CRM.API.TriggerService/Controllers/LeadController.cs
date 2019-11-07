@@ -62,6 +62,28 @@ namespace Vitol.Enzo.CRM.API.Lead.Controllers
             }
             return response;
         }
+        /// <summary>
+        /// Pakistan Lead Utility Service
+        /// </summary>
+        /// <param name="envelope"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("LeadUtilityServicePK")]
+        public async Task<string> LeadUtilityServicePK(string str)
+        {
+            string secretKey = Configuration.GetSection("Keys:EncryptionkeyLeadPK").Value;
+            var response = "";
+            if (Request.Headers["Token"].ToString() == secretKey)
+            {
+                var response1 = this.LeadApplication.LeadUtilityServicePK(str);
+            }
+            else
+            {
+                response = HttpStatusCode.Unauthorized.ToString();
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            }
+            return response;
+        }
 
         [HttpPost]
         [Route("LeadUtilitySMS")]
