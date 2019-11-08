@@ -27,7 +27,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string smsT6 = string.Empty;
 
         //Start String Initializations FOR  PK
-        string smsT2PK, smsT3PK, smsT4PK, smsT5PK, smsT6PK, liveDatePK, emailSenderIdPK, timeZonePK,BussinessUnitPK,BussinessUnitTR= string.Empty;
+        string smsT2PK, smsT3PK, smsT4PK, smsT5PK, smsT6PK, liveDatePK, emailSenderIdPK, timeZonePK,BussinessUnitPK,BussinessUnitTR,templateT2PK = string.Empty;
+        
         //End String Initiallizations FOR PK
 
         //Email Template
@@ -82,7 +83,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             liveDate = Configuration["AzureCRM:liveDate"];
             //Start PK Configurations
             emailSenderIdPK = Configuration["AzureCRMPK:emailSenderIdPK"];
-            liveDatePK = Configuration["AzureCRMPK:liveDate"];
+            liveDatePK = Configuration["AzureCRMPK:liveDatePK"];
             timeZonePK= Configuration["AzureCRMPK:timeZonePK"];
             //SMS Template For PK
             smsT2PK = Configuration["Lead:smsT2PK"];
@@ -92,6 +93,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             smsT6PK = Configuration["Lead:smsT6PK"];
             BussinessUnitPK = Configuration["BussinessUnitPK"];
             BussinessUnitTR = Configuration["BussinessUnitTR"];
+            templateT2PK = Configuration["Lead:templateT2PK"];
             //End PK Configurations
             baseUrl = Configuration["AzureCRM:baseUrl"];
             timeZoneStr = Configuration["AzureCRM:timeZoneStr"];
@@ -133,7 +135,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 this.Logger.LogDebug("Lead Checkeddate: "+DateTime.Now.ToString());
                 Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
                 string queryLead;
-                queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and _owningbusinessunit_value eq "+BussinessUnitTR.ToString().ToLower()+"and donotbulkemail ne true &$orderby = emailaddress1 asc,sl_registrationnumber asc, sl_valuationcreateddate desc";
+                queryLead = "api/data/v9.1/contacts?$select=_owningbusinessunit_value,sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and _owningbusinessunit_value eq "+BussinessUnitTR.ToLower()+" and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc, sl_valuationcreateddate desc";
                 //queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1  and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_valuationcreateddate desc";
                 this.Logger.LogDebug("Query Lead: " + queryLead);
                 if (triggerType == "Lead")
@@ -233,7 +235,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 this.Logger.LogDebug("Lead Checkeddate: " + DateTime.Now.ToString());
                 Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
                 string queryLead;
-                queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDatePK + " and statuscode eq 1 and _owningbusinessunit_value eq " + BussinessUnitPK.ToString().ToLower() + "and donotbulkemail ne true &$orderby = emailaddress1 asc,sl_registrationnumber asc, sl_valuationcreateddate desc";
+                queryLead = "api/data/v9.1/contacts?$select=_owningbusinessunit_value,sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDatePK + " and statuscode eq 1 and _owningbusinessunit_value eq " + BussinessUnitPK.ToLower() + " and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc, sl_valuationcreateddate desc";
                 //queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_valuationcreateddate desc";
                 this.Logger.LogDebug("Query Lead: " + queryLead);
                 if (triggerType == "Lead")
@@ -723,9 +725,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                             string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate2";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate2", queryString, queryString, baseUrl);
-                                            if (!string.IsNullOrEmpty(templateT2))
+                                            if (!string.IsNullOrEmpty(templateT2PK))
                                             {
-                                                TemplateId = await RetrieveTemplateId(templateT2);
+                                                TemplateId = await RetrieveTemplateId(templateT2PK);
                                                 if (TemplateId != null)
                                                 {
                                                     string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690000");
