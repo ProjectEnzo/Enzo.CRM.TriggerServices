@@ -8,6 +8,7 @@ namespace Vitol.Enzo.CRM.InfrastructureInterface
     {
 
         Task<string> OpportunityUtilityService(string str);
+        Task<string> OpportunityUtilityServicePK(string str);
 
     }
 }

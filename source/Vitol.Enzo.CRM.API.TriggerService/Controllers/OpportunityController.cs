@@ -62,6 +62,24 @@ namespace Vitol.Enzo.CRM.API.Opportunity.Controllers
             return response;
 
         }
+        [HttpPost]
+        [Route("OpportunityUtilityServicePK")]
+        public async Task<string> OpportunityUtilityServicePK(string str)
+        {
+            string secretKey = Configuration.GetSection("Keys:EncryptionkeyOpportunityPK").Value;
+            var response = "";
+            if (Request.Headers["Token"].ToString() == secretKey)
+            {
+                var response1 = this.OpportunityApplication.OpportunityUtilityServicePK(str);
+            }
+            else
+            {
+                response = HttpStatusCode.Unauthorized.ToString();
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            }
+            return response;
+
+        }
 
         [HttpGet]
         public ActionResult<string> Get()

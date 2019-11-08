@@ -17,6 +17,10 @@ namespace Vitol.Enzo.CRM.Infrastructure
 {
     public class OpportunityInfrastructure : BaseInfrastructure, IOpportunityInfrastructure
     {
+        //Start String Initializations FOR  PK
+        string smsT1PK, smsT2PK, smsT3PK, smsT4PK, liveDatePK, emailSenderIdPK, BussinessUnitPK, BussinessUnitTR, templateT1PK = string.Empty;
+        //End  String Initializations FOR  PK
+
         //SMS TEMPLATE
         string smsT1 = string.Empty;
         string smsT2 = string.Empty;
@@ -75,6 +79,19 @@ namespace Vitol.Enzo.CRM.Infrastructure
             appointmentStatusCancelled = Configuration["AzureCRM:appointmentStatusCancelled"];
             appointmentStatusAssigned = Configuration["AzureCRM:appointmentStatusAssigned"];
 
+            //Start PK Configurations
+            emailSenderIdPK = Configuration["AzureCRMPK:emailSenderIdPK"];
+            liveDatePK = Configuration["AzureCRMPK:liveDatePK"];
+            //SMS Template For PK
+            smsT1PK = Configuration["Opportunity:smsT1PK"];
+            smsT2PK = Configuration["Opportunity:smsT2PK"];
+            smsT3PK = Configuration["Opportunity:smsT3PK"];
+            smsT4PK = Configuration["Opportunity:smsT4PK"];
+            BussinessUnitPK = Configuration["BussinessUnitPK"];
+            BussinessUnitTR = Configuration["BussinessUnitTR"];
+            templateT1PK = Configuration["Opportunity:templateT1PK"];
+            //End PK Configurations
+
         }
         #endregion
 
@@ -117,7 +134,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
                 Guid appointmentAssignedId = await RetrieveAppointmentId(appointmentStatusAssigned);
                 string queryOpportunity;
-                queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value ne " + appointmentCancelledId.ToString() + " and _sl_appointmentstatus_value ne " + appointmentAssignedId.ToString() + " ) and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
+                //queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value ne " + appointmentCancelledId.ToString() + " and _sl_appointmentstatus_value ne " + appointmentAssignedId.ToString() + " ) and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
+                queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value ne " + appointmentCancelledId.ToString() + " and _sl_appointmentstatus_value ne " + appointmentAssignedId.ToString() + " ) and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_mprice ne null and _owningbusinessunit_value eq " + BussinessUnitTR.ToLower() + " and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
                 this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
                 if (triggerType == "Opportunity")
                 {
@@ -193,7 +211,110 @@ namespace Vitol.Enzo.CRM.Infrastructure
             this.Logger.LogDebug("Total Opportunity Number of Emails sent: " + emailSent);
             return "Success Record: " + resultText;
         }
+        public async Task<string> OpportunityUtilityServicePK(string str)
+        {
 
+
+            exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.opportunityUtilityService);
+            string resultText = null;
+            try
+            {
+                tmpEmail = "";
+                tmpRegistrationNumber = "";
+                string triggerType = "Opportunity";
+                JArray records = null;
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                string inputApointmentDate = string.Empty;
+                DateTime startValuationDate = DateTime.Now.AddDays(-30);
+                inputApointmentDate = startValuationDate.ToString("yyyy-MM-dd");
+                TotalRecord = 0;
+                emailSent = 0;
+                this.Logger.LogDebug("Opportunity Checkeddate: " + DateTime.Now.ToString());
+                DateTime currentDate = DateTime.Now;
+                string currentAppointmentDate = currentDate.ToString("yyyy-MM-ddTHH:mm:ssZ");
+
+
+
+                Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
+                Guid appointmentAssignedId = await RetrieveAppointmentId(appointmentStatusAssigned);
+                string queryOpportunity;
+                //queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value ne " + appointmentCancelledId.ToString() + " and _sl_appointmentstatus_value ne " + appointmentAssignedId.ToString() + " ) and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
+                queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value ne " + appointmentCancelledId.ToString() + " and _sl_appointmentstatus_value ne " + appointmentAssignedId.ToString() + " ) and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDatePK + " and statuscode eq 1 and sl_mprice ne null and _owningbusinessunit_value eq " + BussinessUnitPK.ToLower() + " and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
+                this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
+                if (triggerType == "Opportunity")
+                {
+                    HttpClient httpClient = new HttpClient();
+
+                    httpClient.DefaultRequestHeaders.Add("OData-Version", "4.0");
+                    httpClient.DefaultRequestHeaders.Add("Prefer", "return=representation");
+                    httpClient.DefaultRequestHeaders.Add("Prefer", "odata.maxpagesize=20");
+                    httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+                    HttpResponseMessage response = await httpClient.GetAsync(base.Resource + queryOpportunity);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string responseJson = await response.Content.ReadAsStringAsync();
+                        dynamic contact = JsonConvert.DeserializeObject(responseJson);
+                        if (contact != null)
+                        {
+                            records = contact.value;
+                            if (records != null && records.Count > 0)
+                            {
+                                resultText = await OpportunityProcessContacts(contact, resultText);
+
+                                //Paging
+                                string nextpageUri = null;
+
+                                if (contact["@odata.nextLink"] != null)
+                                    nextpageUri = contact["@odata.nextLink"].ToString(); //This URI is already encoded.
+
+                                while (nextpageUri != null)
+                                {
+                                    contact = await RetrieveMultiplePaging(nextpageUri);
+                                    if (contact["@odata.nextLink"] == null)
+                                    {
+                                        resultText = resultText + " Page Start (Last) ";
+                                        nextpageUri = null;
+                                        resultText = await OpportunityProcessContacts(contact, resultText);
+                                        resultText = resultText + " Page End (Last) ";
+                                    }
+                                    else
+                                    {
+                                        resultText = resultText + " Page Start ";
+                                        nextpageUri = contact["@odata.nextLink"].ToString(); //This URI is already encoded.
+                                        resultText = await OpportunityProcessContacts(contact, resultText);
+                                        resultText = resultText + " Page End ";
+                                    }
+                                }
+                                //EndPaging
+                            }
+                            else
+                            {
+                                this.Logger.LogError(exceptionModel.getExceptionFormat("Contact Not found"));
+                            }
+
+                        }
+                        else
+                        {
+                            this.Logger.LogError(exceptionModel.getExceptionFormat("Contact Not found"));
+                        }
+                    }
+                    else
+                        this.Logger.LogError(exceptionModel.getExceptionFormat(response.Content.ToString()));
+
+                }
+            }
+            catch (Exception ex)
+            {
+                this.Logger.LogError(exceptionModel.getExceptionFormat(ex.ToString()));
+
+            }
+
+            this.Logger.LogDebug("Total Opportunity Number of records: " + TotalRecord);
+            this.Logger.LogDebug("Total Opportunity Number of Emails sent: " + emailSent);
+            return "Success Record: " + resultText;
+        }
         public async Task<string> CreateSMSActivity(Guid CustomerId, string mobileNo, string textMessage,string triggerTemplate)
         {
             exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.leadUtilityService);
@@ -388,6 +509,217 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                 {
 
                                                     string smsMessage = smsT1;
+                                                    smsMessage = smsMessage.Replace("{contactname}", fullname);
+                                                    smsMessage = smsMessage.Replace("{make}", make);
+                                                    smsMessage = smsMessage.Replace("{model}", model);
+                                                    smsMessage = smsMessage.Replace("{valuation}", mprice);
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690005");
+                                                }
+                                            }
+                                            emailSent = emailSent + 1;
+                                            break;
+                                        }
+                                    //Trigger 2
+                                    case 5:
+                                        {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 2 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate2";
+                                            queryString = await Encryption(queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate2", queryString, queryString, baseUrl);
+                                            if (!string.IsNullOrEmpty(templateT2))
+                                            {
+                                                TemplateId = await RetrieveTemplateId(templateT2);
+                                                if (TemplateId != null)
+                                                {
+                                                    string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690006");
+                                                }
+                                            }
+
+                                            if (data.telephone1 != null)
+                                            {
+
+                                                fullname = data.fullname != null ? data.fullname.Value : "";
+                                                make = data.sl_make != null ? data.sl_make.Value : "";
+                                                model = data.sl_model != null ? data.sl_model.Value : "";
+                                                mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                                if (!string.IsNullOrEmpty(smsT2))
+                                                {
+
+                                                    string smsMessage = smsT2;
+                                                    smsMessage = smsMessage.Replace("{contactname}", fullname);
+                                                    smsMessage = smsMessage.Replace("{make}", make);
+                                                    smsMessage = smsMessage.Replace("{model}", model);
+                                                    smsMessage = smsMessage.Replace("{valuation}", mprice);
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690006");
+                                                }
+                                            }
+                                            emailSent = emailSent + 1;
+                                            break;
+                                        }
+                                    //Trigger 3
+                                    case 14:
+                                        {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 3 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate3";
+                                            queryString = await Encryption(queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate3", queryString, queryString, baseUrl);
+                                            if (!string.IsNullOrEmpty(templateT3))
+                                            {
+                                                TemplateId = await RetrieveTemplateId(templateT3);
+                                                if (TemplateId != null)
+                                                {
+                                                    string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690007");
+                                                }
+                                            }
+                                            if (data.telephone1 != null)
+                                            {
+                                                fullname = data.fullname != null ? data.fullname.Value : "";
+                                                make = data.sl_make != null ? data.sl_make.Value : "";
+                                                model = data.sl_model != null ? data.sl_model.Value : "";
+                                                mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                                if (!string.IsNullOrEmpty(smsT2))
+                                                {
+                                                    string smsMessage = smsT3;
+                                                    smsMessage = smsMessage.Replace("{contactname}", fullname);
+                                                    smsMessage = smsMessage.Replace("{make}", make);
+                                                    smsMessage = smsMessage.Replace("{model}", model);
+                                                    smsMessage = smsMessage.Replace("{valuation}", mprice);
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690007");
+                                                }
+                                            }
+                                            emailSent = emailSent + 1;
+                                            break;
+                                        }
+                                    //Trigger 4
+                                    case 21:
+                                        {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 4 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate4";
+                                            queryString = await Encryption(queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate4", queryString, queryString, baseUrl);
+                                            if (!string.IsNullOrEmpty(templateT4))
+                                            {
+                                                TemplateId = await RetrieveTemplateId(templateT4);
+                                                if (TemplateId != null)
+                                                {
+                                                    string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690008");
+                                                }
+                                            }
+                                            if (data.telephone1 != null)
+                                            {
+                                                fullname = data.fullname != null ? data.fullname.Value : "";
+                                                make = data.sl_make != null ? data.sl_make.Value : "";
+                                                model = data.sl_model != null ? data.sl_model.Value : "";
+                                                mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                                if (!string.IsNullOrEmpty(smsT4))
+                                                {
+                                                    string smsMessage = smsT4;
+                                                    smsMessage = smsMessage.Replace("{contactname}", fullname);
+                                                    smsMessage = smsMessage.Replace("{make}", make);
+                                                    smsMessage = smsMessage.Replace("{model}", model);
+                                                    smsMessage = smsMessage.Replace("{valuation}", mprice);
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690008");
+                                                }
+                                            }
+                                            emailSent = emailSent + 1;
+                                            break;
+                                        }
+
+
+
+
+                                }
+
+                            }
+                        }
+                    }
+                    tmpEmail = data.emailaddress1.Value;
+                    tmpRegistrationNumber = data.sl_registrationnumber.Value;
+                }
+                returnMsg = resultText;
+            }
+            catch (Exception ex)
+            {
+                this.Logger.LogError(exceptionModel.getExceptionFormat(ex.ToString()));
+
+            }
+            return returnMsg;
+        }
+        public async Task<string> OpportunityProcessContactsPK(dynamic contact, string resultText)
+        {
+            string returnMsg = string.Empty;
+            try
+            {
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                Guid TemplateId;
+                Guid fromUserId = Guid.Empty;
+                if (!string.IsNullOrEmpty(emailSenderIdPK))
+                {
+                    fromUserId = new Guid(emailSenderIdPK);
+                }
+                foreach (var data in contact.value)
+                {
+                    if (data.emailaddress1.Value != null && data.sl_registrationnumber.Value != null)
+                    {
+                        TotalRecord = TotalRecord + 1;
+                        resultText = resultText + " Email Address: " + data.emailaddress1.Value;
+                        if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_registrationnumber.Value)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            Guid CustomerId = (Guid)data.contactid;
+                            string fullname = string.Empty;
+                            string make = string.Empty;
+                            string model = string.Empty;
+                            string mprice = string.Empty;
+
+                            if (data.sl_appointmentdate.Value != null)
+                            {
+
+                                DateTime appointmentdate = data.sl_appointmentdate.Value;
+                                appointmentdate = appointmentdate.Date;
+                                int totaldays;
+                                totaldays = (int)DateTime.Now.Date.Subtract(appointmentdate).TotalDays;
+
+                                switch (totaldays)
+                                {
+                                    //Trigger 1
+                                    case 2:
+                                        {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 1 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate1";
+                                            queryString = await Encryption(queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate1", queryString, queryString, baseUrl);
+                                            if (!string.IsNullOrEmpty(templateT1PK))
+                                            {
+                                                TemplateId = await RetrieveTemplateId(templateT1PK);
+                                                if (TemplateId != null)
+                                                {
+                                                    string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690005");
+                                                }
+                                            }
+
+                                            if (data.telephone1 != null)
+                                            {
+
+                                                fullname = data.fullname != null ? data.fullname.Value : "";
+                                                make = data.sl_make != null ? data.sl_make.Value : "";
+                                                model = data.sl_model != null ? data.sl_model.Value : "";
+                                                mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                                if (!string.IsNullOrEmpty(smsT1PK))
+                                                {
+
+                                                    string smsMessage = smsT1PK;
                                                     smsMessage = smsMessage.Replace("{contactname}", fullname);
                                                     smsMessage = smsMessage.Replace("{make}", make);
                                                     smsMessage = smsMessage.Replace("{model}", model);

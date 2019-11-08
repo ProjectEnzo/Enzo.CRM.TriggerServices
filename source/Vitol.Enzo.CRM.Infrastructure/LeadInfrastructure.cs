@@ -27,8 +27,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string smsT6 = string.Empty;
 
         //Start String Initializations FOR  PK
-        string smsT2PK, smsT3PK, smsT4PK, smsT5PK, smsT6PK, liveDatePK, emailSenderIdPK, timeZonePK,BussinessUnitPK,BussinessUnitTR,templateT2PK = string.Empty;
-        
+        string smsT2PK, smsT3PK, smsT4PK, smsT5PK, smsT6PK, liveDatePK, emailSenderIdPK, timeZonePK,BussinessUnitPK,BussinessUnitTR,templateT2PK = string.Empty;      
         //End String Initiallizations FOR PK
 
         //Email Template
