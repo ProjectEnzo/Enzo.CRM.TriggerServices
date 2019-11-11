@@ -78,43 +78,9 @@ D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.TriggerService\obj\Debug\netcoreapp2.1
 D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.TriggerService\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.TriggerService.csproj.CopyComplete
 D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.TriggerService\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.TriggerService.dll
 D:\VavaCars SourceCode\Vitol.Enzo.CRM.API.TriggerService\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.TriggerService.pdb
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\nlog.config
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.TriggerService.deps.json
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.TriggerService.runtimeconfig.json
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.TriggerService.runtimeconfig.dev.json
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.TriggerService.dll
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.TriggerService.pdb
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.API.CRM.Core.dll
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Application.dll
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ApplicationInterface.dll
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.dll
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.dll
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.dll
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.dll
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.dll
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.dll
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.dll
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.dll
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.API.CRM.Core.pdb
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ApplicationInterface.pdb
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Application.pdb
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Domain.pdb
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.InfrastructureInterface.pdb
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Infrastructure.pdb
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.pdb
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnector.pdb
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.Core.pdb
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProvider.pdb
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.pdb
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.TriggerService.csprojAssemblyReference.cache
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.TriggerService.csproj.CoreCompileInputs.cache
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.TriggerService.RazorAssemblyInfo.cache
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.TriggerService.RazorAssemblyInfo.cs
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.TriggerService.AssemblyInfoInputs.cache
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.TriggerService.AssemblyInfo.cs
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.TriggerService.RazorTargetAssemblyInfo.cache
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.TriggerService.csproj.CopyComplete
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.TriggerService.dll
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.API.TriggerService\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.API.TriggerService.pdb

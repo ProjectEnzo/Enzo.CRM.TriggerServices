@@ -22,14 +22,14 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string smsT2 = string.Empty;
         string smsT3 = string.Empty;
         string smsT4 = string.Empty;
-
+        string smsT5 = string.Empty;
 
         //Email Template
         string templateT1 = string.Empty;
         string templateT2 = string.Empty;
         string templateT3 = string.Empty;
         string templateT4 = string.Empty;
-
+        string templateT5 = string.Empty;
 
         //Email Sender Id
         string emailsenderId;
@@ -39,6 +39,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string tmpRegistrationNumber = "";
         string appointmentStatusCancelled = string.Empty;
         string appointmentStatusAssigned = string.Empty;
+        string appointmentReasonType3, appointmentReasonType4, appointmentReasonType8, appointmentReasonType9 = string.Empty;
 
         int TotalRecord;
         int emailSent;
@@ -59,13 +60,14 @@ namespace Vitol.Enzo.CRM.Infrastructure
             smsT2 = Configuration["Opportunity:smsT2"];
             smsT3 = Configuration["Opportunity:smsT3"];
             smsT4 = Configuration["Opportunity:smsT4"];
-
+            smsT5 = Configuration["Opportunity:smsT5"];
 
             //Email Template
             templateT1 = Configuration["Opportunity:templateT1"];
             templateT2 = Configuration["Opportunity:templateT2"];
             templateT3 = Configuration["Opportunity:templateT3"];
             templateT4 = Configuration["Opportunity:templateT4"];
+            templateT5 = Configuration["Opportunity:templateT5"];
 
 
             //Email Sender Id
@@ -74,6 +76,11 @@ namespace Vitol.Enzo.CRM.Infrastructure
             baseUrl = Configuration["AzureCRM:baseUrl"];
             appointmentStatusCancelled = Configuration["AzureCRM:appointmentStatusCancelled"];
             appointmentStatusAssigned = Configuration["AzureCRM:appointmentStatusAssigned"];
+            appointmentReasonType3 = Configuration["AzureCRM:appointmentReasonType3"];
+            appointmentReasonType4= Configuration["AzureCRM:appointmentReasonType4"];
+            appointmentReasonType8 = Configuration["AzureCRM:appointmentReasonType8"];
+            appointmentReasonType9 = Configuration["AzureCRM:appointmentReasonType9"];
+
 
         }
         #endregion
@@ -193,7 +200,207 @@ namespace Vitol.Enzo.CRM.Infrastructure
             this.Logger.LogDebug("Total Opportunity Number of Emails sent: " + emailSent);
             return "Success Record: " + resultText;
         }
+        public async Task<string> QualifiedOpportunityServiceTrigger5(string str)
+        {
 
+
+            exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.OpportunityUtilityServiceTrigger5);
+            string resultText = null;
+            try
+            {
+                tmpEmail = "";
+                tmpRegistrationNumber = "";
+                string triggerType = "Opportunity5";
+                JArray records = null;
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                string inputApointmentDate = string.Empty;
+                DateTime startValuationDate = DateTime.Now.AddDays(-30);
+                inputApointmentDate = startValuationDate.ToString("yyyy-MM-dd");
+                TotalRecord = 0;
+                emailSent = 0;
+                this.Logger.LogDebug("Opportunity Checkeddate: " + DateTime.Now.ToString());
+                DateTime currentDate = DateTime.Now;
+                string currentAppointmentDate = currentDate.ToString("yyyy-MM-ddTHH:mm:ssZ");
+                Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
+                Guid appointmentreasontype3 = await RetrieveAppointmentReasonTypeId(appointmentReasonType3);
+                Guid appointmentreasontype4 = await RetrieveAppointmentReasonTypeId(appointmentReasonType4);
+                Guid appointmentreasontype8 = await RetrieveAppointmentReasonTypeId(appointmentReasonType8);
+                Guid appointmentreasontype9 = await RetrieveAppointmentReasonTypeId(appointmentReasonType9);
+                string queryOpportunity;
+                //Need to verify for the past data
+                queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and sl_customerstatus eq 102690002 and (_sl_appointmentstatusreason_value eq " + appointmentreasontype3.ToString() + " or _sl_appointmentstatusreason_value eq " + appointmentreasontype4.ToString() + " or _sl_appointmentstatusreason_value eq " + appointmentreasontype8.ToString() + " or _sl_appointmentstatusreason_value eq " + appointmentreasontype9.ToString() + " ) and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
+                this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
+                if (triggerType == "Opportunity5")
+                {
+                    HttpClient httpClient = new HttpClient();
+
+                    httpClient.DefaultRequestHeaders.Add("OData-Version", "4.0");
+                    httpClient.DefaultRequestHeaders.Add("Prefer", "return=representation");
+                    httpClient.DefaultRequestHeaders.Add("Prefer", "odata.maxpagesize=20");
+                    httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+                    HttpResponseMessage response = await httpClient.GetAsync(base.Resource + queryOpportunity);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string responseJson = await response.Content.ReadAsStringAsync();
+                        dynamic contact = JsonConvert.DeserializeObject(responseJson);
+                        if (contact != null)
+                        {
+                            records = contact.value;
+                            if (records != null && records.Count > 0)
+                            {
+                                resultText = await QualifiedOpportunityProcessContactsTrigger5(contact, resultText);
+
+                                //Paging
+                                string nextpageUri = null;
+
+                                if (contact["@odata.nextLink"] != null)
+                                    nextpageUri = contact["@odata.nextLink"].ToString(); //This URI is already encoded.
+
+                                while (nextpageUri != null)
+                                {
+                                    contact = await RetrieveMultiplePaging(nextpageUri);
+                                    if (contact["@odata.nextLink"] == null)
+                                    {
+                                        resultText = resultText + " Page Start (Last) ";
+                                        nextpageUri = null;
+                                        resultText = await QualifiedOpportunityProcessContactsTrigger5(contact, resultText);
+                                        resultText = resultText + " Page End (Last) ";
+                                    }
+                                    else
+                                    {
+                                        resultText = resultText + " Page Start ";
+                                        nextpageUri = contact["@odata.nextLink"].ToString(); //This URI is already encoded.
+                                        resultText = await QualifiedOpportunityProcessContactsTrigger5(contact, resultText);
+                                        resultText = resultText + " Page End ";
+                                    }
+                                }
+                                //EndPaging
+                            }
+                            else
+                            {
+                                this.Logger.LogError(exceptionModel.getExceptionFormat("Contact Not found"));
+                            }
+
+                        }
+                        else
+                        {
+                            this.Logger.LogError(exceptionModel.getExceptionFormat("Contact Not found"));
+                        }
+                    }
+                    else
+                        this.Logger.LogError(exceptionModel.getExceptionFormat(response.Content.ToString()));
+
+                }
+            }
+            catch (Exception ex)
+            {
+                this.Logger.LogError(exceptionModel.getExceptionFormat(ex.ToString()));
+
+            }
+
+            this.Logger.LogDebug("Total Opportunity Number of records: " + TotalRecord);
+            this.Logger.LogDebug("Total Opportunity Number of Emails sent: " + emailSent);
+            return "Success Record: " + resultText;
+        }
+        public async Task<string> QualifiedOpportunityServiceTrigger1(string str)
+        {
+            exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.OpportunityUtilityServiceTrigger1);
+            string resultText = null;
+            try
+            {
+                tmpEmail = "";
+                tmpRegistrationNumber = "";
+                string triggerType = "Opportunity1";
+                JArray records = null;
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                string inputApointmentDate = string.Empty;
+                DateTime startValuationDate = DateTime.Now.AddDays(-30);
+                inputApointmentDate = startValuationDate.ToString("yyyy-MM-dd");
+                TotalRecord = 0;
+                emailSent = 0;
+                this.Logger.LogDebug("Opportunity Checkeddate: " + DateTime.Now.ToString());
+                DateTime currentDate = DateTime.Now;
+                string currentAppointmentDate = currentDate.ToString("yyyy-MM-ddTHH:mm:ssZ");
+                string queryOpportunity;
+                //Condition Need to verify for the past data
+                queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate gt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and sl_customerstatus eq 102690002 and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
+                this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
+                if (triggerType == "Opportunity1")
+                {
+                    HttpClient httpClient = new HttpClient();
+
+                    httpClient.DefaultRequestHeaders.Add("OData-Version", "4.0");
+                    httpClient.DefaultRequestHeaders.Add("Prefer", "return=representation");
+                    httpClient.DefaultRequestHeaders.Add("Prefer", "odata.maxpagesize=20");
+                    httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+                    HttpResponseMessage response = await httpClient.GetAsync(base.Resource + queryOpportunity);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string responseJson = await response.Content.ReadAsStringAsync();
+                        dynamic contact = JsonConvert.DeserializeObject(responseJson);
+                        if (contact != null)
+                        {
+                            records = contact.value;
+                            if (records != null && records.Count > 0)
+                            {
+                                resultText = await QualifiedOpportunityProcessContactsTrigger1(contact, resultText);
+
+                                //Paging
+                                string nextpageUri = null;
+
+                                if (contact["@odata.nextLink"] != null)
+                                    nextpageUri = contact["@odata.nextLink"].ToString(); //This URI is already encoded.
+
+                                while (nextpageUri != null)
+                                {
+                                    contact = await RetrieveMultiplePaging(nextpageUri);
+                                    if (contact["@odata.nextLink"] == null)
+                                    {
+                                        resultText = resultText + " Page Start (Last) ";
+                                        nextpageUri = null;
+                                        resultText = await QualifiedOpportunityProcessContactsTrigger1(contact, resultText);
+                                        resultText = resultText + " Page End (Last) ";
+                                    }
+                                    else
+                                    {
+                                        resultText = resultText + " Page Start ";
+                                        nextpageUri = contact["@odata.nextLink"].ToString(); //This URI is already encoded.
+                                        resultText = await QualifiedOpportunityProcessContactsTrigger1(contact, resultText);
+                                        resultText = resultText + " Page End ";
+                                    }
+                                }
+                                //EndPaging
+                            }
+                            else
+                            {
+                                this.Logger.LogError(exceptionModel.getExceptionFormat("Contact Not found"));
+                            }
+
+                        }
+                        else
+                        {
+                            this.Logger.LogError(exceptionModel.getExceptionFormat("Contact Not found"));
+                        }
+                    }
+                    else
+                        this.Logger.LogError(exceptionModel.getExceptionFormat(response.Content.ToString()));
+
+                }
+            }
+            catch (Exception ex)
+            {
+                this.Logger.LogError(exceptionModel.getExceptionFormat(ex.ToString()));
+
+            }
+
+            this.Logger.LogDebug("Total Opportunity Number of records: " + TotalRecord);
+            this.Logger.LogDebug("Total Opportunity Number of Emails sent: " + emailSent);
+            return "Success Record: " + resultText;
+        }
         public async Task<string> CreateSMSActivity(Guid CustomerId, string mobileNo, string textMessage,string triggerTemplate)
         {
             exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.leadUtilityService);
@@ -359,6 +566,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
                                 switch (totaldays)
                                 {
+                                    /*
                                     //Trigger 1
                                     case 2:
                                         {
@@ -398,6 +606,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                             emailSent = emailSent + 1;
                                             break;
                                         }
+                                        */
+                                        /*
                                     //Trigger 2
                                     case 5:
                                         {
@@ -437,6 +647,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                             emailSent = emailSent + 1;
                                             break;
                                         }
+                                        */
                                     //Trigger 3
                                     case 14:
                                         {
@@ -474,6 +685,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                             break;
                                         }
                                     //Trigger 4
+                                    /*
                                     case 21:
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
@@ -509,7 +721,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                             emailSent = emailSent + 1;
                                             break;
                                         }
-
+                                        */
 
 
 
@@ -530,6 +742,206 @@ namespace Vitol.Enzo.CRM.Infrastructure
             }
             return returnMsg;
         }
+        public async Task<string> QualifiedOpportunityProcessContactsTrigger5(dynamic contact, string resultText)
+        {
+            string returnMsg = string.Empty;
+            try
+            {
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                Guid TemplateId;
+                Guid fromUserId = Guid.Empty;
+                if (!string.IsNullOrEmpty(emailsenderId))
+                {
+                    fromUserId = new Guid(emailsenderId);
+                }
+                foreach (var data in contact.value)
+                {
+                    if (data.emailaddress1.Value != null && data.sl_registrationnumber.Value != null)
+                    {
+                        TotalRecord = TotalRecord + 1;
+                        resultText = resultText + " Email Address: " + data.emailaddress1.Value;
+                        if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_registrationnumber.Value)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            Guid CustomerId = (Guid)data.contactid;
+                            string fullname = string.Empty;
+                            string make = string.Empty;
+                            string model = string.Empty;
+                            string mprice = string.Empty;
+
+                            if (data.sl_appointmentdate.Value != null)
+                            {
+
+                                DateTime appointmentdate = data.sl_appointmentdate.Value;
+                                appointmentdate = appointmentdate.Date;
+                                int totaldays;
+                                totaldays = (int)DateTime.Now.Date.Subtract(appointmentdate).TotalDays;
+
+                                switch (totaldays)
+                                {
+                                  
+                                //Trigger 2
+                                case 5:
+                                    {
+                                        fullname = data.fullname != null ? data.fullname.Value : "";
+                                        string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                        this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 2 | Name : " + fullname + " | Email: " + emailaddress1);
+                                        string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate2";
+                                        queryString = await Encryption(queryString);
+                                        bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate2", queryString, queryString, baseUrl);
+                                        if (!string.IsNullOrEmpty(templateT2))
+                                        {
+                                            TemplateId = await RetrieveTemplateId(templateT2);
+                                            if (TemplateId != null)
+                                            {
+                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690006");
+                                            }
+                                        }
+
+                                        if (data.telephone1 != null)
+                                        {
+
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            make = data.sl_make != null ? data.sl_make.Value : "";
+                                            model = data.sl_model != null ? data.sl_model.Value : "";
+                                            mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                            if (!string.IsNullOrEmpty(smsT2))
+                                            {
+
+                                                string smsMessage = smsT2;
+                                                smsMessage = smsMessage.Replace("{contactname}", fullname);
+                                                smsMessage = smsMessage.Replace("{make}", make);
+                                                smsMessage = smsMessage.Replace("{model}", model);
+                                                smsMessage = smsMessage.Replace("{valuation}", mprice);
+                                                string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690006");
+                                            }
+                                        }
+                                        emailSent = emailSent + 1;
+                                        break;
+                                    }
+
+                                }
+
+                            }
+                        }
+                    }
+                    tmpEmail = data.emailaddress1.Value;
+                    tmpRegistrationNumber = data.sl_registrationnumber.Value;
+                }
+                returnMsg = resultText;
+            }
+            catch (Exception ex)
+            {
+                this.Logger.LogError(exceptionModel.getExceptionFormat(ex.ToString()));
+
+            }
+            return returnMsg;
+        }
+        public async Task<string> QualifiedOpportunityProcessContactsTrigger1(dynamic contact, string resultText)
+        {
+            string returnMsg = string.Empty;
+            try
+            {
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                Guid TemplateId;
+                Guid fromUserId = Guid.Empty;
+                if (!string.IsNullOrEmpty(emailsenderId))
+                {
+                    fromUserId = new Guid(emailsenderId);
+                }
+                foreach (var data in contact.value)
+                {
+                    if (data.emailaddress1.Value != null && data.sl_registrationnumber.Value != null)
+                    {
+                        TotalRecord = TotalRecord + 1;
+                        resultText = resultText + " Email Address: " + data.emailaddress1.Value;
+                        if (tmpEmail == data.emailaddress1.Value && tmpRegistrationNumber == data.sl_registrationnumber.Value)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            Guid CustomerId = (Guid)data.contactid;
+                            string fullname = string.Empty;
+                            string make = string.Empty;
+                            string model = string.Empty;
+                            string mprice = string.Empty;
+
+                            if (data.sl_appointmentdate.Value != null)
+                            {
+
+                                DateTime appointmentdate = data.sl_appointmentdate.Value;
+                                appointmentdate = appointmentdate.Date;
+                                int totaldays;
+                                totaldays = (int)DateTime.Now.Date.Subtract(appointmentdate).TotalDays;
+
+                                switch (totaldays)
+                                {
+
+                                    //Trigger 1
+                                    //Need to Create the flag sl_opportunitytemplate5 on CRM End 
+                                    case -1:
+                                        {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 5 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate5";
+                                            queryString = await Encryption(queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate5", queryString, queryString, baseUrl);
+                                            if (!string.IsNullOrEmpty(templateT5))
+                                            {
+                                                TemplateId = await RetrieveTemplateId(templateT5);
+                                                if (TemplateId != null)
+                                                {
+                                                    // Need to get the latest Template Name when created on CRM
+                                                    string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690006");
+                                                }
+                                            }
+
+                                            if (data.telephone1 != null)
+                                            {
+
+                                                fullname = data.fullname != null ? data.fullname.Value : "";
+                                                make = data.sl_make != null ? data.sl_make.Value : "";
+                                                model = data.sl_model != null ? data.sl_model.Value : "";
+                                                mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                                if (!string.IsNullOrEmpty(smsT5))
+                                                {
+
+                                                    string smsMessage = smsT5;
+                                                    smsMessage = smsMessage.Replace("{contactname}", fullname);
+                                                    smsMessage = smsMessage.Replace("{make}", make);
+                                                    smsMessage = smsMessage.Replace("{model}", model);
+                                                    smsMessage = smsMessage.Replace("{valuation}", mprice);
+                                                    // Need to get the latest Template Name when created on CRM
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690006");
+                                                }
+                                            }
+                                            emailSent = emailSent + 1;
+                                            break;
+                                        }
+
+                                }
+
+                            }
+                        }
+                    }
+                    tmpEmail = data.emailaddress1.Value;
+                    tmpRegistrationNumber = data.sl_registrationnumber.Value;
+                }
+                returnMsg = resultText;
+            }
+            catch (Exception ex)
+            {
+                this.Logger.LogError(exceptionModel.getExceptionFormat(ex.ToString()));
+
+            }
+            return returnMsg;
+        }
+
         public async Task<Guid> RetrieveTemplateId(string templateName)
         {
             try
@@ -611,6 +1023,49 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
 
                 return records != null && records.Count > 0 ? new Guid(appointment.value[0].sl_appointmentstatusid.ToString()) : Guid.Empty;
+            }
+            catch (Exception ex)
+            {
+                this.Logger.LogError(exceptionModel.getExceptionFormat(ex.ToString()));
+                return Guid.Empty;
+            }
+
+        }
+        public async Task<Guid> RetrieveAppointmentReasonTypeId(string statusName)
+        {
+            try
+            {
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                Guid appointmentId = Guid.Empty;
+                JArray records = null;
+                string query = "api/data/v9.1/sl_appointmentreasons?$select=sl_name,sl_appointmentreasontypeidexternal&$filter=sl_name eq '" + statusName + "'";
+                dynamic appointment = null;
+
+                HttpClient httpClient = new HttpClient();
+
+                httpClient.DefaultRequestHeaders.Add("OData-Version", "4.0");
+                httpClient.DefaultRequestHeaders.Add("Prefer", "return=representation");
+                httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+                HttpResponseMessage response = await httpClient.GetAsync(base.Resource + query);
+                if (response.IsSuccessStatusCode)
+                {
+                    string responseJson = await response.Content.ReadAsStringAsync();
+                    appointment = JsonConvert.DeserializeObject(responseJson);
+                    if (appointment != null)
+                        records = appointment.value;
+                    else
+                        return Guid.Empty;
+                }
+                else
+                {
+                    this.Logger.LogError(exceptionModel.getExceptionFormat(response.Content.ToString()));
+                    return Guid.Empty;
+                }
+
+
+                return records != null && records.Count > 0 ? new Guid(appointment.value[0].sl_appointmentreasonid.ToString()) : Guid.Empty;
             }
             catch (Exception ex)
             {

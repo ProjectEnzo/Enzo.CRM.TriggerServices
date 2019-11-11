@@ -44,6 +44,14 @@ namespace Vitol.Enzo.CRM.Application
         {
             return await this.OpportunityInfrastructure.OpportunityUtilityService(str);
         }
+        public async Task<string> QualifiedOpportunityServiceTrigger1(string str)
+        {
+            return await this.OpportunityInfrastructure.QualifiedOpportunityUtilityServiceTrigger1(str);
+        }
+        public async Task<string> QualifiedOpportunityServiceTrigger5(string str)
+        {
+            return await this.OpportunityInfrastructure.QualifiedOpportunityUtilityServiceTrigger5(str);
+        }
 
 
         #endregion

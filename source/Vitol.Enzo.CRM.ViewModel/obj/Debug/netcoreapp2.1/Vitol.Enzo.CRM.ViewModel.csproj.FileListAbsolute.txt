@@ -23,4 +23,3 @@ E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ViewModel\obj\Debug\netcoreapp2.1\
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ViewModel\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.AssemblyInfo.cs
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ViewModel\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.dll
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ViewModel\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.pdb
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ViewModel\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ViewModel.csprojAssemblyReference.cache
