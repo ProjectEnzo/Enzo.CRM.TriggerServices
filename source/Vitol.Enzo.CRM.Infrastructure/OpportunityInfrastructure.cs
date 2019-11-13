@@ -39,7 +39,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string tmpRegistrationNumber = "";
         string appointmentStatusCancelled = string.Empty;
         string appointmentStatusAssigned = string.Empty;
-        string appointmentReasonType3, appointmentReasonType4, appointmentReasonType8, appointmentReasonType9 = string.Empty;
+        string appointmentStatusNoShow, appointmentReasonType3, appointmentReasonType4, appointmentReasonType8, appointmentReasonType9 = string.Empty;
 
         int TotalRecord;
         int emailSent;
@@ -80,6 +80,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             appointmentReasonType4= Configuration["AzureCRM:appointmentReasonType4"];
             appointmentReasonType8 = Configuration["AzureCRM:appointmentReasonType8"];
             appointmentReasonType9 = Configuration["AzureCRM:appointmentReasonType9"];
+            appointmentStatusNoShow= Configuration["AzureCRM:appointmentStatusNoShow"];
 
 
         }
@@ -120,11 +121,13 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 string currentAppointmentDate = currentDate.ToString("yyyy-MM-ddTHH:mm:ssZ");
 
 
-
-                Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
-                Guid appointmentAssignedId = await RetrieveAppointmentId(appointmentStatusAssigned);
+                Guid appointmentstatusnoShow = await RetrieveAppointmentId(appointmentStatusNoShow);
+                //Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
+                //Guid appointmentAssignedId = await RetrieveAppointmentId(appointmentStatusAssigned);
                 string queryOpportunity;
-                queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value ne " + appointmentCancelledId.ToString() + " and _sl_appointmentstatus_value ne " + appointmentAssignedId.ToString() + " ) and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
+                //Needs to Verify 
+                //queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value ne " + appointmentCancelledId.ToString() + " and _sl_appointmentstatus_value ne " + appointmentAssignedId.ToString() + " ) and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
+                queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=_sl_appointmentstatus_value eq " + appointmentstatusnoShow.ToString() + " and sl_customerstatus eq 102690002 and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc, sl_appointmentdate desc";
                 this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
                 if (triggerType == "Opportunity")
                 {
@@ -221,6 +224,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 this.Logger.LogDebug("Opportunity Checkeddate: " + DateTime.Now.ToString());
                 DateTime currentDate = DateTime.Now;
                 string currentAppointmentDate = currentDate.ToString("yyyy-MM-ddTHH:mm:ssZ");
+                Guid appointmentstatusnoShow = await RetrieveAppointmentId(appointmentStatusNoShow);
                 Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
                 Guid appointmentreasontype3 = await RetrieveAppointmentReasonTypeId(appointmentReasonType3);
                 Guid appointmentreasontype4 = await RetrieveAppointmentReasonTypeId(appointmentReasonType4);
@@ -228,7 +232,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 Guid appointmentreasontype9 = await RetrieveAppointmentReasonTypeId(appointmentReasonType9);
                 string queryOpportunity;
                 //Need to verify for the past data
-                queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and sl_customerstatus eq 102690002 and (_sl_appointmentstatusreason_value eq " + appointmentreasontype3.ToString() + " or _sl_appointmentstatusreason_value eq " + appointmentreasontype4.ToString() + " or _sl_appointmentstatusreason_value eq " + appointmentreasontype8.ToString() + " or _sl_appointmentstatusreason_value eq " + appointmentreasontype9.ToString() + " ) and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
+                //queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and sl_customerstatus eq 102690002 and (_sl_appointmentstatusreason_value eq " + appointmentreasontype3.ToString() + " or _sl_appointmentstatusreason_value eq " + appointmentreasontype4.ToString() + " or _sl_appointmentstatusreason_value eq " + appointmentreasontype8.ToString() + " or _sl_appointmentstatusreason_value eq " + appointmentreasontype9.ToString() + " ) and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
+                queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and ((_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " and (_sl_appointmentstatusreason_value eq " + appointmentreasontype3.ToString() + " or _sl_appointmentstatusreason_value eq " + appointmentreasontype4.ToString() + " or _sl_appointmentstatusreason_value eq " + appointmentreasontype8.ToString() + " or _sl_appointmentstatusreason_value eq " + appointmentreasontype9.ToString() + ")) or (_sl_appointmentstatus_value eq " + appointmentstatusnoShow.ToString() + " and sl_customerstatus eq 102690002)) and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc, sl_appointmentdate desc";
                 this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
                 if (triggerType == "Opportunity5")
                 {
@@ -325,7 +330,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 string currentAppointmentDate = currentDate.ToString("yyyy-MM-ddTHH:mm:ssZ");
                 string queryOpportunity;
                 //Condition Need to verify for the past data
-                queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate gt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and sl_customerstatus eq 102690002 and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
+                //queryOpportunity = "api/data/v9.1/contacts?$select=sl_appointmentdate,sl_appointmentcentreaddress1,sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate gt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and sl_customerstatus eq 102690002 and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
+                queryOpportunity = "api/data/v9.1/contacts?$select=sl_appointmentdate,sl_appointmentcentreaddress1,sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate gt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and sl_customerstatus eq 102690002 and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
                 this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
                 if (triggerType == "Opportunity1")
                 {
@@ -869,6 +875,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                             string make = string.Empty;
                             string model = string.Empty;
                             string mprice = string.Empty;
+                            string appointmentDate, appointmentTime,centeraddress = string.Empty;
 
                             if (data.sl_appointmentdate.Value != null)
                             {
@@ -888,16 +895,16 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
                                             this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 5 | Name : " + fullname + " | Email: " + emailaddress1);
-                                            string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate5";
+                                            string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplateminus1";
                                             queryString = await Encryption(queryString);
-                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate5", queryString, queryString, baseUrl);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplateminus1", queryString, queryString, baseUrl);
                                             if (!string.IsNullOrEmpty(templateT5))
                                             {
                                                 TemplateId = await RetrieveTemplateId(templateT5);
                                                 if (TemplateId != null)
                                                 {
                                                     // Need to get the latest Template Name when created on CRM
-                                                    string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690006");
+                                                    string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690012");
                                                 }
                                             }
 
@@ -908,6 +915,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                 make = data.sl_make != null ? data.sl_make.Value : "";
                                                 model = data.sl_model != null ? data.sl_model.Value : "";
                                                 mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                                centeraddress = data.sl_appointmentcentreaddress1 != null ? data.sl_appointmentcentreaddress1.ToString() : "";
+                                                appointmentDate = data.sl_appointmentdate != null ? data.sl_appointmentdate.ToString("dd/MM/yyyy") : "";
+                                                appointmentTime = data.sl_appointmentdate != null ? data.sl_appointmentdate.ToString("hh:mm:ss tt") : "";
                                                 if (!string.IsNullOrEmpty(smsT5))
                                                 {
 
@@ -916,8 +926,11 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     smsMessage = smsMessage.Replace("{make}", make);
                                                     smsMessage = smsMessage.Replace("{model}", model);
                                                     smsMessage = smsMessage.Replace("{valuation}", mprice);
+                                                    smsMessage = smsMessage.Replace("{centeraddress}", centeraddress);
+                                                    smsMessage = smsMessage.Replace("{appointmentDate}", appointmentDate);
+                                                    smsMessage = smsMessage.Replace("{appointmentTime}", appointmentTime);
                                                     // Need to get the latest Template Name when created on CRM
-                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690006");
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690012");
                                                 }
                                             }
                                             emailSent = emailSent + 1;

@@ -46,11 +46,11 @@ namespace Vitol.Enzo.CRM.Application
         }
         public async Task<string> QualifiedOpportunityServiceTrigger1(string str)
         {
-            return await this.OpportunityInfrastructure.QualifiedOpportunityUtilityServiceTrigger1(str);
+            return await this.OpportunityInfrastructure.QualifiedOpportunityServiceTrigger1(str);
         }
         public async Task<string> QualifiedOpportunityServiceTrigger5(string str)
         {
-            return await this.OpportunityInfrastructure.QualifiedOpportunityUtilityServiceTrigger5(str);
+            return await this.OpportunityInfrastructure.QualifiedOpportunityServiceTrigger5(str);
         }
 
 
