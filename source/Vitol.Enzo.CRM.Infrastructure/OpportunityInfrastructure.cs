@@ -916,8 +916,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                 model = data.sl_model != null ? data.sl_model.Value : "";
                                                 mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
                                                 centeraddress = data.sl_appointmentcentreaddress1 != null ? data.sl_appointmentcentreaddress1.ToString() : "";
-                                                appointmentDate = data.sl_appointmentdate != null ? data.sl_appointmentdate.ToString("dd/MM/yyyy") : "";
-                                                appointmentTime = data.sl_appointmentdate != null ? data.sl_appointmentdate.ToString("hh:mm:ss tt") : "";
+                                                appointmentDate = data.sl_appointmentdate != null ? data.sl_appointmentdate.ToString("MMM dd, yyyy") : "";
+                                                appointmentTime = data.sl_appointmentdate != null ? data.sl_appointmentdate.ToString("hh:mm tt") : "";
                                                 if (!string.IsNullOrEmpty(smsT5))
                                                 {
 
