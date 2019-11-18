@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -894,7 +895,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
-                                            this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 5 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger -1 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplateminus1";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplateminus1", queryString, queryString, baseUrl);
@@ -915,9 +916,10 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                 make = data.sl_make != null ? data.sl_make.Value : "";
                                                 model = data.sl_model != null ? data.sl_model.Value : "";
                                                 mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                                CultureInfo culture = new CultureInfo("tr-TR");
                                                 centeraddress = data.sl_appointmentcentreaddress1 != null ? data.sl_appointmentcentreaddress1.ToString() : "";
-                                                appointmentDate = data.sl_appointmentdate != null ? data.sl_appointmentdate.ToString("MMM dd, yyyy") : "";
-                                                appointmentTime = data.sl_appointmentdate != null ? data.sl_appointmentdate.ToString("hh:mm tt") : "";
+                                                appointmentDate = data.sl_appointmentdate != null ? data.sl_appointmentdate.ToString("MMM dd, yyyy",culture) : "";
+                                                appointmentTime = data.sl_appointmentdate != null ? data.sl_appointmentdate.ToString("HH:mm") : "";
                                                 if (!string.IsNullOrEmpty(smsT5))
                                                 {
 
