@@ -332,7 +332,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 string queryOpportunity;
                 //Condition Need to verify for the past data
                 //queryOpportunity = "api/data/v9.1/contacts?$select=sl_appointmentdate,sl_appointmentcentreaddress1,sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate gt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and sl_customerstatus eq 102690002 and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
-                queryOpportunity = "api/data/v9.1/contacts?$select=sl_emailappointmentdatestring,sl_emailappointmenttimestring,sl_appointmentcentreaddress1,sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate gt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and sl_customerstatus eq 102690002 and statuscode eq 1 and sl_mprice ne null and sl_appointmentdate ne null and sl_appointmentcentreaddress1 ne null and sl_appointmentcentre ne null  and sl_emailappointmentdatestring ne null  and sl_emailappointmenttimestring ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
+                queryOpportunity = "api/data/v9.1/contacts?$select=sl_appointmentcentrelatitude,sl_appointmentcentrelongitude,sl_emailappointmentdatestring,sl_emailappointmenttimestring,sl_appointmentcentreaddress1,sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate gt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and sl_customerstatus eq 102690002 and statuscode eq 1 and sl_mprice ne null and sl_appointmentdate ne null and sl_appointmentcentreaddress1 ne null and sl_appointmentcentre ne null  and sl_appointmentcentrelatitude ne null and sl_appointmentcentrelongitude ne null and sl_emailappointmentdatestring ne null  and sl_emailappointmenttimestring ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
                 this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
                 if (triggerType == "Opportunity1")
                 {
@@ -876,7 +876,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                             string make = string.Empty;
                             string model = string.Empty;
                             string mprice = string.Empty;
-                            string appointmentDate, appointmentTime,centeraddress = string.Empty;
+                            string appointmentDate, appointmentTime,centeraddress,centrelatitude,centrelongitude = string.Empty;
 
                             if (data.sl_appointmentdate.Value != null)
                             {
@@ -919,6 +919,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                 centeraddress = data.sl_appointmentcentreaddress1 != null ? data.sl_appointmentcentreaddress1.ToString() : "";
                                                 appointmentDate = data.sl_emailappointmentdatestring != null ? data.sl_emailappointmentdatestring.ToString() : "";
                                                 appointmentTime = data.sl_emailappointmenttimestring != null ? data.sl_emailappointmenttimestring.ToString() : "";
+                                                centrelatitude= data.sl_appointmentcentrelatitude!= null ? data.sl_appointmentcentrelatitude.ToString() : "";
+                                                centrelongitude = data.sl_appointmentcentrelongitude != null ? data.sl_appointmentcentrelongitude.ToString() : "";
                                                 if (!string.IsNullOrEmpty(smsT5))
                                                 {
 
@@ -930,6 +932,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     smsMessage = smsMessage.Replace("{centeraddress}", centeraddress);
                                                     smsMessage = smsMessage.Replace("{appointmentDate}", appointmentDate);
                                                     smsMessage = smsMessage.Replace("{appointmentTime}", appointmentTime);
+                                                    smsMessage = smsMessage.Replace("{centrelatitude}", centrelatitude);
+                                                    smsMessage = smsMessage.Replace("{centrelongitude}", centrelongitude);
                                                     // Need to get the latest Template Name when created on CRM
                                                     string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690012");
                                                 }
