@@ -332,7 +332,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 string queryOpportunity;
                 //Condition Need to verify for the past data
                 //queryOpportunity = "api/data/v9.1/contacts?$select=sl_appointmentdate,sl_appointmentcentreaddress1,sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate gt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and sl_customerstatus eq 102690002 and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
-                queryOpportunity = "api/data/v9.1/contacts?$select=sl_appointmentdate,sl_appointmentcentreaddress1,sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate gt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and sl_customerstatus eq 102690002 and statuscode eq 1 and sl_mprice ne null and sl_appointmentdate ne null and sl_appointmentcentreaddress1 ne null and sl_appointmentcentre ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
+                queryOpportunity = "api/data/v9.1/contacts?$select=sl_emailappointmentdatestring,sl_emailappointmenttimestring,sl_appointmentcentreaddress1,sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate gt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and sl_customerstatus eq 102690002 and statuscode eq 1 and sl_mprice ne null and sl_appointmentdate ne null and sl_appointmentcentreaddress1 ne null and sl_appointmentcentre ne null  and sl_emailappointmentdatestring ne null  and sl_emailappointmenttimestring ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
                 this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
                 if (triggerType == "Opportunity1")
                 {
@@ -916,10 +916,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                 make = data.sl_make != null ? data.sl_make.Value : "";
                                                 model = data.sl_model != null ? data.sl_model.Value : "";
                                                 mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
-                                                CultureInfo culture = new CultureInfo("tr-TR");
                                                 centeraddress = data.sl_appointmentcentreaddress1 != null ? data.sl_appointmentcentreaddress1.ToString() : "";
-                                                appointmentDate = data.sl_appointmentdate != null ? data.sl_appointmentdate.ToString("MMM dd, yyyy",culture) : "";
-                                                appointmentTime = data.sl_appointmentdate != null ? data.sl_appointmentdate.ToString("HH:mm") : "";
+                                                appointmentDate = data.sl_emailappointmentdatestring != null ? data.sl_emailappointmentdatestring.ToString() : "";
+                                                appointmentTime = data.sl_emailappointmenttimestring != null ? data.sl_emailappointmenttimestring.ToString() : "";
                                                 if (!string.IsNullOrEmpty(smsT5))
                                                 {
 
