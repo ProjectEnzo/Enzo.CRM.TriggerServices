@@ -13,4 +13,7 @@
 /.vs
 /source/TestResults
 /source/Vitol.Enzo.CRM.ServiceProviderInterface/obj/Release/netcoreapp2.1
-
+/source/Vitol.Enzo.CRM.Infrastructure/bin/Release
+/source/Vitol.Enzo.CRM.Infrastructure/obj/Release
+/source/Vitol.Enzo.CRM.API.TriggerService/bin/Release
+/source/Vitol.Enzo.CRM.API.TriggerService/obj/Release
