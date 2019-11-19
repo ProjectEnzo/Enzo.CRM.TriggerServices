@@ -40,9 +40,9 @@ namespace Vitol.Enzo.CRM.Application
 
         #region Interface IOpportunityApplication Implementation
 
-        public async Task<string> OpportunityUtilityService(string str)
+        public async Task<string> QualifiedOpportunityServiceTrigger14(string str)
         {
-            return await this.OpportunityInfrastructure.OpportunityUtilityService(str);
+            return await this.OpportunityInfrastructure.QualifiedOpportunityServiceTrigger14(str);
         }
         public async Task<string> QualifiedOpportunityServiceTrigger1(string str)
         {

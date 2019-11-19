@@ -99,7 +99,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
         #region Interface ILeadInfrastructure Implementation
 
-        public async Task<string> OpportunityUtilityService(string str)
+        public async Task<string> QualifiedOpportunityServiceTrigger14(string str)
         {
 
 
@@ -126,7 +126,6 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 //Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
                 //Guid appointmentAssignedId = await RetrieveAppointmentId(appointmentStatusAssigned);
                 string queryOpportunity;
-                //Needs to Verify 
                 //queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value ne " + appointmentCancelledId.ToString() + " and _sl_appointmentstatus_value ne " + appointmentAssignedId.ToString() + " ) and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
                 queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=_sl_appointmentstatus_value eq " + appointmentstatusnoShow.ToString() + " and sl_customerstatus eq 102690002 and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc, sl_appointmentdate desc";
                 this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
@@ -150,7 +149,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                             records = contact.value;
                             if (records != null && records.Count > 0)
                             {
-                                resultText = await OpportunityProcessContacts(contact, resultText);
+                                resultText = await QualifiedOpportunityProcessContactsTrigger14(contact, resultText);
 
                                 //Paging
                                 string nextpageUri = null;
@@ -165,14 +164,14 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                     {
                                         resultText = resultText + " Page Start (Last) ";
                                         nextpageUri = null;
-                                        resultText = await OpportunityProcessContacts(contact, resultText);
+                                        resultText = await QualifiedOpportunityProcessContactsTrigger14(contact, resultText);
                                         resultText = resultText + " Page End (Last) ";
                                     }
                                     else
                                     {
                                         resultText = resultText + " Page Start ";
                                         nextpageUri = contact["@odata.nextLink"].ToString(); //This URI is already encoded.
-                                        resultText = await OpportunityProcessContacts(contact, resultText);
+                                        resultText = await QualifiedOpportunityProcessContactsTrigger14(contact, resultText);
                                         resultText = resultText + " Page End ";
                                     }
                                 }
@@ -533,7 +532,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             }
             return contact;
         }
-        public async Task<string> OpportunityProcessContacts(dynamic contact, string resultText)
+        public async Task<string> QualifiedOpportunityProcessContactsTrigger14(dynamic contact, string resultText)
         {
             string returnMsg = string.Empty;
             try

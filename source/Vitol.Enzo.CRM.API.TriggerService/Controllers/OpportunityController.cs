@@ -45,14 +45,14 @@ namespace Vitol.Enzo.CRM.API.Opportunity.Controllers
         #region API Methods
 
         [HttpPost]
-        [Route("OpportunityUtilityService")]
-        public async Task<string> OpportunityUtilityService(string str)
+        [Route("QualifiedOpportunityServiceTrigger14")]
+        public async Task<string> QualifiedOpportunityServiceTrigger14(string str)
         {
             string secretKey = Configuration.GetSection("Keys:EncryptionkeyOpportunity").Value;
             var response = "";
             if (Request.Headers["Token"].ToString() == secretKey)
             {
-                var response1 =  this.OpportunityApplication.OpportunityUtilityService(str);
+                var response1 =  this.OpportunityApplication.QualifiedOpportunityServiceTrigger14(str);
             }
             else
             {
