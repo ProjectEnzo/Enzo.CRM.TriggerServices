@@ -9,7 +9,6 @@
 /source/*/obj
 /source/*/bin
 /.vs
-.vs\Vitol.Enzo.TriggerService\v15\.suo
 /source/TestResults
 /source/Vitol.Enzo.CRM.ServiceProviderInterface/obj/Release/netcoreapp2.1
 
