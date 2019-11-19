@@ -18,7 +18,6 @@ D:\VavaCars SourceCode\Vitol.Enzo.CRM.ServiceConnectorInterface\obj\Debug\netcor
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnectorInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.deps.json
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnectorInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.dll
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnectorInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.pdb
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnectorInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.csprojAssemblyReference.cache
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnectorInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.csproj.CoreCompileInputs.cache
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnectorInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.AssemblyInfoInputs.cache
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceConnectorInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceConnectorInterface.AssemblyInfo.cs

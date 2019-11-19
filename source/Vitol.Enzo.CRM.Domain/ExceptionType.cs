@@ -26,7 +26,9 @@ namespace Vitol.Enzo.CRM.Domain
         retrieveAppointmentId,
         leadUtilityService,
         opportunityUtilityService,
-        prospectUtilityService
+        prospectUtilityService,
+        OpportunityUtilityServiceTrigger5,
+        OpportunityUtilityServiceTrigger1
     }
 
 }
