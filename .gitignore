@@ -1,6 +1,14 @@
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
-
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+/source/.vs
+/source/*/obj
+/source/*/bin
+/.vs
+/source/TestResults
 /source/Vitol.Enzo.CRM.ServiceProviderInterface/obj/Release/netcoreapp2.1
 /source
