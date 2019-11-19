@@ -103,13 +103,13 @@ namespace Vitol.Enzo.CRM.Infrastructure
         {
 
 
-            exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.opportunityUtilityService);
+            exceptionModel.ActionName = Enum.GetName(typeof(ActionType), ActionType.opportunityUtilityServiceTrigger14);
             string resultText = null;
             try
             {
                 tmpEmail = "";
                 tmpRegistrationNumber = "";
-                string triggerType = "Opportunity";
+                string triggerType = "Opportunity14";
                 JArray records = null;
                 string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
                 string inputApointmentDate = string.Empty;
@@ -129,7 +129,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 //queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value ne " + appointmentCancelledId.ToString() + " and _sl_appointmentstatus_value ne " + appointmentAssignedId.ToString() + " ) and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
                 queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=_sl_appointmentstatus_value eq " + appointmentstatusnoShow.ToString() + " and sl_customerstatus eq 102690002 and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_mprice ne null  and sl_emailappointmentdatestring ne null  and sl_emailappointmenttimestring ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc, sl_appointmentdate desc";
                 this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
-                if (triggerType == "Opportunity")
+                if (triggerType == "Opportunity14")
                 {
                     HttpClient httpClient = new HttpClient();
 
