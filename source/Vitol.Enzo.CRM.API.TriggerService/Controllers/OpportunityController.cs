@@ -45,14 +45,14 @@ namespace Vitol.Enzo.CRM.API.Opportunity.Controllers
         #region API Methods
 
         [HttpPost]
-        [Route("OpportunityUtilityService")]
-        public async Task<string> OpportunityUtilityService(string str)
+        [Route("QualifiedOpportunityServiceTrigger14")]
+        public async Task<string> QualifiedOpportunityServiceTrigger14(string str)
         {
             string secretKey = Configuration.GetSection("Keys:EncryptionkeyOpportunity").Value;
             var response = "";
             if (Request.Headers["Token"].ToString() == secretKey)
             {
-                var response1 =  this.OpportunityApplication.OpportunityUtilityService(str);
+                var response1 =  this.OpportunityApplication.QualifiedOpportunityServiceTrigger14(str);
             }
             else
             {
@@ -80,6 +80,45 @@ namespace Vitol.Enzo.CRM.API.Opportunity.Controllers
             return response;
 
         }
+
+        [HttpPost]
+        [Route("QualifiedOpportunityServiceTrigger5")]
+        public async Task<string> QualifiedOpportunityServiceTrigger5(string str)
+        {
+            string secretKey = Configuration.GetSection("Keys:EncryptionkeyOpportunity").Value;
+            var response = "";
+            if (Request.Headers["Token"].ToString() == secretKey)
+            {
+                var response1 = this.OpportunityApplication.QualifiedOpportunityServiceTrigger5(str);
+            }
+            else
+            {
+                response = HttpStatusCode.Unauthorized.ToString();
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            }
+            return response;
+
+        }
+
+        [HttpPost]
+        [Route("QualifiedOpportunityServiceTrigger1")]
+        public async Task<string> QualifiedOpportunityServiceTrigger1(string str)
+        {
+            string secretKey = Configuration.GetSection("Keys:EncryptionkeyOpportunity").Value;
+            var response = "";
+            if (Request.Headers["Token"].ToString() == secretKey)
+            {
+                var response1 = this.OpportunityApplication.QualifiedOpportunityServiceTrigger1(str);
+            }
+            else
+            {
+                response = HttpStatusCode.Unauthorized.ToString();
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            }
+            return response;
+
+        }
+
 
         [HttpGet]
         public ActionResult<string> Get()

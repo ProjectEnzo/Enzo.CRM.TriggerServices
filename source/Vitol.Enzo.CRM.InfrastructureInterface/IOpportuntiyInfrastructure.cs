@@ -7,7 +7,9 @@ namespace Vitol.Enzo.CRM.InfrastructureInterface
     public interface IOpportunityInfrastructure
     {
 
-        Task<string> OpportunityUtilityService(string str);
+        Task<string> QualifiedOpportunityServiceTrigger14(string str);
+        Task<string> QualifiedOpportunityServiceTrigger1(string str);
+        Task<string> QualifiedOpportunityServiceTrigger5(string str);
         Task<string> OpportunityUtilityServicePK(string str);
 
     }
