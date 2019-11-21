@@ -418,6 +418,10 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 this.Logger.LogError(exceptionModel.getExceptionFormat(ex.ToString()));
 
             }
+            this.Logger.LogDebug("Total Opportunity Number of records: " + TotalRecord);
+            this.Logger.LogDebug("Total Opportunity Number of Emails sent: " + emailSent);
+            return "Success Record: " + resultText;
+        }
         public async Task<string> OpportunityUtilityServicePK(string str)
         {
 
@@ -468,7 +472,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                             records = contact.value;
                             if (records != null && records.Count > 0)
                             {
-                                resultText = await OpportunityProcessContacts(contact, resultText);
+                                resultText = await OpportunityProcessContactsPK(contact, resultText);
 
                                 //Paging
                                 string nextpageUri = null;
@@ -483,14 +487,14 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                     {
                                         resultText = resultText + " Page Start (Last) ";
                                         nextpageUri = null;
-                                        resultText = await OpportunityProcessContacts(contact, resultText);
+                                        resultText = await OpportunityProcessContactsPK(contact, resultText);
                                         resultText = resultText + " Page End (Last) ";
                                     }
                                     else
                                     {
                                         resultText = resultText + " Page Start ";
                                         nextpageUri = contact["@odata.nextLink"].ToString(); //This URI is already encoded.
-                                        resultText = await OpportunityProcessContacts(contact, resultText);
+                                        resultText = await OpportunityProcessContactsPK(contact, resultText);
                                         resultText = resultText + " Page End ";
                                     }
                                 }
