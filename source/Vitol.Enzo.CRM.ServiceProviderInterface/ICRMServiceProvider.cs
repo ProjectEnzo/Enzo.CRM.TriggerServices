@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Vitol.Enzo.CRM.ServiceProviderInterface
@@ -9,7 +10,7 @@ namespace Vitol.Enzo.CRM.ServiceProviderInterface
         /// <summary>
         ///provide CRM connection.
         /// </summary>
-        Task<string> GetAccessTokenCrm();
+        Task<string> GetAccessTokenCrm(IHttpClientFactory clientFactory);
         /// <summary>
         ///provide CRM connection.
         /// </summary>
@@ -19,7 +20,7 @@ namespace Vitol.Enzo.CRM.ServiceProviderInterface
         /// </summary>
         /// <param name="query"></param>
         /// <param name="accessToken"></param>
-        Task<string> GetCRMId(string query, string accessToken);
+        Task<string> GetCRMId(string query, string accessToken, IHttpClientFactory clientFactory);
         #endregion
     }
 

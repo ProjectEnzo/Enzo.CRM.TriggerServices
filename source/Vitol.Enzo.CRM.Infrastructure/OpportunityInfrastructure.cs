@@ -52,7 +52,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
         /// <param name="configuration"></param>
         /// <param name="logger"></param>
         /// <param name="crmServiceConnector"></param>
-        public OpportunityInfrastructure(ICRMServiceConnector crmServiceConnector, IConfiguration configuration, ILogger<OpportunityInfrastructure> logger) : base(configuration, logger)
+        public OpportunityInfrastructure(ICRMServiceConnector crmServiceConnector, IConfiguration configuration, ILogger<OpportunityInfrastructure> logger, IHttpClientFactory clientFactory) : base(configuration, logger, clientFactory)
         {
             this.CRMServiceConnector = crmServiceConnector;
             exceptionModel.ComponentName = Enum.GetName(typeof(ComponentType), ComponentType.opportuntiy);
@@ -111,7 +111,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 tmpRegistrationNumber = "";
                 string triggerType = "Opportunity";
                 JArray records = null;
-                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm(this._clientFactory);
                 string inputApointmentDate = string.Empty;
                 DateTime startValuationDate = DateTime.Now.AddDays(-30);
                 inputApointmentDate = startValuationDate.ToString("yyyy-MM-dd");
@@ -131,7 +131,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
                 if (triggerType == "Opportunity")
                 {
-                    HttpClient httpClient = new HttpClient();
+                    var httpClient = this._clientFactory.CreateClient("NameClientFactory");
 
                     httpClient.DefaultRequestHeaders.Add("OData-Version", "4.0");
                     httpClient.DefaultRequestHeaders.Add("Prefer", "return=representation");
@@ -215,7 +215,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 tmpRegistrationNumber = "";
                 string triggerType = "Opportunity5";
                 JArray records = null;
-                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm(this._clientFactory);
                 string inputApointmentDate = string.Empty;
                 DateTime startValuationDate = DateTime.Now.AddDays(-30);
                 inputApointmentDate = startValuationDate.ToString("yyyy-MM-dd");
@@ -237,7 +237,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
                 if (triggerType == "Opportunity5")
                 {
-                    HttpClient httpClient = new HttpClient();
+                    var httpClient = this._clientFactory.CreateClient("NameClientFactory");
 
                     httpClient.DefaultRequestHeaders.Add("OData-Version", "4.0");
                     httpClient.DefaultRequestHeaders.Add("Prefer", "return=representation");
@@ -319,7 +319,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 tmpRegistrationNumber = "";
                 string triggerType = "Opportunity1";
                 JArray records = null;
-                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm(this._clientFactory);
                 string inputApointmentDate = string.Empty;
                 DateTime startValuationDate = DateTime.Now.AddDays(-30);
                 inputApointmentDate = startValuationDate.ToString("yyyy-MM-dd");
@@ -335,7 +335,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
                 if (triggerType == "Opportunity1")
                 {
-                    HttpClient httpClient = new HttpClient();
+                    var httpClient = this._clientFactory.CreateClient("NameClientFactory");
 
                     httpClient.DefaultRequestHeaders.Add("OData-Version", "4.0");
                     httpClient.DefaultRequestHeaders.Add("Prefer", "return=representation");
@@ -413,7 +413,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             string returnMsg = string.Empty;
             try
             {
-                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm(this._clientFactory);
 
                 string jsonObject = @"{
                 'sl_trigger': 102690002,
@@ -422,7 +422,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 ""sl_message"":" + '"' + textMessage + '"' + @",
                 'regardingobjectid_contact@odata.bind': '/contacts(" + CustomerId + @")' }";
                 StringContent content = new StringContent(jsonObject, Encoding.UTF8, "application/json");
-                HttpClient httpClient = new HttpClient();
+                var httpClient = this._clientFactory.CreateClient("NameClientFactory");
 
                 httpClient.DefaultRequestHeaders.Add("OData-Version", "4.0");
                 httpClient.DefaultRequestHeaders.Add("Prefer", "return=representation");
@@ -451,7 +451,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             string returnMsg = string.Empty;
             try
             {
-                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm(this._clientFactory);
 
 
                 string jsonObject = @"{
@@ -484,7 +484,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         }";
 
                 StringContent content = new StringContent(jsonObject, Encoding.UTF8, "application/json");
-                HttpClient httpClient = new HttpClient();
+                var httpClient = this._clientFactory.CreateClient("NameClientFactory");
 
                 httpClient.DefaultRequestHeaders.Add("OData-Version", "4.0");
                 httpClient.DefaultRequestHeaders.Add("Prefer", "return=representation");
@@ -513,8 +513,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
             dynamic contact = null;
             try
             {
-                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
-                HttpClient httpClient = new HttpClient();
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm(this._clientFactory);
+                var httpClient = this._clientFactory.CreateClient("NameClientFactory");
 
                 httpClient.DefaultRequestHeaders.Add("OData-Version", "4.0");
                 httpClient.DefaultRequestHeaders.Add("Prefer", "return=representation");
@@ -537,7 +537,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             string returnMsg = string.Empty;
             try
             {
-                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm(this._clientFactory);
                 Guid TemplateId;
                 Guid fromUserId = Guid.Empty;
                 if (!string.IsNullOrEmpty(emailsenderId))
@@ -753,7 +753,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             string returnMsg = string.Empty;
             try
             {
-                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm(this._clientFactory);
                 Guid TemplateId;
                 Guid fromUserId = Guid.Empty;
                 if (!string.IsNullOrEmpty(emailsenderId))
@@ -851,7 +851,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             string returnMsg = string.Empty;
             try
             {
-                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm(this._clientFactory);
                 Guid TemplateId;
                 Guid fromUserId = Guid.Empty;
                 if (!string.IsNullOrEmpty(emailsenderId))
@@ -963,7 +963,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
         {
             try
             {
-                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm(this._clientFactory);
                 Guid templateId = Guid.Empty;
 
                 JArray records = null;
@@ -971,7 +971,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 string query = "api/data/v9.1/templates?$select=createdon,title&$filter=title eq '" + templateName + "'&$orderby=createdon desc";
                 dynamic template = null;
 
-                HttpClient httpClient = new HttpClient();
+                var httpClient = this._clientFactory.CreateClient("NameClientFactory");
 
                 httpClient.DefaultRequestHeaders.Add("OData-Version", "4.0");
                 httpClient.DefaultRequestHeaders.Add("Prefer", "return=representation");
@@ -1009,13 +1009,13 @@ namespace Vitol.Enzo.CRM.Infrastructure
         {
             try
             {
-                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm(this._clientFactory);
                 Guid appointmentId = Guid.Empty;
                 JArray records = null;
                 string query = "api/data/v9.1/sl_appointmentstatuses?$select=sl_appointmentstatusid,sl_name&$filter=sl_name eq '" + statusName + "'";
                 dynamic appointment = null;
 
-                HttpClient httpClient = new HttpClient();
+                var httpClient = this._clientFactory.CreateClient("NameClientFactory");
 
                 httpClient.DefaultRequestHeaders.Add("OData-Version", "4.0");
                 httpClient.DefaultRequestHeaders.Add("Prefer", "return=representation");
@@ -1052,13 +1052,13 @@ namespace Vitol.Enzo.CRM.Infrastructure
         {
             try
             {
-                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm(this._clientFactory);
                 Guid appointmentId = Guid.Empty;
                 JArray records = null;
                 string query = "api/data/v9.1/sl_appointmentreasons?$select=sl_name,sl_appointmentreasontypeidexternal&$filter=sl_name eq '" + statusName + "'";
                 dynamic appointment = null;
 
-                HttpClient httpClient = new HttpClient();
+                var httpClient = this._clientFactory.CreateClient("NameClientFactory");
 
                 httpClient.DefaultRequestHeaders.Add("OData-Version", "4.0");
                 httpClient.DefaultRequestHeaders.Add("Prefer", "return=representation");
@@ -1100,7 +1100,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
         {
             try
             {
-                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm();
+                string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm(this._clientFactory);
                 unsubscribeurl = CustomerId.ToString();
                 string jsonObject = @"{
                 '" + attributeName + @"': true,
@@ -1111,7 +1111,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 {
                     Content = new StringContent(jsonObject, Encoding.UTF8, "application/json")
                 };
-                HttpClient httpClient = new HttpClient();
+                var httpClient = this._clientFactory.CreateClient("NameClientFactory");
                 httpClient.DefaultRequestHeaders.Add("OData-Version", "4.0");
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
                 HttpResponseMessage updateResponse = await httpClient.SendAsync(updateRequest);
