@@ -35,7 +35,6 @@ E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceProviderIn
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.deps.json
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.csprojAssemblyReference.cache
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.csproj.CoreCompileInputs.cache
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.AssemblyInfoInputs.cache
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Release\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.AssemblyInfo.cs

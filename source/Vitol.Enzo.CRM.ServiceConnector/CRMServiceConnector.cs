@@ -26,14 +26,14 @@ namespace Vitol.Enzo.CRM.ServiceConnector
         public ICRMServiceProvider CRMServiceProvider { get; }
         #endregion
 
-        public Task<string> GetAccessTokenCrm()
+        public Task<string> GetAccessTokenCrm(IHttpClientFactory clientFactory)
         {
-          return  CRMServiceProvider.GetAccessTokenCrm();
+          return  CRMServiceProvider.GetAccessTokenCrm(clientFactory);
         }
 
-        public Task<string> GetCRMId(string query, string accessToken)
+        public Task<string> GetCRMId(string query, string accessToken, IHttpClientFactory clientFactory)
         {
-            return CRMServiceProvider.GetCRMId(query,accessToken);
+            return CRMServiceProvider.GetCRMId(query,accessToken, clientFactory);
         }
 
         #endregion

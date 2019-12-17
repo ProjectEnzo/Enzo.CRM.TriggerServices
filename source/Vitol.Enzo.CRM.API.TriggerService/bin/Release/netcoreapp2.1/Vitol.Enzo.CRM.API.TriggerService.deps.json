@@ -664,6 +664,7 @@
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "2.1.1",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "2.1.1",
+          "Microsoft.Extensions.Http": "2.1.1",
           "Microsoft.Extensions.Logging.Abstractions": "2.1.1",
           "Newtonsoft.Json": "12.0.2",
           "RestSharp": "106.6.10",
@@ -695,6 +696,7 @@
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "2.1.1",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "2.1.1",
+          "Microsoft.Extensions.Http": "2.1.1",
           "Microsoft.Extensions.Logging.Abstractions": "2.1.1",
           "Vitol.Enzo.CRM.ServiceConnectorInterface": "1.0.0",
           "Vitol.Enzo.CRM.ServiceProvider": "1.0.0"
@@ -707,6 +709,9 @@
         }
       },
       "Vitol.Enzo.CRM.ServiceConnectorInterface/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Http": "2.1.1"
+        },
         "runtime": {
           "Vitol.Enzo.CRM.ServiceConnectorInterface.dll": {}
         },
@@ -717,6 +722,7 @@
       "Vitol.Enzo.CRM.ServiceProvider/1.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "2.1.1",
+          "Microsoft.Extensions.Http": "2.1.1",
           "Microsoft.Extensions.Logging.Abstractions": "2.1.1",
           "Newtonsoft.Json": "12.0.2",
           "Vitol.Enzo.CRM.ServiceProviderInterface": "1.0.0"
@@ -729,6 +735,9 @@
         }
       },
       "Vitol.Enzo.CRM.ServiceProviderInterface/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Http": "2.1.1"
+        },
         "runtime": {
           "Vitol.Enzo.CRM.ServiceProviderInterface.dll": {}
         },

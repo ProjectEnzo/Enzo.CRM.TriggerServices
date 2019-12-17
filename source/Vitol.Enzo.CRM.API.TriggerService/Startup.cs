@@ -45,7 +45,10 @@ namespace Vitol.Enzo.API.Customer
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
+            services.AddHttpClient("NameClientFactory", c =>
+            {
+                //c.BaseAddress = new Uri("https://api.github.com/");
+            });
             //services.AddCors();
 
             #region Custom Service Registration
