@@ -11,7 +11,7 @@ namespace Vitol.Enzo.CRM.Infrastructure.common
 {
     public class AccessToken : BaseInfrastructure
     {
-        public AccessToken(IConfiguration configuration, ILogger<AccessToken> logger) : base(configuration, logger)
+        public AccessToken(IConfiguration configuration, ILogger<AccessToken> logger, IHttpClientFactory clientFactory) : base(configuration, logger, clientFactory)
         {
         }
         public async Task<string> GetAccessTokenCrm()
@@ -25,7 +25,7 @@ namespace Vitol.Enzo.CRM.Infrastructure.common
            };
 
             FormUrlEncodedContent content = new FormUrlEncodedContent(values);
-            HttpClient client = new HttpClient();
+            var client = this._clientFactory.CreateClient("NameClientFactory");
             HttpResponseMessage response = await client.PostAsync(base.Authority, content);
 
             string responseJson = await response.Content.ReadAsStringAsync();

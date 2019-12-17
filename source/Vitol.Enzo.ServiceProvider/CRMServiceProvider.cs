@@ -29,7 +29,7 @@ namespace Vitol.Enzo.ServiceProvider
         /// <summary>
         ///  GetAccessTokenCrm get CRM Access Token.
         /// </summary>
-        public async Task<string> GetAccessTokenCrm()
+        public async Task<string> GetAccessTokenCrm(IHttpClientFactory clientFactory)
         {
             Dictionary<string, string> values = new Dictionary<string, string>
            {
@@ -40,7 +40,7 @@ namespace Vitol.Enzo.ServiceProvider
            };
 
             FormUrlEncodedContent content = new FormUrlEncodedContent(values);
-            HttpClient client = new HttpClient();
+            var client = clientFactory.CreateClient("NameClientFactory");
             HttpResponseMessage response = await client.PostAsync(base.Authority, content);
 
             string responseJson = await response.Content.ReadAsStringAsync();
@@ -52,9 +52,9 @@ namespace Vitol.Enzo.ServiceProvider
         /// </summary>
         /// <param name="query"></param>
         /// <param name="accessToken"></param>
-        public async Task<string> GetCRMId(string query, string accessToken)
+        public async Task<string> GetCRMId(string query, string accessToken, IHttpClientFactory clientFactory)
         {
-            HttpClient httpClient = new HttpClient();
+            var httpClient = clientFactory.CreateClient("NameClientFactory");
 
             httpClient.DefaultRequestHeaders.Add("OData-Version", "4.0");
             httpClient.DefaultRequestHeaders.Add("Prefer", "return=representation");

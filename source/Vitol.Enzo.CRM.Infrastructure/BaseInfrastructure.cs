@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 using Vitol.Enzo.CRM.Core.ApplicationException;
 
@@ -15,7 +16,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
         /// </summary>
         /// <param name="configuration"></param>
         /// <param name="logger"></param>
-        public BaseInfrastructure(IConfiguration configuration, ILogger logger)
+        public BaseInfrastructure(IConfiguration configuration, ILogger logger, IHttpClientFactory clientFactory)
         {
             this.Configuration = configuration;
             this.Logger = logger;
@@ -25,7 +26,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
             Authority = this.Configuration["AzureCRM:authority"];
 
             this.Logger?.LogEnterConstructor(this.GetType());
+            _clientFactory = clientFactory;
         }
+        protected readonly IHttpClientFactory _clientFactory;
 
         public IConfiguration Configuration { get; }
         public ILogger Logger { get; }
