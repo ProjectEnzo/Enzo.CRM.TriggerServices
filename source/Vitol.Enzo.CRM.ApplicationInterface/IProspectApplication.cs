@@ -8,5 +8,6 @@ namespace Vitol.Enzo.CRM.ApplicationInterface
         public interface IProspectApplication
     {
         Task<string> ProspectUtilityService(string str);
-        }
+        Task<string> HotProspectUtilityService(string str);
+    }
 }
