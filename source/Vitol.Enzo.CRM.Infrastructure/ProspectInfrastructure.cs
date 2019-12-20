@@ -223,7 +223,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 JArray records = null;
                 string accessToken = await this.CRMServiceConnector.GetAccessTokenCrm(this._clientFactory);
                 string inputInspectionDate = string.Empty;
-                DateTime startInspectionDate = DateTime.Now.AddDays(-30);
+                DateTime startInspectionDate = DateTime.Now.AddDays(-45);
                 inputInspectionDate = startInspectionDate.ToString("yyyy-MM-dd");
                 TotalRecord = 0;
                 emailSent = 0;
