@@ -683,18 +683,19 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
         }
 
-        public string LeadUtilitySms(string param)
+        public async Task<string> LeadUtilitySms(string param)
         {
             string xmlResponse="";
             string Exception="";
+
             Exception = Configuration["ERRORSMS"];
             try
             {
                 var client = new RestClient(Configuration["SmartMessageAPI"]);
-                var request = new RestRequest(Method.POST);
+                var request =  new RestRequest(Method.POST);
                 request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
                 request.AddParameter("undefined", "data=" + param, ParameterType.RequestBody);
-                IRestResponse response = client.Execute(request);
+                IRestResponse response =    await client.ExecuteTaskAsync(request);
                 xmlResponse = response.Content;
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
@@ -708,7 +709,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 xmlResponse = Exception;
             }
 
-            return WebUtility.UrlEncode(xmlResponse).ToString();
+            return  WebUtility.UrlEncode(xmlResponse).ToString();
         }
 
         #endregion

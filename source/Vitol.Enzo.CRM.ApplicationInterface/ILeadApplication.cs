@@ -8,6 +8,6 @@ namespace Vitol.Enzo.CRM.ApplicationInterface
         public interface ILeadApplication
         {
         Task<string> LeadUtilityService(string str);
-        string LeadUtilitySms(string str);
+        Task <string> LeadUtilitySms(string str);
         }
 }

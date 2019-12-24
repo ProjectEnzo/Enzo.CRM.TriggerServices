@@ -8,7 +8,7 @@ namespace Vitol.Enzo.CRM.InfrastructureInterface
     {
 
         Task<string> LeadUtilityService(string str);
-        string LeadUtilitySms(string str);
+        Task <string> LeadUtilitySms(string str);
 
     }
 }
