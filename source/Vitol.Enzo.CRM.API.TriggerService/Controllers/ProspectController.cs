@@ -63,6 +63,25 @@ namespace Vitol.Enzo.CRM.API.Prospect.Controllers
 
         }
 
+        [HttpPost]
+        [Route("HotProspectUtilityService")]
+        public async Task<string> HotProspectUtilityService(string str)
+        {
+
+            string secretKey = Configuration.GetSection("Keys:EncryptionkeyProspect").Value;
+            var response = "";
+            if (Request.Headers["Token"].ToString() == secretKey)
+            {
+                var response1 = this.ProspectApplication.HotProspectUtilityService(str);
+            }
+            else
+            {
+                response = HttpStatusCode.Unauthorized.ToString();
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            }
+            return response;
+
+        }
         [HttpGet]
         public ActionResult<string> Get()
         {

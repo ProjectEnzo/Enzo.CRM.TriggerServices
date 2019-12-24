@@ -8,6 +8,7 @@ namespace Vitol.Enzo.CRM.InfrastructureInterface
     {
 
         Task<string> ProspectUtilityService(string str);
+        Task<string> HotProspectUtilityService(string str);
 
     }
 }

@@ -44,6 +44,10 @@ namespace Vitol.Enzo.CRM.Application
         {
             return await this.ProspectInfrastructure.ProspectUtilityService(str);
         }
+        public async Task<string> HotProspectUtilityService(string str)
+        {
+            return await this.ProspectInfrastructure.HotProspectUtilityService(str);
+        }
 
 
         #endregion

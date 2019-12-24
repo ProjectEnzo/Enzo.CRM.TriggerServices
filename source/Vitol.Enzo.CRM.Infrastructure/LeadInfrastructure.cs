@@ -685,8 +685,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
         public string LeadUtilitySms(string param)
         {
-            string xmlResponse="";
-            string Exception="";
+            string xmlResponse = "";
+            string Exception = "";
             Exception = Configuration["ERRORSMS"];
             try
             {
@@ -702,7 +702,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                     xmlResponse = Exception;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Exception = Exception.Replace("{Exception}", ex.ToString());
                 xmlResponse = Exception;
