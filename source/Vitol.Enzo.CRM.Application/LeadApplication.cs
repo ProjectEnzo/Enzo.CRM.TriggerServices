@@ -45,9 +45,9 @@ namespace Vitol.Enzo.CRM.Application
             return await this.LeadInfrastructure.LeadUtilityService(str);
         }
 
-        public async Task<string> LeadUtilitySms(string str)
+        public string LeadUtilitySms(string str)
         {
-            return await this.LeadInfrastructure.LeadUtilitySms(str);
+            return this.LeadInfrastructure.LeadUtilitySms(str);
         }
         #endregion
     }

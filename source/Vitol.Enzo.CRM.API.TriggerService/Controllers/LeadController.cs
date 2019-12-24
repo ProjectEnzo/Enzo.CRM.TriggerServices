@@ -65,13 +65,13 @@ namespace Vitol.Enzo.CRM.API.Lead.Controllers
 
         [HttpPost]
         [Route("LeadUtilitySMS")]
-        public async Task <string>  LeadUtilitySms([FromBody]SMSEnvelope envelope)
+        public string LeadUtilitySms([FromBody]SMSEnvelope envelope)
         {
             string secretKey = Configuration.GetSection("Keys:EncryptionkeySMS").Value;
-            var  response = "";
+            string response = "";
             if (Request.Headers["Token"].ToString() == secretKey)
             {
-                var response1 =  this.LeadApplication.LeadUtilitySms(envelope.request);
+                response = this.LeadApplication.LeadUtilitySms(envelope.request);
             }
             else
             {
