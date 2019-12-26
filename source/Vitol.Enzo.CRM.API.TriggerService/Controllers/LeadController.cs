@@ -62,24 +62,6 @@ namespace Vitol.Enzo.CRM.API.Lead.Controllers
             }
             return response;
         }
-
-        [HttpPost]
-        [Route("LeadUtilitySMS")]
-        public string  LeadUtilitySms([FromBody]SMSEnvelope envelope)
-        {
-            string secretKey = Configuration.GetSection("Keys:EncryptionkeySMS").Value;
-            string  response = "";
-            if (Request.Headers["Token"].ToString() == secretKey)
-            {
-                 response = this.LeadApplication.LeadUtilitySms(envelope.request);
-            }
-            else
-            {
-                response = HttpStatusCode.Unauthorized.ToString();
-                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-            }
-            return response;
-        }
         #endregion
 
     }
