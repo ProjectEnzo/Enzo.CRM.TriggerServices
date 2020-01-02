@@ -80,7 +80,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             baseUrl = Configuration["AzureCRM:baseUrl"];
             timeZoneStr = Configuration["AzureCRM:timeZoneStr"];
             appointmentStatusCancelled = Configuration["AzureCRM:appointmentStatusCancelled"];
-            BussinessUnitPK = Configuration["AzureCRM: BussinessUnitPK"];
+            BussinessUnitPK = Configuration["AzureCRM:BussinessUnitPK"];
 
         }
         #endregion
@@ -118,7 +118,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 this.Logger.LogDebug("Lead Checkeddate: "+DateTime.Now.ToString());
                 Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
                 string queryLead;
-                queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and _owningbusinessunit_value eq " + BussinessUnitPK.ToLower() + " and sl_customertype eq 102690000 and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_valuationcreateddate desc";
+                queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and _owningbusinessunit_value eq " + BussinessUnitPK.ToLower().ToString() + " and sl_customertype eq 102690000 and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_valuationcreateddate desc";
                 this.Logger.LogDebug("Query Lead: " + queryLead);
                 if (triggerType == "Lead")
                 {
