@@ -55,8 +55,19 @@ namespace Vitol.Enzo.CRM.API.Customer.Controllers
         {
             return "Test";
         }
-       
-       //[EnableCors("_myAllowSpecificOrigins")]
+        /// <summary>
+        /// Index Method used to keep api alive.
+        /// Azure always ping this method
+        /// API Path:  /
+        /// </summary>
+        /// <returns>Test string</returns>
+        [HttpGet("/")]
+        [AllowAnonymous]
+        public string Index()
+        {
+            return "Hello Test at: Customer " + DateTime.Now;
+        }
+        //[EnableCors("_myAllowSpecificOrigins")]
 
 
         #endregion
