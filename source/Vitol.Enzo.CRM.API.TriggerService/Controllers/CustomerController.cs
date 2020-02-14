@@ -65,7 +65,7 @@ namespace Vitol.Enzo.CRM.API.Customer.Controllers
         [AllowAnonymous]
         public string Index()
         {
-            return "Hello Test at: Customer " + DateTime.Now;
+            return "Hello Test at: TriggerService " + DateTime.Now;
         }
         //[EnableCors("_myAllowSpecificOrigins")]
 
