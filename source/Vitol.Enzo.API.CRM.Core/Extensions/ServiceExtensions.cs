@@ -102,7 +102,7 @@ namespace Vitol.Enzo.API.CRM.Core.ServiceExtensions
             hostBuilder.ConfigureLogging(logging =>
             {
                 logging.ClearProviders();
-                logging.SetMinimumLevel(LogLevel.Trace);
+                logging.SetMinimumLevel(LogLevel.Error);
             })
             .UseNLog();
 
