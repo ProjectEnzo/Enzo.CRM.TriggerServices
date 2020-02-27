@@ -18,9 +18,26 @@ D:\VavaCars SourceCode\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcore
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.deps.json
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
+E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.csprojAssemblyReference.cache
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.csproj.CoreCompileInputs.cache
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.AssemblyInfoInputs.cache
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.AssemblyInfo.cs
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
 E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
-E:\CRM Trigger Services\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.csprojAssemblyReference.cache
+D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.deps.json
+D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
+D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
+D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.csprojAssemblyReference.cache
+D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.csproj.CoreCompileInputs.cache
+D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.AssemblyInfoInputs.cache
+D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.AssemblyInfo.cs
+D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
+D:\VAVACODE\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.deps.json
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceProviderInterface\bin\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.csproj.CoreCompileInputs.cache
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.AssemblyInfoInputs.cache
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.AssemblyInfo.cs
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.dll
+E:\Office Work\VAVA Cars - Turkey\GetHub\source\Vitol.Enzo.CRM.ServiceProviderInterface\obj\Debug\netcoreapp2.1\Vitol.Enzo.CRM.ServiceProviderInterface.pdb
