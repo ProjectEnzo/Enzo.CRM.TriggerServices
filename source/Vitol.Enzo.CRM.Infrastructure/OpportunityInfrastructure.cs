@@ -117,7 +117,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 inputApointmentDate = startValuationDate.ToString("yyyy-MM-dd");
                 TotalRecord = 0;
                 emailSent = 0;
-                this.Logger.LogDebug("Opportunity Checkeddate: " + DateTime.Now.ToString());
+                //this.Logger.LogDebug("Opportunity Checkeddate: " + DateTime.Now.ToString());
                 DateTime currentDate = DateTime.Now;
                 string currentAppointmentDate = currentDate.ToString("yyyy-MM-ddTHH:mm:ssZ");
 
@@ -128,7 +128,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 string queryOpportunity;
                 //queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value ne " + appointmentCancelledId.ToString() + " and _sl_appointmentstatus_value ne " + appointmentAssignedId.ToString() + " ) and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
                 queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=_sl_appointmentstatus_value eq " + appointmentstatusnoShow.ToString() + " and sl_customerstatus eq 102690002 and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_mprice ne null and _owningbusinessunit_value eq " + BussinessUnitPK.ToLower().ToString() + " and sl_customertype eq 102690000  and sl_emailappointmentdatestring ne null  and sl_emailappointmenttimestring ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc, sl_appointmentdate desc";
-                this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
+                //this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
                 if (triggerType == "Opportunity")
                 {
                     var httpClient = this._clientFactory.CreateClient("NameClientFactory");
@@ -199,8 +199,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
             }
 
-            this.Logger.LogDebug("Total Opportunity Number of records: " + TotalRecord);
-            this.Logger.LogDebug("Total Opportunity Number of Emails sent: " + emailSent);
+            //this.Logger.LogDebug("Total Opportunity Number of records: " + TotalRecord);
+            //this.Logger.LogDebug("Total Opportunity Number of Emails sent: " + emailSent);
             return "Success Record: " + resultText;
         }
         public async Task<string> QualifiedOpportunityServiceTrigger5(string str)
@@ -221,7 +221,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 inputApointmentDate = startValuationDate.ToString("yyyy-MM-dd");
                 TotalRecord = 0;
                 emailSent = 0;
-                this.Logger.LogDebug("Opportunity Checkeddate: " + DateTime.Now.ToString());
+                //this.Logger.LogDebug("Opportunity Checkeddate: " + DateTime.Now.ToString());
                 DateTime currentDate = DateTime.Now;
                 string currentAppointmentDate = currentDate.ToString("yyyy-MM-ddTHH:mm:ssZ");
                 Guid appointmentstatusnoShow = await RetrieveAppointmentId(appointmentStatusNoShow);
@@ -234,7 +234,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 //Need to verify for the past data
                 //queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " and sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and sl_customerstatus eq 102690002 and (_sl_appointmentstatusreason_value eq " + appointmentreasontype3.ToString() + " or _sl_appointmentstatusreason_value eq " + appointmentreasontype4.ToString() + " or _sl_appointmentstatusreason_value eq " + appointmentreasontype8.ToString() + " or _sl_appointmentstatusreason_value eq " + appointmentreasontype9.ToString() + " ) and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
                 queryOpportunity = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate lt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and ((_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " and (_sl_appointmentstatusreason_value eq " + appointmentreasontype3.ToString() + " or _sl_appointmentstatusreason_value eq " + appointmentreasontype4.ToString() + " or _sl_appointmentstatusreason_value eq " + appointmentreasontype8.ToString() + " or _sl_appointmentstatusreason_value eq " + appointmentreasontype9.ToString() + ")) or (_sl_appointmentstatus_value eq " + appointmentstatusnoShow.ToString() + " and sl_customerstatus eq 102690002)) and statuscode eq 1 and sl_mprice ne null and _owningbusinessunit_value eq " + BussinessUnitPK.ToLower().ToString() + " and sl_customertype eq 102690000 and sl_emailappointmentdatestring ne null  and sl_emailappointmenttimestring ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc, sl_appointmentdate desc";
-                this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
+                //this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
                 if (triggerType == "Opportunity5")
                 {
                     var httpClient = this._clientFactory.CreateClient("NameClientFactory");
@@ -305,8 +305,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
             }
 
-            this.Logger.LogDebug("Total Opportunity Number of records: " + TotalRecord);
-            this.Logger.LogDebug("Total Opportunity Number of Emails sent: " + emailSent);
+            //this.Logger.LogDebug("Total Opportunity Number of records: " + TotalRecord);
+            //this.Logger.LogDebug("Total Opportunity Number of Emails sent: " + emailSent);
             return "Success Record: " + resultText;
         }
         public async Task<string> QualifiedOpportunityServiceTrigger1(string str)
@@ -325,14 +325,14 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 inputApointmentDate = startValuationDate.ToString("yyyy-MM-dd");
                 TotalRecord = 0;
                 emailSent = 0;
-                this.Logger.LogDebug("Opportunity Checkeddate: " + DateTime.Now.ToString());
+                //this.Logger.LogDebug("Opportunity Checkeddate: " + DateTime.Now.ToString());
                 DateTime currentDate = DateTime.Now;
                 string currentAppointmentDate = currentDate.ToString("yyyy-MM-ddTHH:mm:ssZ");
                 string queryOpportunity;
                 //Condition Need to verify for the past data
                 //queryOpportunity = "api/data/v9.1/contacts?$select=sl_appointmentdate,sl_appointmentcentreaddress1,sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate gt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and sl_customerstatus eq 102690002 and statuscode eq 1 and sl_mprice ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
                 queryOpportunity = "api/data/v9.1/contacts?$select=sl_appointmentcentrelatitude,sl_appointmentcentrelongitude,sl_emailappointmentdatestring,sl_emailappointmenttimestring,sl_appointmentcentreaddress1,sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=sl_appointmentdate ge " + inputApointmentDate + " and sl_appointmentdate gt " + currentAppointmentDate + " and sl_valuationcreateddate ge " + liveDate + " and sl_customerstatus eq 102690002 and statuscode eq 1 and sl_mprice ne null and _owningbusinessunit_value eq " + BussinessUnitPK.ToLower().ToString() + " and sl_customertype eq 102690000 and sl_appointmentdate ne null and sl_appointmentcentreaddress1 ne null and sl_appointmentcentre ne null  and sl_appointmentcentrelatitude ne null and sl_appointmentcentrelongitude ne null and sl_emailappointmentdatestring ne null  and sl_emailappointmenttimestring ne null and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_appointmentdate desc";
-                this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
+                //this.Logger.LogDebug("Query Opportunity: " + queryOpportunity);
                 if (triggerType == "Opportunity1")
                 {
                     var httpClient = this._clientFactory.CreateClient("NameClientFactory");
@@ -403,8 +403,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
             }
 
-            this.Logger.LogDebug("Total Opportunity Number of records: " + TotalRecord);
-            this.Logger.LogDebug("Total Opportunity Number of Emails sent: " + emailSent);
+            //this.Logger.LogDebug("Total Opportunity Number of records: " + TotalRecord);
+            //this.Logger.LogDebug("Total Opportunity Number of Emails sent: " + emailSent);
             return "Success Record: " + resultText;
         }
         public async Task<string> CreateSMSActivity(Guid CustomerId, string mobileNo, string textMessage,string triggerTemplate)
@@ -578,7 +578,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
-                                            this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 1 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            //this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 1 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate1";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate1", queryString, queryString, baseUrl);
@@ -619,7 +619,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
-                                            this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 2 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            //this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 2 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate2";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate2", queryString, queryString, baseUrl);
@@ -659,7 +659,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
-                                            this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 3 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            //this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 3 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate3";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate3", queryString, queryString, baseUrl);
@@ -696,7 +696,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
-                                            this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 4 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            //this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 4 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate4";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate4", queryString, queryString, baseUrl);
@@ -794,7 +794,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                     {
                                         fullname = data.fullname != null ? data.fullname.Value : "";
                                         string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
-                                        this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 2 | Name : " + fullname + " | Email: " + emailaddress1);
+                                        //this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger 2 | Name : " + fullname + " | Email: " + emailaddress1);
                                         string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplate2";
                                         queryString = await Encryption(queryString);
                                         bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplate2", queryString, queryString, baseUrl);
@@ -894,7 +894,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
-                                            this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger -1 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            //this.Logger.LogDebug("No of days " + totaldays + " | Opportunity Trigger -1 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_opportunitytemplateminus1";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_opportunitytemplateminus1", queryString, queryString, baseUrl);

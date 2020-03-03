@@ -118,7 +118,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 inputInspectionDate = startInspectionDate.ToString("yyyy-MM-dd");
                 TotalRecord = 0;
                 emailSent = 0;
-                this.Logger.LogDebug("Prospect Checkeddate: " + DateTime.Now.ToString());
+                //this.Logger.LogDebug("Prospect Checkeddate: " + DateTime.Now.ToString());
 
                 //Fetch Inspections Id
                 Guid InspectionCancelledId = await RetrieveInspectionStatusId(inspectionStatusCancelled);
@@ -132,7 +132,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
                 string queryProspect;
                 queryProspect = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,sl_finalofferprice,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_inspectionstatustype_value,_sl_appointmentstatus_value,sl_valuationcreateddate,sl_inspectioncreateddate,statuscode&$filter=(_sl_inspectionstatustype_value eq " + AgreementNotSignedId.ToString() + " or _sl_inspectionstatustype_value eq " + InspectionCancelledId.ToString() + ") and ( _sl_vehiclepurchasestatus_value  ne  " + PurchaseId.ToString() + " and _sl_vehiclepurchasestatus_value  ne  " + AuctionCreatedId.ToString() + " and _sl_vehiclepurchasestatus_value  ne " + InTransitId.ToString() + ")and sl_inspectioncreateddate ge " + inputInspectionDate + " and  sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_prospecttype eq 102690000 and sl_finalofferprice ne null and _owningbusinessunit_value eq " + BussinessUnitPK.ToLower().ToString() + " and sl_customertype eq 102690000 and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_inspectioncreateddate desc";
-                this.Logger.LogDebug("Query Prospect: " + queryProspect);
+                //this.Logger.LogDebug("Query Prospect: " + queryProspect);
                 if (triggerType == "HotProspect")
                 {
                     var httpClient = this._clientFactory.CreateClient("NameClientFactory");
@@ -203,8 +203,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
             }
 
-            this.Logger.LogDebug("Total Prospect Number of records: " + TotalRecord);
-            this.Logger.LogDebug("Total Prospect Number of Emails sent: " + emailSent);
+            //this.Logger.LogDebug("Total Prospect Number of records: " + TotalRecord);
+            //this.Logger.LogDebug("Total Prospect Number of Emails sent: " + emailSent);
             return "Success Record: " + resultText;
         }
         public async Task<string> ProspectUtilityService(string str)
@@ -227,7 +227,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 inputInspectionDate = startInspectionDate.ToString("yyyy-MM-dd");
                 TotalRecord = 0;
                 emailSent = 0;
-                this.Logger.LogDebug("Prospect Checkeddate: " + DateTime.Now.ToString());
+                //this.Logger.LogDebug("Prospect Checkeddate: " + DateTime.Now.ToString());
 
                 //Fetch Inspections Id
                 Guid InspectionCancelledId = await RetrieveInspectionStatusId(inspectionStatusCancelled);
@@ -241,7 +241,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
                 string queryProspect;
                 queryProspect = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,sl_finalofferprice,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_inspectionstatustype_value,_sl_appointmentstatus_value,sl_valuationcreateddate,sl_inspectioncreateddate,statuscode&$filter=(_sl_inspectionstatustype_value eq " + AgreementNotSignedId.ToString() + " or _sl_inspectionstatustype_value eq " + InspectionCancelledId.ToString() + ") and ( _sl_vehiclepurchasestatus_value  ne  " + PurchaseId.ToString() + " and _sl_vehiclepurchasestatus_value  ne  " + AuctionCreatedId.ToString() + " and _sl_vehiclepurchasestatus_value  ne " + InTransitId.ToString() + ")and sl_inspectioncreateddate ge " + inputInspectionDate + " and  sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1 and sl_finalofferprice ne null and _owningbusinessunit_value eq " + BussinessUnitPK.ToLower().ToString() + " and sl_customertype eq 102690000 and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_inspectioncreateddate desc";
-                this.Logger.LogDebug("Query Prospect: " + queryProspect);
+                //this.Logger.LogDebug("Query Prospect: " + queryProspect);
                 if (triggerType == "Prospect")
                 {
                     var httpClient = this._clientFactory.CreateClient("NameClientFactory");
@@ -312,8 +312,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
 
             }
 
-            this.Logger.LogDebug("Total Prospect Number of records: " + TotalRecord);
-            this.Logger.LogDebug("Total Prospect Number of Emails sent: " + emailSent);
+            //this.Logger.LogDebug("Total Prospect Number of records: " + TotalRecord);
+            //this.Logger.LogDebug("Total Prospect Number of Emails sent: " + emailSent);
             return "Success Record: " + resultText;
         }
 
@@ -487,7 +487,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
-                                            this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 2 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            //this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 2 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_prospecttemplate_2";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate_2", queryString, queryString, baseUrl);
@@ -516,7 +516,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
-                                            this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 5 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            //this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 5 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_prospecttemplate_5";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate_5", queryString, queryString, baseUrl);
@@ -544,7 +544,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
-                                            this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 6 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            //this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 6 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_prospecttemplate_6";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate_6", queryString, queryString, baseUrl);
@@ -574,7 +574,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
-                                            this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 8 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            //this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 8 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_prospecttemplate_8";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate_8", queryString, queryString, baseUrl);
@@ -604,7 +604,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
-                                            this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 9 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            //this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 9 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_prospecttemplate_9";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate_9", queryString, queryString, baseUrl);
@@ -634,7 +634,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
-                                            this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 10 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            //this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 10 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_prospecttemplate_10";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate_10", queryString, queryString, baseUrl);
@@ -723,7 +723,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
-                                            this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 4 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            //this.Logger.LogDebug("No of days " + totaldays + " | Prospect Trigger 4 | Name : " + fullname + " | Email: " + emailaddress1);
                                             string queryString = CustomerId.ToString() + "@" + "sl_prospecttemplate_4";
                                             queryString = await Encryption(queryString);
                                             bool result = await UpdateTrigger(CustomerId, "sl_prospecttemplate_4", queryString, queryString, baseUrl);
