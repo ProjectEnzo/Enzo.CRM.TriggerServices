@@ -116,11 +116,11 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 inputValutionDate= startValuationDate.ToString("yyyy-MM-dd");
                 TotalRecord = 0;
                 emailSent = 0;
-                this.Logger.LogDebug("Lead Checkeddate: "+DateTime.Now.ToString());
+                //this.Logger.LogDebug("Lead Checkeddate: "+DateTime.Now.ToString());
                 Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
                 string queryLead;
                 queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1  and _owningbusinessunit_value eq " + BussinessUnitTR.ToLower().ToString() + " and sl_customertype eq 102690000 and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_valuationcreateddate desc";
-                this.Logger.LogDebug("Query Lead: " + queryLead);
+                //this.Logger.LogDebug("Query Lead: " + queryLead);
                 if (triggerType == "Lead")
                 {
                     var httpClient = this._clientFactory.CreateClient("NameClientFactory");
@@ -191,8 +191,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
             
             }
 
-            this.Logger.LogDebug("Total Lead Number of records : " + TotalRecord);
-            this.Logger.LogDebug("Total Lead Number of Emails sent : " + emailSent);
+            //this.Logger.LogDebug("Total Lead Number of records : " + TotalRecord);
+            //this.Logger.LogDebug("Total Lead Number of Emails sent : " + emailSent);
             return "Success Record: " + resultText;
         }
        
