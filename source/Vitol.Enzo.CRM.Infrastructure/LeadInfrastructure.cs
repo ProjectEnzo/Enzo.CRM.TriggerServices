@@ -25,6 +25,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string smsT4 = string.Empty;
         string smsT5 = string.Empty;
         string smsT6 = string.Empty;
+        string smsT7 = string.Empty;
         string BussinessUnitTR = string.Empty;
         //Email Template
         string templateT2 = string.Empty;
@@ -32,7 +33,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
         string templateT4 = string.Empty;
         string templateT5 = string.Empty;
         string templateT6 = string.Empty;
-
+        string templateT7 = string.Empty;
 
         //Email Sender Id
         string emailsenderId;
@@ -65,6 +66,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             smsT4 = Configuration["Lead:smsT4"];
             smsT5 = Configuration["Lead:smsT5"];
             smsT6 = Configuration["Lead:smsT6"];
+            smsT7 = Configuration["Lead:smsT7"];
 
             //Email Template
             templateT2 = Configuration["Lead:templateT2"];
@@ -72,7 +74,7 @@ namespace Vitol.Enzo.CRM.Infrastructure
             templateT4 = Configuration["Lead:templateT4"];
             templateT5 = Configuration["Lead:templateT5"];
             templateT6 = Configuration["Lead:templateT6"];
-
+            templateT7 = Configuration["Lead:templateT7"];
             //Email Sender Id
             emailsenderId = Configuration["AzureCRM:emailSenderId"];
             liveDate = Configuration["AzureCRM:liveDate"];
@@ -114,11 +116,11 @@ namespace Vitol.Enzo.CRM.Infrastructure
                 inputValutionDate= startValuationDate.ToString("yyyy-MM-dd");
                 TotalRecord = 0;
                 emailSent = 0;
-                //this.Logger.LogDebug("Lead Checkeddate: "+DateTime.Now.ToString());
+                this.Logger.LogDebug("Lead Checkeddate: "+DateTime.Now.ToString());
                 Guid appointmentCancelledId = await RetrieveAppointmentId(appointmentStatusCancelled);
                 string queryLead;
                 queryLead = "api/data/v9.1/contacts?$select=sl_registrationnumber,telephone1,fullname,sl_make,sl_model,sl_mprice,emailaddress1,contactid,sl_appointmentdate,_sl_appointmentstatus_value,sl_valuationcreateddate,statuscode&$filter=(_sl_appointmentstatus_value eq " + appointmentCancelledId.ToString() + " or _sl_appointmentstatus_value eq null) and sl_mprice ne null and sl_valuationcreateddate ge " + inputValutionDate + " and sl_valuationcreateddate ge " + liveDate + " and statuscode eq 1  and _owningbusinessunit_value eq " + BussinessUnitTR.ToLower().ToString() + " and sl_customertype eq 102690000 and donotbulkemail ne true &$orderby=emailaddress1 asc,sl_registrationnumber asc,sl_valuationcreateddate desc";
-                //this.Logger.LogDebug("Query Lead: " + queryLead);
+                this.Logger.LogDebug("Query Lead: " + queryLead);
                 if (triggerType == "Lead")
                 {
                     var httpClient = this._clientFactory.CreateClient("NameClientFactory");
@@ -189,8 +191,8 @@ namespace Vitol.Enzo.CRM.Infrastructure
             
             }
 
-            //this.Logger.LogDebug("Total Lead Number of records : " + TotalRecord);
-            //this.Logger.LogDebug("Total Lead Number of Emails sent : " + emailSent);
+            this.Logger.LogDebug("Total Lead Number of records : " + TotalRecord);
+            this.Logger.LogDebug("Total Lead Number of Emails sent : " + emailSent);
             return "Success Record: " + resultText;
         }
        
@@ -365,20 +367,20 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                 switch (totaldays)
                                 {
                                     //Trigger 2
-                                    case 3:
+                                    case 1:
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
                                             //this.Logger.LogDebug("No of days "+ totaldays + " | Lead Trigger 2 | Name : " + fullname + " | Email: " + emailaddress1);
-                                            string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate2";
+                                            string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate_2";
                                             queryString = await Encryption(queryString);
-                                            bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate2", queryString, queryString, baseUrl);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate_2", queryString, queryString, baseUrl);
                                             if (!string.IsNullOrEmpty(templateT2))
                                             {
                                                 TemplateId = await RetrieveTemplateId(templateT2);
                                                 if (TemplateId != null)
                                                 {
-                                                    string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690000");
+                                                    string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690028");
                                                 }
                                             }
 
@@ -396,25 +398,25 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     smsMessage = smsMessage.Replace("{make}", make);
                                                     smsMessage = smsMessage.Replace("{model}", model);
                                                     smsMessage = smsMessage.Replace("{valuation}", mprice);
-                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690000");
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690028");
                                                 }
                                             }
                                             emailSent = emailSent + 1;
                                             break;
                                         }
                                     //Trigger 3
-                                    case 5:
+                                    case 2:
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
                                             //this.Logger.LogDebug("No of days " + totaldays + " | Lead Trigger 3 | Name : " + fullname + " | Email: " + emailaddress1);
-                                            string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate3";
+                                            string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate_3";
                                             queryString = await Encryption(queryString);
-                                            bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate3", queryString, queryString, baseUrl);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate_3", queryString, queryString, baseUrl);
                                             TemplateId = await RetrieveTemplateId(templateT3);
                                             if (TemplateId != null)
                                             {
-                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690001");
+                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690029");
                                             }
                                             if (data.telephone1 != null)
                                             {
@@ -422,32 +424,32 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                 make = data.sl_make != null ? data.sl_make.Value : "";
                                                 model = data.sl_model != null ? data.sl_model.Value : "";
                                                 mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
-                                                if (!string.IsNullOrEmpty(smsT2))
+                                                if (!string.IsNullOrEmpty(smsT3))
                                                 {
                                                     string smsMessage = smsT3;
                                                     smsMessage = smsMessage.Replace("{contactname}", fullname);
                                                     smsMessage = smsMessage.Replace("{make}", make);
                                                     smsMessage = smsMessage.Replace("{model}", model);
                                                     smsMessage = smsMessage.Replace("{valuation}", mprice);
-                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690001");
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690029");
                                                 }
                                             }
                                             emailSent = emailSent + 1;
                                             break;
                                         }
                                     //Trigger 4
-                                    case 7:
+                                    case 3:
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
                                             //this.Logger.LogDebug("No of days " + totaldays + " | Lead Trigger 4 | Name : " + fullname + " | Email: " + emailaddress1);
-                                            string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate4";
+                                            string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate_4";
                                             queryString = await Encryption(queryString);
-                                            bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate4", queryString, queryString, baseUrl);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate_4", queryString, queryString, baseUrl);
                                             TemplateId = await RetrieveTemplateId(templateT4);
                                             if (TemplateId != null)
                                             {
-                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690002");
+                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690030");
                                             }
                                             if (data.telephone1 != null)
                                             {
@@ -462,25 +464,25 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     smsMessage = smsMessage.Replace("{make}", make);
                                                     smsMessage = smsMessage.Replace("{model}", model);
                                                     smsMessage = smsMessage.Replace("{valuation}", mprice);
-                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690002");
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690030");
                                                 }
                                             }
                                             emailSent = emailSent + 1;
                                             break;
                                         }
                                     //Trigger 5
-                                    case 17:
+                                    case 7:
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
                                             //this.Logger.LogDebug("No of days " + totaldays + " | Lead Trigger 5 | Name : " + fullname + " | Email: " + emailaddress1);
-                                            string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate5";
+                                            string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate_5";
                                             queryString = await Encryption(queryString);
-                                            bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate5", queryString, queryString, baseUrl);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate_5", queryString, queryString, baseUrl);
                                             TemplateId = await RetrieveTemplateId(templateT5);
                                             if (TemplateId != null)
                                             {
-                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690003");
+                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690031");
                                             }
                                             if (data.telephone1 != null)
                                             {
@@ -495,25 +497,25 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     smsMessage = smsMessage.Replace("{make}", make);
                                                     smsMessage = smsMessage.Replace("{model}", model);
                                                     smsMessage = smsMessage.Replace("{valuation}", mprice);
-                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690003");
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690031");
                                                 }
                                             }
                                             emailSent = emailSent + 1;
                                             break;
                                         }
                                     //Trigger 6
-                                    case 27:
+                                    case 15:
                                         {
                                             fullname = data.fullname != null ? data.fullname.Value : "";
                                             string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
                                             //this.Logger.LogDebug("No of days " + totaldays + " | Lead Trigger 6 | Name : " + fullname + " | Email: " + emailaddress1);
-                                            string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate6";
+                                            string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate_6";
                                             queryString = await Encryption(queryString);
-                                            bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate6", queryString, queryString, baseUrl);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate_6", queryString, queryString, baseUrl);
                                             TemplateId = await RetrieveTemplateId(templateT6);
                                             if (TemplateId != null)
                                             {
-                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690004");
+                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690032");
                                             }
                                             if (data.telephone1 != null)
                                             {
@@ -528,7 +530,40 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                     smsMessage = smsMessage.Replace("{make}", make);
                                                     smsMessage = smsMessage.Replace("{model}", model);
                                                     smsMessage = smsMessage.Replace("{valuation}", mprice);
-                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690004");
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690032");
+                                                }
+                                            }
+                                            emailSent = emailSent + 1;
+                                            break;
+                                        }
+                                    //Trigger 7
+                                    case 30:
+                                        {
+                                            fullname = data.fullname != null ? data.fullname.Value : "";
+                                            string emailaddress1 = data.emailaddress1 != null ? data.emailaddress1.Value : "";
+                                            //this.Logger.LogDebug("No of days " + totaldays + " | Lead Trigger 7 | Name : " + fullname + " | Email: " + emailaddress1);
+                                            string queryString = CustomerId.ToString() + "@" + "sl_leadtemplate_7";
+                                            queryString = await Encryption(queryString);
+                                            bool result = await UpdateTrigger(CustomerId, "sl_leadtemplate_7", queryString, queryString, baseUrl);
+                                            TemplateId = await RetrieveTemplateId(templateT7);
+                                            if (TemplateId != null)
+                                            {
+                                                string result2 = await CreateEmailActivity(fromUserId, CustomerId, TemplateId, "102690033");
+                                            }
+                                            if (data.telephone1 != null)
+                                            {
+                                                fullname = data.fullname != null ? data.fullname.Value : "";
+                                                make = data.sl_make != null ? data.sl_make.Value : "";
+                                                model = data.sl_model != null ? data.sl_model.Value : "";
+                                                mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
+                                                if (!string.IsNullOrEmpty(smsT7))
+                                                {
+                                                    string smsMessage = smsT7;
+                                                    smsMessage = smsMessage.Replace("{contactname}", fullname);
+                                                    smsMessage = smsMessage.Replace("{make}", make);
+                                                    smsMessage = smsMessage.Replace("{model}", model);
+                                                    smsMessage = smsMessage.Replace("{valuation}", mprice);
+                                                    string result1 = await CreateSMSActivity(CustomerId, data.telephone1.Value, smsMessage, "102690033");
                                                 }
                                             }
                                             emailSent = emailSent + 1;
