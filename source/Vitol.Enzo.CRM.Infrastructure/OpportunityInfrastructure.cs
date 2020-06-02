@@ -916,6 +916,11 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                 model = data.sl_model != null ? data.sl_model.Value : "";
                                                 mprice = data.sl_mprice != null ? data.sl_mprice.Value : "";
                                                 centeraddress = data.sl_appointmentcentreaddress1 != null ? data.sl_appointmentcentreaddress1.ToString() : "";
+                                                //For Catering Special Character like '#' and '&'
+                                                if (centeraddress.Contains('#'))
+                                                    centeraddress = centeraddress.Replace("#", "no.");
+                                                if (centeraddress.Contains('&'))
+                                                    centeraddress = centeraddress.Replace("&", "and");
                                                 appointmentDate = data.sl_emailappointmentdatestring != null ? data.sl_emailappointmentdatestring.ToString() : "";
                                                 appointmentTime = data.sl_emailappointmenttimestring != null ? data.sl_emailappointmenttimestring.ToString() : "";
                                                 centrelatitude= data.sl_appointmentcentrelatitude!= null ? data.sl_appointmentcentrelatitude.ToString() : "";
