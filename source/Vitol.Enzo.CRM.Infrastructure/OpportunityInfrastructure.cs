@@ -918,9 +918,9 @@ namespace Vitol.Enzo.CRM.Infrastructure
                                                 centeraddress = data.sl_appointmentcentreaddress1 != null ? data.sl_appointmentcentreaddress1.ToString() : "";
                                                 //For Catering Special Character like '#' and '&'
                                                 if (centeraddress.Contains('#'))
-                                                    centeraddress.Replace("#", "no.");
+                                                    centeraddress=centeraddress.Replace("#", "no.");
                                                 if (centeraddress.Contains('&'))
-                                                    centeraddress.Replace("&", "and");
+                                                    centeraddress=centeraddress.Replace("&", "and");
                                                 appointmentDate = data.sl_emailappointmentdatestring != null ? data.sl_emailappointmentdatestring.ToString() : "";
                                                 appointmentTime = data.sl_emailappointmenttimestring != null ? data.sl_emailappointmenttimestring.ToString() : "";
                                                 centrelatitude= data.sl_appointmentcentrelatitude!= null ? data.sl_appointmentcentrelatitude.ToString() : "";
