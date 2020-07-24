@@ -48,7 +48,13 @@ namespace Vitol.Enzo.CRM.Infrastructure.Extensions
 
             return services;
         }
+        public static IServiceCollection RegisterAuctionInfrastructure(this IServiceCollection services)
+        {
+            services.AddSingleton<IAuctionInfrastructure, AuctionInfrastructure>();
 
+
+            return services;
+        }
 
     }
 }

@@ -15,6 +15,9 @@ namespace Vitol.Enzo.CRM.Domain
             return $"{"Component:"}{this.ComponentName}{'|'}{"Action:"}{this.ActionName}{'|'}{'|'}{"CustomerName:"}{this.CustomerName}{'|'}{"Id:"}{this.Id}{'|'}{"CreatedDate:"}{DateTime.Now}{'|'}{"Exception:"}{ex}";
         }
 
-
+        public string getExceptionFormat(Exception ex)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace Vitol.Enzo.CRM.Domain
         customer,
         propect,
         opportuntiy,
+        Auction
 
     }
     public enum ActionType
@@ -28,7 +29,8 @@ namespace Vitol.Enzo.CRM.Domain
         opportunityUtilityService,
         prospectUtilityService,
         OpportunityUtilityServiceTrigger5,
-        OpportunityUtilityServiceTrigger1
+        OpportunityUtilityServiceTrigger1,
+        Upsert
     }
 
 }

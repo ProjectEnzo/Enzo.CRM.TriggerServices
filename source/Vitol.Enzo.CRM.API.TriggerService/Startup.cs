@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -59,7 +60,7 @@ namespace Vitol.Enzo.API.Customer
             services.RegisterLeadApplication();
             services.RegisterOpportunityApplication();
             services.RegisterProspectApplication();
-
+            services.RegisterAuctionApplication();
 
  //           services.RegisterMakeApplication();
 
@@ -67,11 +68,13 @@ namespace Vitol.Enzo.API.Customer
             services.RegisterLeadInfrastructure();
             services.RegisterOpportunityInfrastructure();
             services.RegisterProspectInfrastructure();
-
+            services.RegisterAuctionInfrastructure();
 
             services.RegisterCommonServiceConnector();
 
             services.RegisterCommonService();
+
+            services.AddTransient<SqlConnection>(_ => new SqlConnection(Configuration["ConnectionStrings:Default"]));
             //services.AddCors(options =>
             //{
             //    options.AddPolicy(MyAllowSpecificOrigins,

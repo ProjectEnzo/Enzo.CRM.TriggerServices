@@ -47,7 +47,13 @@ namespace Vitol.Enzo.CRM.Application.Extensions
 
             return services;
         }
+        public static IServiceCollection RegisterAuctionApplication(this IServiceCollection services)
+        {
+            services.AddSingleton<IAuctionApplication, AuctionApplication>();
 
-      
+            return services;
+        }
+
+
     }
 }
